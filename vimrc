@@ -1,12 +1,10 @@
-" Load pathogen plugin to ease plugin load (bundle folder)
 execute pathogen#infect() 
-"call pathogen#helptags()
-"call pathogen#runtime_append_all_bundles()
 
 set background=dark
 set nocompatible
 set hidden
 filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 set bs=indent,eol,start
 
@@ -55,6 +53,9 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
 \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
+"Autoclose the preview window
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " For template
