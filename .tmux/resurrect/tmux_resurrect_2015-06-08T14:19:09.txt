@@ -1,0 +1,11 @@
+pane	0	0	:zsh	0	: 	0	:/home/dpretet/workspace/qmem_ip	1	zsh	:
+pane	0	1	:vim	0	: 	0	:/home/dpretet/workspace/qmem_ip	1	vim	:vim
+pane	0	2	:make	0	:-	0	:/home/dpretet/workspace/qmem_ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm/axi4_upscaler_big_packet	1	make	:make
+pane	0	3	:vim	0	: 	0	:/home/dpretet/workspace/qmem_ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm	1	vim	:vim avalon_error_case/src/tc.sv avalon_error_case/src/tc.sv avalon_error_case/src/tc.sv axi4_upscaler_big_packet/src/tc.sv axi4_upscaler_big_packet/src/tc.sv axi4_upscaler_big_packet/src/tc.sv axi4_upscale_small_packet/src/tc.sv axi4_upscale_small_packet/src/tc.sv axi4_upscale_small_packet/src/tc.sv axi4_upscale/src/tc.sv axi4_upscale/src/tc.sv axi4_upscale/src/tc.sv directed_4KB_crossing/src/tc.sv directed_4KB_crossing/src/tc.sv directed_4KB_crossing/src/tc.sv directed_buffer_access/src/tc.sv directed_buffer_access/src/tc.sv directed_buffer_access/src/tc.sv directed_reg_access/src/tc.sv directed_reg_access/src/tc.sv directed_reg_access/src/tc.sv random_4KB_crossing/src/tc.sv random_4KB_crossing/src/tc.sv random_4KB_crossing/src/tc.sv random_buffer_access/src/tc.sv random_buffer_access/src/tc.sv random_buffer_access/src/tc.sv random_reg_access/src/tc.sv random_reg_access/src/tc.sv random_reg_access/src/tc.sv
+pane	0	4	:zsh	1	:*	0	:/home/dpretet/workspace	1	zsh	:
+window	0	0	0	: 	c4dd,237x55,0,0,0
+window	0	1	0	: 	c4e0,237x55,0,0,3
+window	0	2	0	:-	c4e1,237x55,0,0,4
+window	0	3	0	: 	c4e2,237x55,0,0,5
+window	0	4	1	:*	c4e3,237x55,0,0,6
+state	0	

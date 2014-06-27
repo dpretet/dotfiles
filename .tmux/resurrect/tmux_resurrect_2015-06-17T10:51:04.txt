@@ -1,0 +1,27 @@
+pane	fifo	0	:git	1	:*	0	:/home/dpretet/workspace/QuickFIFO	1	zsh	:
+pane	fifo	1	:vim	0	: 	0	:/home/dpretet/workspace/QuickFIFO	1	vim	:vim src/vlog/axi4_stream/qfifo_stream_rd_downsizing.v
+pane	fifo	2	:testsuite	0	:-	0	:/home/dpretet/workspace/QuickFIFO/sim/test/qfifo_axi4s	1	zsh	:
+pane	fifo	3	:vim	0	: 	0	:/home/dpretet/workspace/QuickFIFO/sim/test/qfifo_axi4s/downsize_small_pkt	1	vim	:vim Makefile
+pane	fifo	4	:zsh	0	: 	0	:/home/dpretet/workspace/QuickFIFO/sim/test/qfifo_axi4s	1	zsh	:
+pane	memory	0	:ip	1	:*	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:zsh	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	operators	0	:merge	0	:-	0	:/home/dpretet/workspace/mergeoperator	1	zsh	:
+pane	operators	1	:zsh	0	: 	0	:/home/dpretet	1	zsh	:/home/dpretet/Projects/QuickPlayWorkspace/QuickPlayFrontEnd/Debug_GCC/quickplay
+pane	operators	2	:split	1	:*	0	:/home/dpretet/workspace/splitoperator	1	vim	:vim cfgs/qsplit_8s.yaml
+pane	operators	3	:zsh	0	: 	0	:/home/dpretet/Projects/QuickPlayLibrary/QuickSplit	1	zsh	:
+pane	quickplay	0	:zsh	0	:-	0	:/home/dpretet/Projects/QuickPlayLibrary	1	zsh	:
+pane	quickplay	1	:zsh	1	:*	0	:/home/dpretet/Projects/QuickPlayLibrary/QuickMerge	1	zsh	:
+window	fifo	0	1	:*	b83d,170x43,0,0,0
+window	fifo	1	0	: 	b83e,170x43,0,0,1
+window	fifo	2	0	:-	5c4f,170x43,0,0,10
+window	fifo	3	0	: 	b843,170x43,0,0,6
+window	fifo	4	0	: 	b842,170x43,0,0,5
+window	memory	0	1	:*	b845,170x43,0,0,8
+window	memory	1	0	:-	b846,170x43,0,0,9
+window	operators	0	0	:-	6331,168x36,0,0,12
+window	operators	1	0	: 	6332,168x36,0,0,13
+window	operators	2	1	:*	6333,168x36,0,0,14
+window	operators	3	0	: 	6334,168x36,0,0,15
+window	quickplay	0	0	:-	e7d2,157x29,0,0,23
+window	quickplay	1	1	:*	e7d1,157x29,0,0,22
+state	operators	

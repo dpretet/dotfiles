@@ -1,0 +1,39 @@
+pane	clock	0	:zsh	1	:*	0	:/home/dpretet/workspace/clock-manager	1	zsh	:
+pane	control	0	:vim	1	:*	0	:/home/dpretet/workspace/controlmanager	1	vim	:vim test/ControlManager/ControlManager.xml
+pane	control	1	:vim	0	:-	0	:/home/dpretet/workspace/controlmanager	1	vim	:vim env/generate.py
+pane	dashboard	0	:zsh	0	:-	0	:/home/dpretet/workspace/hardwaredashboard	1	zsh	:
+pane	dashboard	1	:vim	1	:*	0	:/home/dpretet/workspace/hardwaredashboard	1	vim	:vim src/app.py
+pane	fifo	0	:zsh	1	:*	0	:/home/dpretet/workspace/QuickFIFO	1	zsh	:
+pane	fifo	1	:vim	0	: 	0	:/home/dpretet/workspace/QuickFIFO	1	vim	:vim src/vlog/axi4_stream/qfifo_stream_wr_upsizing.v
+pane	fifo	2	:zsh	0	: 	0	:/home/dpretet/issue	1	zsh	:
+pane	fifo	4	:dmo sim	0	:-	0	:/home/dpretet/issue/PCIeScalarLoopback1x/implementations/conf_1/simulation	1	zsh	:vish -- -i -do qp_PCIeScalarLoopback1x_simulate.do -vsim
+pane	memory	0	:zsh	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:vim	1	:*	0	:/home/dpretet/workspace/quickmemory-ip	1	vim	:vim env/generate_qmem.py env/gen_rtl.py
+pane	memory	2	:testHw	0	: 	0	:/home/dpretet/issue/SimpleLoopbackArray_qp/implementations/conf_1/simulation	1	vim	:vim ../hdl/lib/ddr0/ddr0/simulation/port/qmem_axi4stream_port.v
+pane	pcie	0	:zsh	1	:*	0	:/home/dpretet/workspace/quickpcie_dev_env/ref_design_qplay/source/endpoint/design/wrapper	1	zsh	:
+pane	pcie	1	:zsh	0	:-	0	:/home/dpretet/workspace	1	zsh	:
+pane	pcie	2	:zsh	0	: 	0	:/home/dpretet/workspace	1	zsh	:
+pane	server	0	:ssh	1	:*	0	:/home/dpretet/workspace/hardwaredashboard	1	ssh	:ssh dpretet@obiwan.pldagroup.local
+pane	server	1	:ssh	0	:-	0	:/home/dpretet/workspace/hardwaredashboard	1	ssh	:ssh dpretet@obiwan.pldagroup.local
+pane	spr	0	:zsh	0	:-	0	:/home/dpretet/workspace	1	zsh	:
+pane	spr	1	:vim	1	:*	0	:/home/dpretet/workspace/vivado_support	1	vim	:vim Makefile
+window	clock	0	1	:*	bdfd,168x34,0,0,0
+window	control	0	1	:*	5f31,168x34,0,0,12
+window	control	1	0	:-	6012,158x44,0,0,13
+window	dashboard	0	0	:-	d550,151x30,0,0,21
+window	dashboard	1	1	:*	d551,151x30,0,0,22
+window	fifo	0	1	:*	5ea4,237x53,0,0,34
+window	fifo	1	0	: 	5ea5,237x53,0,0,35
+window	fifo	2	0	: 	5ea5,237x53,0,0,54
+window	fifo	4	0	:-	5ea4,237x53,0,0,53
+window	memory	0	0	:-	dea6,237x53,0,0,46
+window	memory	1	1	:*	dea7,237x53,0,0,47
+window	memory	2	0	: 	dea9,237x53,0,0,49
+window	pcie	0	1	:*	5af1,167x32,0,0,31
+window	pcie	1	0	:-	5af2,167x32,0,0,32
+window	pcie	2	0	: 	5db3,147x24,0,0,33
+window	server	0	1	:*	e3b2,181x37,0,0,23
+window	server	1	0	:-	e3b3,181x37,0,0,24
+window	spr	0	0	:-	c700,181x37,0,0,3
+window	spr	1	1	:*	c701,181x37,0,0,4
+state	memory	

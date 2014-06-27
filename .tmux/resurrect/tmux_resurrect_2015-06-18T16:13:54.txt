@@ -1,0 +1,7 @@
+pane	memory	0	:ip	0	: 	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:memory protection	0	:-	0	:/home/dpretet/workspace/qmem_1axi4_sram/testApplications/qmem_1axi4_sram_testapp/build	1	zsh	:
+pane	memory	2	:zsh	1	:*	0	:/home/dpretet	1	zsh	:/home/dpretet/Projects/QuickPlayWorkspace/QuickPlayFrontEnd/Debug_GCC/quickplay
+window	memory	0	0	: 	b7fd,187x42,0,0,0
+window	memory	1	0	:-	af7e,186x40,0,0,1
+window	memory	2	1	:*	af7f,186x40,0,0,2
+state	memory	

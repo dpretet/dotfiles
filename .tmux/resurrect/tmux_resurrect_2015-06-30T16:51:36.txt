@@ -1,0 +1,5 @@
+pane	clock	0	:vim	1	:*	0	:/home/dpretet/workspace/clock-manager	1	vim	:vim env/generate_ip.py test/ivstar/altera_s5gxea7/std/XpressGX5_LPA7HE.iv.yaml
+pane	clock	1	:bash	0	:-	0	:/home/dpretet	1	bash	:/bin/bash /tools/Xilinx/Vivado/2014.4/bin//vivado
+window	clock	0	1	:*	d1fd,187x39,0,0,0
+window	clock	1	0	:-	d1fe,187x39,0,0,1
+state	clock	

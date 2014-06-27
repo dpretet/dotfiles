@@ -1,0 +1,11 @@
+pane	memory	0	:zsh	0	: 	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:vim	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	vim	:vim src/vlog/top/qmem_1port_aa_s5ea7_ctrl0_stream.v env/gen_rtl.py
+pane	memory	2	:fifo	0	: 	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_stream/fixed_width_xfer	1	zsh	:
+pane	memory	3	:bank1	0	: 	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl1_mm	1	zsh	:
+pane	memory	4	:vim	1	:*	0	:/home/dpretet/workspace/qmem_1axi4_ddr3_bank1/temp/ipv	1	vim	:vim Memory_1.iv.yaml
+window	memory	0	0	: 	c57d,148x36,0,0,0
+window	memory	1	0	:-	bdfe,168x34,0,0,1
+window	memory	2	0	: 	bdff,168x34,0,0,2
+window	memory	3	0	: 	be02,168x34,0,0,5
+window	memory	4	1	:*	be03,168x34,0,0,6
+state	memory	

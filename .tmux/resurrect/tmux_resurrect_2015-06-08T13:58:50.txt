@@ -1,0 +1,5 @@
+pane	0	0	:zsh	1	:*	0	:/home/dpretet/workspace/qmem_ip	1	zsh	:
+pane	0	1	:vim	0	:-	0	:/home/dpretet/workspace/qmem_ip	1	vim	:vim
+window	0	0	1	:*	c4dd,237x55,0,0,0
+window	0	1	0	:-	c4e0,237x55,0,0,3
+state	0	

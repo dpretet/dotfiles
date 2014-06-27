@@ -1,0 +1,9 @@
+pane	fifo	0	:git	0	: 	0	:/home/dpretet/workspace/QuickFIFO	1	zsh	:
+pane	fifo	1	:vim	0	: 	0	:/home/dpretet/workspace/QuickFIFO	1	vim	:vim
+pane	fifo	2	:tc	1	:*	0	:/home/dpretet/workspace/QuickFIFO/sim/test/qfifo_axi4s/equal_random_pkt_toggle_hsk	1	make	:make gui
+pane	fifo	3	:zsh	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+window	fifo	0	0	: 	bd7d,148x34,0,0,0
+window	fifo	1	0	: 	bd7e,148x34,0,0,1
+window	fifo	2	1	:*	b4ff,181x42,0,0,2
+window	fifo	3	0	:-	b500,181x42,0,0,3
+state	fifo	

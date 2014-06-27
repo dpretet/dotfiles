@@ -1,0 +1,18 @@
+pane	fifo	0	:zsh	0	:-	0	:/home/dpretet/workspace/QuickFIFO/sim/test/qfifo_axi4s/downsize_big_pkt_scale4	1	zsh	:
+pane	fifo	1	:vim	1	:*	0	:/home/dpretet/issue/fifo/implementations/conf_1/hdl/lib/data_in_0/src/vlog/axi4_stream	1	vim	:vish -- -i -do qp_PCIeScalarLoopback1x_simulate.do -vsim
+vim qfifo_stream_rd_downsizing.v
+pane	memory	0	:ip	0	: 	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:vim	0	: 	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	2	:test	0	:-	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm	1	zsh	:
+pane	memory	3	:Bank 1	1	:*	0	:/home/dpretet/workspace/qmem_1axi4_ddr3_bank1/testApplications/qmem_1axi4_ddr3_bank1_testapp/build	1	zsh	:quartus --64bit qmem_1axi4_ddr3_bank1.qpf
+pane	memory	5	:LIB v1.4.2	0	: 	0	:/home/dpretet/Projects	1	zsh	:
+pane	memory	6	:zsh	0	: 	0	:/home/dpretet/workspace/qmem_1axi4_ddr3_bank1/implementations/conf_1_stp/synthesis	1	zsh	:
+window	fifo	0	0	:-	b706,185x42,0,0,9
+window	fifo	1	1	:*	5baf,185x42,0,0,10
+window	memory	0	0	: 	b6fd,185x42,0,0,0
+window	memory	1	0	: 	b6fe,185x42,0,0,1
+window	memory	2	0	:-	b705,185x42,0,0,8
+window	memory	3	1	:*	b701,185x42,0,0,4
+window	memory	5	0	: 	b703,185x42,0,0,6
+window	memory	6	0	: 	b704,185x42,0,0,7
+state	memory	

@@ -1,0 +1,27 @@
+pane	clock	0	:zsh	1	:*	0	:/home/dpretet/workspace/clock-manager	1	zsh	:
+pane	clock	1	:vim	0	:-	0	:/home/dpretet/workspace/clock-manager	1	vim	:vim env/gen_ipxact.py
+pane	clock	2	:zsh	0	: 	0	:/home/dpretet/Projects/QuickPlayLibrary	1	zsh	:
+pane	control	0	:zsh	0	:-	0	:/home/dpretet/workspace/controlmanager	1	zsh	:
+pane	control	1	:vim	1	:*	0	:/home/dpretet/workspace/controlmanager	1	vim	:vim env/generate.py
+pane	control	2	:vim	0	: 	0	:/home/dpretet/workspace/quickmemory-ip/env	1	vim	:vim generate_qmem.py ../test/iv_star/AA_DDR3_MIXED_PARTITION
+pane	memory	0	:zsh	1	:*	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:vim	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	vim	:vim env/generate_qmem.py
+pane	memory	2	:vim	0	: 	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_stream/fixed_width_xfer_downscale	1	vim	:vim ../../../src/vlog/tb/tb_qmem_1port_aa_s5ea7_ctrl0_stream.v
+pane	pcie	0	:zsh	1	:*	0	:/home/dpretet/workspace/quickpcie_dev_env/ref_design_qplay/synthesis/altera/plda_xpressgx5-lp_gxea7k2f40c2/x8_gen2/vlog	1	zsh	:
+pane	spr	0	:zsh	0	:-	0	:/home/dpretet	1	zsh	:
+pane	spr	1	:vim	0	: 	0	:/home/dpretet/workspace/vivado_support	1	vim	:vim Makefile
+pane	spr	2	:zsh	1	:*	0	:/home/dpretet	1	zsh	:
+window	clock	0	1	:*	c57d,163x27,0,0,0
+window	clock	1	0	:-	b17e,167x31,0,0,1
+window	clock	2	0	: 	b17f,167x31,0,0,2
+window	control	0	0	:-	6751,178x38,0,0,12
+window	control	1	1	:*	6752,178x38,0,0,13
+window	control	2	0	: 	6753,178x38,0,0,14
+window	memory	0	1	:*	ce44,178x38,0,0,7
+window	memory	1	0	:-	ce45,178x38,0,0,8
+window	memory	2	0	: 	6754,178x38,0,0,15
+window	pcie	0	1	:*	c502,181x46,0,0,5
+window	spr	0	0	:-	c500,181x46,0,0,3
+window	spr	1	0	: 	c501,181x46,0,0,4
+window	spr	2	1	:*	b483,165x32,0,0,6
+state	memory	

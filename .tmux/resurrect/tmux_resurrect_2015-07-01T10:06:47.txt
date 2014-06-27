@@ -1,0 +1,11 @@
+pane	clock	0	:zsh	1	:*	0	:/home/dpretet/workspace/clock-manager	1	zsh	:
+pane	clock	1	:vim	0	:-	0	:/home/dpretet/workspace/clock-manager	1	vim	:vim env/generate_ip.py
+pane	clock	2	:zsh	0	: 	0	:/home/dpretet/workspace/clock-manager/src/vlog/xilinx/xx_main_pll	1	zsh	:
+pane	spr	0	:vim	1	:*	0	:/home/dpretet/workspace/vivado_support	1	vim	:vim vivado.tcl
+pane	spr	1	:vim	0	:-	0	:/home/dpretet/workspace/vivado_support/src	1	vim	:vim Makefile spr.py
+window	clock	0	1	:*	d1fd,187x39,0,0,0
+window	clock	1	0	:-	d1fe,187x39,0,0,1
+window	clock	2	0	: 	d1ff,187x39,0,0,2
+window	spr	0	1	:*	bc80,180x44,0,0,3
+window	spr	1	0	:-	bc81,180x44,0,0,4
+state	spr	

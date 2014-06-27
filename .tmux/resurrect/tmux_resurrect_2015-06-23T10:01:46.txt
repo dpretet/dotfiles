@@ -1,0 +1,7 @@
+pane	memory	0	:zsh	0	: 	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:make	0	:-	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm/avalon_error_case	1	make	:make test
+pane	memory	2	:[tmux]	1	:*	0	:/home/dpretet/Projects/QuickPlayDependencies	1	zsh	:
+window	memory	0	0	: 	b23d,159x31,0,0,0
+window	memory	1	0	:-	b23e,159x31,0,0,1
+window	memory	2	1	:*	b23f,159x31,0,0,2
+state	memory	

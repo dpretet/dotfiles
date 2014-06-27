@@ -1,0 +1,20 @@
+pane	0	0	:zsh	1	:*	0	:/home/dpretet/workspace/qmem_ip	1	zsh	:
+pane	0	1	:vim	0	: 	0	:/home/dpretet/workspace/qmem_ip	1	vim	:vim
+pane	0	2	:testsuite	0	: 	0	:/home/dpretet/workspace/qmem_ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm	1	vim	:vim testplan.html
+pane	0	3	:zsh	0	: 	0	:/home/dpretet/workspace/qmem_ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm/memory_space_protection	1	zsh	:
+pane	0	4	:vim	0	: 	0	:/home/dpretet/workspace/qmem_ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm/memory_space_protection	1	vim	:vim src/tc.sv
+/bin/sh ./run.sh
+pane	0	5	:vim	0	:-	0	:/home/dpretet/workspace/qmem_2axi4_ddr3/testApplications/AvlTestApp/build	1	vim	:vim run.sh
+pane	clock	0	:zsh	1	:*	0	:/home/dpretet/workspace/clock-manager	1	zsh	:
+pane	clock	1	:vim	0	:-	0	:/home/dpretet/workspace/clock-manager	1	vim	:vim env/generate_ip.py
+pane	clock	2	:zsh	0	: 	0	:/home/dpretet/workspace/clock-manager	1	zsh	:
+window	0	0	1	:*	bb7d,167x43,0,0,0
+window	0	1	0	: 	bb80,167x43,0,0,3
+window	0	2	0	: 	bb81,167x43,0,0,4
+window	0	3	0	: 	5df2,167x43,0,0,13
+window	0	4	0	: 	bb83,167x43,0,0,6
+window	0	5	0	:-	5df3,167x43,0,0,14
+window	clock	0	1	:*	c9c4,139x37,0,0,7
+window	clock	1	0	:-	c145,172x45,0,0,8
+window	clock	2	0	: 	c146,172x45,0,0,9
+state	0	

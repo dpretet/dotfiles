@@ -1,0 +1,22 @@
+pane	broker	0	:zsh	1	:*	0	:/Users/damien/dev/dashboard	1	zsh	:
+pane	broker	0	:zsh	1	:*	0	:/Users/damien/dev/dashboard	1	zsh	:
+pane	broker	1	:vim	0	:-	0	:/Users/damien/dev/broker	1	vim	:vim src/broker.py
+pane	broker	1	:vim	0	:-	0	:/Users/damien/dev/broker	1	vim	:vim src/broker.py
+pane	dashboard	0	:zsh	0	:-	0	:/Users/damien/dev/dashboard	1	zsh	:
+pane	dashboard	0	:zsh	0	:-	0	:/Users/damien/dev/dashboard	1	zsh	:
+pane	dashboard	1	:vim	1	:*	0	:/Users/damien/dev/dashboard	1	vim	:vim src/app.py
+pane	dashboard	1	:vim	1	:*	0	:/Users/damien/dev/dashboard	1	vim	:vim src/app.py
+pane	dashboard	2	:zsh	0	: 	0	:/Users/damien/dev/dashboard/ut	1	zsh	:
+pane	dashboard	2	:zsh	0	: 	0	:/Users/damien/dev/dashboard/ut	1	zsh	:
+window	broker	0	1	:*	ce02,160x39,0,0,5
+window	broker	1	0	:-	ce03,160x39,0,0,6
+window	dashboard	0	0	:-	cdff,160x39,0,0,2
+window	dashboard	1	1	:*	ce00,160x39,0,0,3
+window	dashboard	2	0	: 	ce01,160x39,0,0,4
+window	broker	0	1	:*	ce02,160x39,0,0,5
+state	broker	
+window	broker	1	0	:-	ce03,160x39,0,0,6
+window	dashboard	0	0	:-	cdff,160x39,0,0,2
+window	dashboard	1	1	:*	ce00,160x39,0,0,3
+window	dashboard	2	0	: 	ce01,160x39,0,0,4
+state	broker	

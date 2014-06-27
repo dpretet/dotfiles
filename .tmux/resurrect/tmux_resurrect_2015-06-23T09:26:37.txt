@@ -1,0 +1,5 @@
+pane	memory	0	:zsh	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:zsh	1	:*	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+window	memory	0	0	:-	b23d,159x31,0,0,0
+window	memory	1	1	:*	b23e,159x31,0,0,1
+state	memory	

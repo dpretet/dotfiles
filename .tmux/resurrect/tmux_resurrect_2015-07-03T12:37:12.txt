@@ -1,0 +1,37 @@
+pane	clock	0	:zsh	1	:*	0	:/home/dpretet/workspace/clock-manager	1	zsh	:
+pane	clock	1	:vim	0	:-	0	:/home/dpretet/workspace/clock-manager	1	vim	:vim env/gen_ipxact.py
+pane	clock	2	:zsh	0	: 	0	:/home/dpretet/Projects/QuickPlayLibrary	1	zsh	:
+pane	control	0	:zsh	1	:*	0	:/home/dpretet/workspace/controlmanager/sim/test	1	zsh	:
+pane	control	1	:vim	0	:-	0	:/home/dpretet/workspace/controlmanager	1	vim	:vim env/generate.py
+pane	control	2	:vim	0	: 	0	:/home/dpretet/workspace/quickmemory-ip/env	1	vim	:vim generate_qmem.py ../test/iv_star/AA_DDR3_MIXED_PARTITION
+pane	memory	0	:zsh	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
+pane	memory	1	:vim	1	:*	0	:/home/dpretet/workspace/quickmemory-ip	1	vim	:vim
+pane	memory	2	:zsh	0	: 	0	:/home/dpretet/workspace/quickmemory-ip/sim	1	zsh	:make
+pane	pcie	0	:zsh	1	:*	0	:/home/dpretet/workspace/quickpcie_dev_env/ref_design_qplay/synthesis/altera/plda_xpressgx5-lp_gxea7k2f40c2/x8_gen2/vlog	1	zsh	:
+pane	pcie_12i	0	:library	1	:*	0	:/home/dpretet/Projects/QuickPlayLibraryBuilder	1	zsh	:
+pane	pcie_12i	1	:design	0	:-	0	:/home/dpretet/qpworkspace/sofware_reset/implementations/conf_1/hdl/lib/PCIe/ref_design_qplay/source/endpoint/design/wrapper/s5 (deleted)	1	zsh	:
+pane	pcie_12i	2	:syn	0	: 	0	:/home/dpretet/qpworkspace/sofware_reset/implementations/conf_1/synthesis (deleted)	1	zsh	:
+pane	sap	0	:zsh	0	:-	0	:/home/dpretet/issue/DeltaMergeFull_v3_120Mhz_DDR/implementations/conf_1/hdl/lib/XpressGX5_LPA7HE/source	1	zsh	:
+pane	sap	1	:[tmux]	1	:*	0	:/home/dpretet/issue/DeltaMergeFull_v3_120Mhz_DDR/implementations/conf_1/synthesis	1	make	:make
+pane	spr	0	:zsh	0	:-	0	:/home/dpretet	1	zsh	:
+pane	spr	1	:vim	0	: 	0	:/home/dpretet/workspace/vivado_support	1	vim	:vim Makefile
+pane	spr	2	:zsh	1	:*	0	:/home/dpretet	1	zsh	:
+window	clock	0	1	:*	c57d,163x27,0,0,0
+window	clock	1	0	:-	b17e,167x31,0,0,1
+window	clock	2	0	: 	b17f,167x31,0,0,2
+window	control	0	1	:*	5d31,168x33,0,0,12
+window	control	1	0	:-	6752,178x38,0,0,13
+window	control	2	0	: 	6753,178x38,0,0,14
+window	memory	0	0	:-	ba04,168x33,0,0,7
+window	memory	1	1	:*	ba05,168x33,0,0,8
+window	memory	2	0	: 	6754,178x38,0,0,15
+window	pcie	0	1	:*	c502,181x46,0,0,5
+window	pcie_12i	0	1	:*	5d37,168x33,0,0,18
+window	pcie_12i	1	0	:-	5d38,168x33,0,0,19
+window	pcie_12i	2	0	: 	dd2f,168x33,0,0,20
+window	sap	0	0	:-	6755,178x38,0,0,16
+window	sap	1	1	:*	6756,178x38,0,0,17
+window	spr	0	0	:-	c500,181x46,0,0,3
+window	spr	1	0	: 	c501,181x46,0,0,4
+window	spr	2	1	:*	b483,165x32,0,0,6
+state	pcie_12i	

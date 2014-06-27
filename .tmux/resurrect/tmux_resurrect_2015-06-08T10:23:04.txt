@@ -1,0 +1,3 @@
+pane	0	0	:zsh	1	:*	0	:/home/dpretet/workspace/clock-manager	1	zsh	:
+window	0	0	1	:*	c8bd,156x37,0,0,0
+state	0	

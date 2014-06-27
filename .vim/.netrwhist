@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/dpretet/workspace/hw.regression.server/config'
+let g:netrw_dirhist_2='/home/dpretet/workspace/quickmemory-ip/test/Memory_sram/source/top'
+let g:netrw_dirhist_3='/home/dpretet/workspace/controlmanager/env/rtl_gen'
+let g:netrw_dirhist_4='/home/dpretet/workspace/boards/XpressK7_XC7K325'
+let g:netrw_dirhist_5='/Users/damien/dev/caller/src'
