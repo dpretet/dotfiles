@@ -92,7 +92,14 @@ au bufNewFile *.tcl 0r ~/.vim/templates/template.tcl
 au BufRead,BufNewFile *.sv set filetype=verilog
 au BufRead,BufNewFile *.mkd,*.markdown,*.mdwn,*.mk   set filetype=mkd
 
-"au BufEnter *.v compiler "verilator --lint-only"
-"au BufEnter *.sv compiler "verilator --lint-only"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
