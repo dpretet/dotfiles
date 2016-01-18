@@ -2,6 +2,11 @@ alias ls='ls --color=auto'
 alias ll='ls --color=auto -l'
 alias lr='ls --color=auto -lR'
 alias la='ls --color=auto -la'
+alias :q='exit'
+alias :e='vim'
+
+export SVUNIT_INSTALL=$HOME"/.bin/svunit"
+export PATH=$SVUNIT_INSTALL"/bin":$PATH
 
 export LC_ALL=en_US.UTF-8
 export LANG="$LC_LANG"
