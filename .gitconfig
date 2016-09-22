@@ -1,0 +1,18 @@
+[core]
+    editor = vim
+
+[diff]
+    tool = meld
+
+[merge]
+    tool = meld
+
+[user]
+    name = dosadih
+	email = dosadih@gmail.com
+
+[color]
+    ui = true
+
+[push]
+	default = simple

@@ -1,12 +1,14 @@
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -l'
-alias lr='ls --color=auto -lR'
-alias la='ls --color=auto -la'
+#alias ls='ls --color=auto'
+#alias ll='ls --color=auto -l'
+#alias lr='ls --color=auto -lR'
+#alias la='ls --color=auto -la'
 alias :q='exit'
 alias :e='vim'
 
 export SVUNIT_INSTALL=$HOME"/.bin/svunit"
 export PATH=$SVUNIT_INSTALL"/bin":$PATH
+export PATH=$HOME"/.bin":$PATH
+export PATH=$HOME"/.bin/scala/bin":$PATH
 
 export LC_ALL=en_US.UTF-8
 export LANG="$LC_LANG"
@@ -33,3 +35,6 @@ export DISABLE_AUTO_TITLE=true
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+
+# Added by GraphLab Create Launcher v3.0.1
+export PATH="/Applications/anaconda/bin:$PATH"

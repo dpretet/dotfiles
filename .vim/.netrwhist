@@ -1,10 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/home/dpretet/workspace/hw.regression.server/config'
-let g:netrw_dirhist_2='/home/dpretet/workspace/quickmemory-ip/test/Memory_sram/source/top'
-let g:netrw_dirhist_3='/home/dpretet/workspace/controlmanager/env/rtl_gen'
-let g:netrw_dirhist_4='/home/dpretet/workspace/boards/XpressK7_XC7K325'
-let g:netrw_dirhist_5='/Users/damien/dev/caller/src'
-let g:netrw_dirhist_6='/Users/damien/dev/broker/config'
-let g:netrw_dirhist_7='/Users/damien/nix.congif/.git'
-let g:netrw_dirhist_8='/Users/damien/.tmux'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/damien/.tmux'
+let g:netrw_dirhist_2='/Users/damien/dev/caller/src'
+let g:netrw_dirhist_3='/Users/damien/.oh-my-zsh'
+let g:netrw_dirhist_4='/Users/damien/.tmux'
+let g:netrw_dirhist_5='/Users/damien/dev/ipflow/IpFlow.key'
