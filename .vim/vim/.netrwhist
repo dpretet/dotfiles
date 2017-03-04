@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/dpretet/vivado_template/ref_design'
-let g:netrw_dirhist_2='/home/dpretet/products/IP/QuickMemory/external/design/QuickMemory/IP-XACT'
-let g:netrw_dirhist_3='/home/dpretet/products/IP/clock_manager/sim/script'
-let g:netrw_dirhist_4='/home/dpretet/products/IP/QuickMemory_HwValidation/design/qpcie_loopback/s5ea7/src'
-let g:netrw_dirhist_5='/home/dpretet/products/IP/QuickMemory/external/design/QuickMemory/env'

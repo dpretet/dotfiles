@@ -1,40 +1,46 @@
-#alias ls='ls --color=auto'
-#alias ll='ls --color=auto -l'
-#alias lr='ls --color=auto -lR'
-#alias la='ls --color=auto -la'
-alias :q='exit'
-alias :e='vim'
-
-export SVUNIT_INSTALL=$HOME"/.bin/svunit"
-export PATH=$SVUNIT_INSTALL"/bin":$PATH
-export PATH=$HOME"/.bin":$PATH
-export PATH=$HOME"/.bin/scala/bin":$PATH
-
-export LC_ALL=en_US.UTF-8
-export LANG="$LC_LANG"
-
-bindkey -e
-ZSH_THEME="agnoster"
-CASE_SENSITIVE="true"
+#------------------------------------------------------------
+# Lines configured by zsh-newuser-install
+#------------------------------------------------------------
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+setopt extendedglob
+bindkey -e
+ZSH_THEME="agnoster"
+zstyle :compinstall filename '$HOME/.zshrc'
 
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
-autoload -U promptinit
+autoload -Uz promptinit
 promptinit
 
 plugins=(git tmux)
-
 source ~/.git-prompt.sh
-setopt PROMPT_SUBST ; PROMPT='%n@%m: %{$PR_BOLD_RED%}${${(%):-%~}//\//${PR_BOLD_RED}/%f}%f '
 export DISABLE_AUTO_TITLE=true
-export ZSH=~/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
+#------------------------------------------------------------
+# End of lines added by compinstall
+#------------------------------------------------------------
 
-# Added by GraphLab Create Launcher v3.0.1
-export PATH="/Applications/anaconda/bin:$PATH"
+# Lines added by user
+
+export TERM=screen-256color
+
+export CLICOLOR=1
+alias ls='ls -G'
+alias ll='ls -G -l'
+alias lr='ls -G -lR'
+alias la='ls -G -la'
+
+alias :e="vim"
+alias :q="exit"
+alias tmux='tmux -2'
+alias cp='cp -r'
+alias scp='scp -r'
+alias rsync='rsync -aAXWs --progress'
+alias ssh='ssh -YC -c blowfish-cbc,arcfour'
+
