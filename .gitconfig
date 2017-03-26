@@ -2,17 +2,15 @@
     editor = vim
 
 [diff]
-    tool = meld
+    tool = vimdiff
 
 [merge]
-    tool = meld
+    tool = vimdiff
 
 [user]
-    name = dosadih
-	email = dosadih@gmail.com
+    name = Damien Pretet
+    email = damien.pretet@me.com
 
 [color]
     ui = true
 
-[push]
-	default = simple
