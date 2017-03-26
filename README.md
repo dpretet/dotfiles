@@ -1,8 +1,6 @@
 # Unix/Linux Configuration
 
 Host my vim and tmux configuration, and some terminal backgrounds
-vimrc file is stored in vim folder, symlink it
-> ln -s .vim/.vimrc $HOME/.vimrc
 
 Vim configuration
 
@@ -15,7 +13,7 @@ Vim configuration
 - F2: replace tab by space
 - F3: remove spave at end of line
 - ^-space: completion
-- add always/for/fsm/function snippets
+- add always/for/fsm/function snippets for verilog language
 
 Tmux configuration
 

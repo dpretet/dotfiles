@@ -44,3 +44,5 @@ alias scp='scp -r'
 alias rsync='rsync -aAXWs --progress'
 alias ssh='ssh -YC -c blowfish-cbc,arcfour'
 
+export PATH="/Applications":$PATH
+
