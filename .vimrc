@@ -51,13 +51,8 @@ set noswapfile
 " file formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Replace tab by space in a text
-map <F2> :retab <CR> :w <CR> :noh <CR>
-" Remove space at end of line
-map <F3> :%s/\s\+$// <CR> :noh <CR>
-" Convert 2 spaces indent to 4 spaces
-map <F4> :set ts=2 <CR> :set noexpandtab <CR> :retab! <CR> :set expandtab <CR> :set ts=4 <CR> :retab <CR> :noh <CR>
-" Close a buffer without closing its pane
-command Bd bp\|bd \#
+map <F2> :retab <CR> :w <CR> :noh <CR> :%s/\s\+$// <CR> :noh <CR>
+
 "Autoclose the preview window
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -101,3 +96,6 @@ au BufRead,BufNewFile *.mkd,*.markdown,*.mdwn,*.mk,*.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType make setlocal noexpandtab
 
+autocmd BufWritePost *.py call Flake8()
+
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']

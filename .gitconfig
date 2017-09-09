@@ -14,3 +14,12 @@
 [color]
     ui = true
 
+[pull]
+	rebase = true
+[alias]
+	ck = checkout
+	co = commit
+	ps = push origin
+	pl = pull origin
+	cl = clean -fd
+	st = status
