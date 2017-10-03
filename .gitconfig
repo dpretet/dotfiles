@@ -14,11 +14,9 @@
 [color]
     ui = true
 
-[pull]
-	rebase = true
 [alias]
 	ck = checkout
-	co = commit
+	co = commit -am
 	ps = push origin
 	pl = pull origin
 	cl = clean -fd
