@@ -7,7 +7,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt extendedglob
 bindkey -e
-ZSH_THEME="agnoster"
+ZSH_THEME="avit"
 zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
@@ -16,7 +16,8 @@ compinit
 autoload -Uz promptinit
 promptinit
 
-plugins=(git tmux)
+plugins=(git tmux )
+
 source ~/.git-prompt.sh
 export DISABLE_AUTO_TITLE=true
 export ZSH=$HOME/.oh-my-zsh
@@ -44,5 +45,6 @@ alias scp='scp -r'
 alias rsync='rsync -aAXWs --progress'
 alias ssh='ssh -YC -c blowfish-cbc,arcfour'
 
-export PATH="/Applications":$PATH
+export SVUT="$HOME/.svut/"
+export PATH=$SVUT:$PATH
 
