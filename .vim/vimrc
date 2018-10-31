@@ -1,0 +1,120 @@
+filetype off
+
+call pathogen#infect()
+call pathogen#helptags()
+
+filetype plugin indent on
+syntax on
+
+
+" General Setup
+
+colorscheme dracula
+
+set encoding=utf-8
+
+set wildmode=longest:full,full
+set wildmenu
+set showmatch
+set ignorecase
+set smartcase
+
+set number
+set numberwidth=4
+
+set mouse=a
+set clipboard=unnamed
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set shiftround
+
+set colorcolumn=100
+set cursorline
+
+set autoindent
+set copyindent
+
+set incsearch
+
+set nobackup
+set noswapfile
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" file formatting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
+
+" Add a blank line with shift-enter
+" nmap <S-Enter> O<Esc>
+" nmap <CR> o<Esc>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Verilog snippet
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+iab <for> for (i=0;i<max;i=i+1)<cr>begin<cr>end
+iab <always> always @ (posedge aclk or negedge arstn) begin<cr><cr>    if (arstn == 1'b0) begin<cr>end<cr>else if (srst == 1'b1) begin<cr>end<cr>else begin<cr>end<cr><bs>end
+iab <fsm> localparam [3:0] IDLE = 0,<cr>                                 STATE1 = 1;<cr><bs><bs><bs><bs><bs>reg[3:0] state;<cr><cr>always @ (posedge clk or negedge rstn)<cr>begin<cr>      if (rstn==1'b0) begin<cr> state <= ID$LE;<cr>end<cr>else begin<cr>      case (state)<cr>        default : begin<cr>end<cr>STATE1 : begin<cr>end<cr><bs>endcase<cr><bs>end<cr><bs>end
+iab <function> function integer func(input interger i);<cr>begin<cr>end<cr>endfunction
+iab <task> task myTask;<cr>endtask<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Automaticaly load templates when editing new buffer
+" regarding filetype
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au bufNewFile *.cpp 0r ~/.vim/templates/template.cpp
+au bufNewFile *.h 0r ~/.vim/templates/template.h
+au bufNewFile *.v 0r ~/.vim/templates/template.v
+au bufNewFile *.xml 0r ~/.vim/templates/template.xml
+au bufNewFile *.html 0r ~/.vim/templates/template.html
+au BufRead,BufNewFile *.json set filetype=javascript
+au bufNewFile *.py 0r ~/.vim/templates/template.py
+au bufNewFile *.tcl 0r ~/.vim/templates/template.tcl
+au BufNewFile,BufRead *.sv,*.svh,*.vh,*.v so ~/.vim/bundle/systemverilog.vim/syntax/systemverilog.vim
+au BufRead,BufNewFile *.mkd,*.markdown,*.mdwn,*.mk,*.md set filetype=markdown
+autocmd FileType make setlocal noexpandtab
+
+" Vue.js setup
+" autocmd FileType vue syntax sync fromstart
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+" let g:vue_disable_pre_processors=1
+
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+
+command! PrettyXML call DoPrettyXML()
+
+fun! <SID>StripWsTabs()
+    let l = line(".")
+    let c = col(".")
+    %s/\t/    /e
+    %s/\s\+$//e
+    retab
+    call cursor(l, c)
+endfun
