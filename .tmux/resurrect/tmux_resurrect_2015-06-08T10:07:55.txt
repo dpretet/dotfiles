@@ -1,3 +1,0 @@
-pane	0	0	:zsh	1	:*	0	:/home/dpretet	1	zsh	:
-window	0	0	1	:*	d0bd,156x39,0,0,0
-state	0	

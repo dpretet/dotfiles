@@ -2,7 +2,7 @@
 # coding: utf-8
 
 # -----------------------------------------------------------------------
-# Copyright 2017 Damien Pretet ThotLogic
+# Copyright 2019 Damien Pretet
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,11 +27,11 @@ class Template(object):
     """
 
     def __init__(self, verbose=0):
+        """ Class constructor """
 
-		""" Class cosntructor """
         self.verbose = verbose
 
-    def template(self, a):
+    def print_value(self, a):
 
         """ Function description
 
@@ -49,6 +49,5 @@ class Template(object):
 
 if __name__ == '__main__':
 
-    template(5)
-
-    temp = Template(0)
+    temp = Template()
+    temp.print_value(5)

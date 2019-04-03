@@ -1,5 +1,0 @@
-pane	0	0	:zsh	0	:-	0	:/home/dpretet/workspace/clock-manager	1	zsh	:
-pane	0	1	:vim	1	:*	0	:/home/dpretet/workspace/clock-manager	1	vim	:vim env/generate_ip.py
-window	0	0	0	:-	c4dd,237x55,0,0,0
-window	0	1	1	:*	c4e0,237x55,0,0,3
-state	0	

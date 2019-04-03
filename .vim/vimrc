@@ -9,8 +9,6 @@ syntax on
 
 " General Setup
 
-colorscheme dracula
-
 set encoding=utf-8
 
 set wildmode=longest:full,full
@@ -41,23 +39,36 @@ set incsearch
 set nobackup
 set noswapfile
 
+set paste
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " file formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 
-" Add a blank line with shift-enter
-" nmap <S-Enter> O<Esc>
-" nmap <CR> o<Esc>
+autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Verilog snippet
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 iab <for> for (i=0;i<max;i=i+1)<cr>begin<cr>end
-iab <always> always @ (posedge aclk or negedge arstn) begin<cr><cr>    if (arstn == 1'b0) begin<cr>end<cr>else if (srst == 1'b1) begin<cr>end<cr>else begin<cr>end<cr><bs>end
-iab <fsm> localparam [3:0] IDLE = 0,<cr>                                 STATE1 = 1;<cr><bs><bs><bs><bs><bs>reg[3:0] state;<cr><cr>always @ (posedge clk or negedge rstn)<cr>begin<cr>      if (rstn==1'b0) begin<cr> state <= ID$LE;<cr>end<cr>else begin<cr>      case (state)<cr>        default : begin<cr>end<cr>STATE1 : begin<cr>end<cr><bs>endcase<cr><bs>end<cr><bs>end
+iab <always> always @ (posedge aclk or negedge arstn) begin<cr><cr>if (arstn == 1'b0) begin<cr>end<cr>else begin<cr>end<cr><bs>end
+iab <fsm> localparam [3:0] IDLE = 0, STATE1 = 1;<cr>reg[3:0] state;<cr><cr>always @ (posedge aclk or negedge arstn)<cr>begin<cr>if (arstn==1'b0) begin<cr>state <= IDLE;<cr>end<cr>else begin<cr>case (state)<cr>default : begin<cr>end<cr>STATE1: begin<cr>end<cr><bs>endcase<cr><bs>end<cr><bs>end
 iab <function> function integer func(input interger i);<cr>begin<cr>end<cr>endfunction
-iab <task> task myTask;<cr>endtask<cr>
+iab <task> task myTask;<cr>begin<cr>end<cr>endtask<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automaticaly load templates when editing new buffer
@@ -68,17 +79,17 @@ au bufNewFile *.h 0r ~/.vim/templates/template.h
 au bufNewFile *.v 0r ~/.vim/templates/template.v
 au bufNewFile *.xml 0r ~/.vim/templates/template.xml
 au bufNewFile *.html 0r ~/.vim/templates/template.html
-au BufRead,BufNewFile *.json set filetype=javascript
+au BufRead, BufNewFile *.json set filetype=javascript
 au bufNewFile *.py 0r ~/.vim/templates/template.py
 au bufNewFile *.tcl 0r ~/.vim/templates/template.tcl
-au BufNewFile,BufRead *.sv,*.svh,*.vh,*.v so ~/.vim/bundle/systemverilog.vim/syntax/systemverilog.vim
-au BufRead,BufNewFile *.mkd,*.markdown,*.mdwn,*.mk,*.md set filetype=markdown
+au BufNewFile, BufRead *.sv, *.svh, *.vh, *.v so ~/.vim/bundle/systemverilog.vim/syntax/systemverilog.vim
+au BufRead, BufNewFile *.mkd, *.markdown, *.mdwn, *.mk, *.md set filetype=markdown
 autocmd FileType make setlocal noexpandtab
 
 " Vue.js setup
-" autocmd FileType vue syntax sync fromstart
-" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-" let g:vue_disable_pre_processors=1
+autocmd FileType vue syntax sync fromstart
+autocmd BufRead, BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+let g:vue_disable_pre_processors=1
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
@@ -116,5 +127,7 @@ fun! <SID>StripWsTabs()
     %s/\t/    /e
     %s/\s\+$//e
     retab
+    " %s/, \(\S\)/, \1/g
+    " %s/\>=\</ = /g
     call cursor(l, c)
 endfun

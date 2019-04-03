@@ -1,5 +1,0 @@
-pane	memory	0	:zsh	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
-pane	memory	1	:vim	1	:*	0	:/home/dpretet/workspace/quickmemory-ip/sim/src/vlog/tb	1	vim	:vim tb_qmem_1port_aa_s5ea7_ctrl0_stream.v
-window	memory	0	0	:-	be7d,165x44,0,0,0
-window	memory	1	1	:*	be7e,165x44,0,0,1
-state	memory	

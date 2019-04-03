@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/dpretet/Projects/QuickPlayLibrary/Interface/A10LP4'
-let g:netrw_dirhist_2='/home/dpretet/Projects/QuickPlayLibrary/Boards/A10PL4/simulation'
-let g:netrw_dirhist_3='/home/dpretet/Projects/QuickPlayLibrary/Interface/A10PL4/1.0'
-let g:netrw_dirhist_4='/home/dpretet/workspace/controlmanager/ControlManager'
-let g:netrw_dirhist_5='/home/anai/a10_qmem_ws/QuickMemory_1AXI4_ddr3/implementations/XpressGXA10_DDR4_bank0/output_files'
-let g:netrw_dirhist_6='/home/gdufourcq/01_Projects/06_QuickPlayWorkSpace/QP_2.4.9_HDK_1.12.0_DEV_A10/SimpleLoopBack_qpp/implementations/implementation_0/hdl/lib/ClockManager'

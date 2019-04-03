@@ -1,7 +1,0 @@
-pane	memory	0	:zsh	0	:-	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_stream/fixed_width_xfer	1	zsh	:
-pane	memory	1	:vim	0	: 	0	:/home/dpretet/workspace/quickmemory-ip	1	vim	:vim
-pane	memory	2	:vim	1	:*	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_stream/fixed_width_xfer	1	vim	:vim ../../../../sim/src/vlog/tb/tb_qmem_1port_aa_s5ea7_ctrl0_stream.v
-window	memory	0	0	:-	b87d,165x33,0,0,0
-window	memory	1	0	: 	b87e,165x33,0,0,1
-window	memory	2	1	:*	cdff,149x38,0,0,2
-state	memory	

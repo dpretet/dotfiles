@@ -1,9 +1,0 @@
-pane	memory	0	:ip	0	: 	0	:/home/dpretet	1	zsh	:
-pane	memory	1	:vim	0	: 	0	:/home/dpretet	1	zsh	:
-pane	memory	2	:testcase	1	:*	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm/avalon_support_alen_0	1	zsh	:
-pane	memory	3	:vim	0	:-	0	:/home/dpretet/workspace/quickmemory-ip/sim/test/qmem_1port_s5ea7_ddr3_ctrl0_mm/avalon_support_alen_0	1	vim	:vim src/tc.sv
-window	memory	0	0	: 	bffd,187x44,0,0,0
-window	memory	1	0	: 	bffe,187x44,0,0,1
-window	memory	2	1	:*	bfff,187x44,0,0,2
-window	memory	3	0	:-	c000,187x44,0,0,3
-state	memory	

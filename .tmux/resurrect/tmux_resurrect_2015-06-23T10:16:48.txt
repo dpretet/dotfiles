@@ -1,9 +1,0 @@
-pane	memory	0	:zsh	0	:-	0	:/home/dpretet/workspace/quickmemory-ip	1	zsh	:
-pane	memory	1	:make	0	: 	0	:/home/dpretet/workspace/quickmemory-ip/sim/test	1	make	:make
-pane	memory	2	:zsh	0	: 	0	:/home/dpretet/Projects/QuickPlayLibrary/QuickMemory	1	zsh	:/home/dpretet/Projects/QuickPlayWorkspace/QuickPlayFrontEnd/Debug_GCC/quickplay
-pane	memory	3	:zsh	1	:*	0	:/home/dpretet/workspace/quickpcie.script	1	zsh	:
-window	memory	0	0	:-	b23d,159x31,0,0,0
-window	memory	1	0	: 	b23e,159x31,0,0,1
-window	memory	2	0	: 	b240,159x31,0,0,3
-window	memory	3	1	:*	b241,159x31,0,0,4
-state	memory	
