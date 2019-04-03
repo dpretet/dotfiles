@@ -60,6 +60,11 @@ let g:syntastic_check_on_wq = 0
 
 autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 
+" Disable show diff version of autopep8
+let g:autopep8_disable_show_diff=1
+" Automatically format the file on save
+let g:autopep8_on_save = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Verilog snippet
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -124,10 +129,8 @@ command! PrettyXML call DoPrettyXML()
 fun! <SID>StripWsTabs()
     let l = line(".")
     let c = col(".")
+    retab
     %s/\t/    /e
     %s/\s\+$//e
-    retab
-    " %s/, \(\S\)/, \1/g
-    " %s/\>=\</ = /g
     call cursor(l, c)
 endfun
