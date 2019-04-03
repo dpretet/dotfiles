@@ -10,10 +10,9 @@ Vim configuration
 - show line number
 - tab replaced by 4 spaces
 - use themes thru airline/powerline
-- F2: replace tab by space
-- F3: remove spave at end of line
 - ^-space: completion
-- add always/for/fsm/function snippets for verilog language
+- add always/fsm/function/tasks snippets for verilog language
+- write command cleanup the file of useless spaces and retab
 
 Tmux configuration
 
@@ -23,3 +22,7 @@ Tmux configuration
 - split panes with ^b-h for horzontal split
 - status bar doesn't use green color and justify the terms
 - uses resurect and continum plugin to restore sessions
+
+ZSH is pretty simple:
+
+- enable git and tmux plugin
