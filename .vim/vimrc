@@ -1,11 +1,21 @@
-filetype off
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-call pathogen#infect()
-call pathogen#helptags()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-filetype plugin indent on
-syntax on
+Plugin 'scrooloose/syntastic'
+Plugin 'vhda/verilog_systemverilog.vim'
+Plugin 'tell-k/vim-autopep8'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'tpope/vim-sensible'
+Plugin 'tomlion/vim-solidity'
+Plugin 'keith/swift.vim'
+Plugin 'posva/vim-vue'
 
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 " General Setup
 
@@ -21,7 +31,7 @@ set number
 set numberwidth=4
 
 set mouse=a
-set clipboard=unnamed
+" set clipboard=unnamed
 
 set expandtab
 set tabstop=4
@@ -32,14 +42,14 @@ set colorcolumn=100
 set cursorline
 
 set autoindent
-set copyindent
+" set copyindent
 
 set incsearch
 
 set nobackup
 set noswapfile
 
-set paste
+" set paste
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic setup
@@ -51,8 +61,9 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
+let g:syntastic_loc_list_height = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " file formatting
