@@ -42,14 +42,14 @@ set colorcolumn=100
 set cursorline
 
 set autoindent
-" set copyindent
 
 set incsearch
 
 set nobackup
 set noswapfile
 
-" set paste
+set formatoptions+=r
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic setup
