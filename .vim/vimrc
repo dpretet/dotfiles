@@ -31,7 +31,6 @@ set number
 set numberwidth=4
 
 set mouse=a
-" set clipboard=unnamed
 
 set expandtab
 set tabstop=4
@@ -40,6 +39,8 @@ set shiftround
 
 set colorcolumn=100
 set cursorline
+highlight ColorColumn ctermbg=8
+highlight CursorLine ctermbg=8
 
 set autoindent
 

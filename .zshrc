@@ -94,3 +94,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias sshferm="damien@192.168.100.231"
+export PATH=/Applications/gtkwave.app/Contents/Resources/bin/:$PATH
+export PATH=$HOME/.bin/diagrammer/:$PATH
