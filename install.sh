@@ -5,9 +5,10 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 echo "Hello! This script is about to install a dev setup relying on Vim, Tmux, Git, Zsh, Spacemacs"
 echo ""
 echo "Make sure Vim, Git, Zsh, bash profile, TMux or Spacemacs configuration files exist in your home folder"
-echo "All configuration files will be symlinked from this folder. Please backup first yuor environment before continuing"
+echo "All configuration files will be symlinked from this folder. Please backup first your environment before continuing"
 echo ""
 echo "The script will also install Oh-My-Zsh (Zsh under steroids) and Spacemacs (Assuming Emacs is ready to use)"
+echo "  - Vundle: https://github.com/VundleVim/Vundle.vim"
 echo "  - Oh-My-Zsh: https://github.com/robbyrussell/oh-my-zsh"
 echo "  - Spacemacs: http://spacemacs.org/"
 
@@ -38,6 +39,8 @@ echo "Create .spacemacs symlink"
 ln -sf $DIR/.spacemacs $HOME/.spacemacs
 
 if [ ! -d $HOME/.vim/bundle/Vundle ]; then
+    echo "Vim Vundle plugin is not install. Clone it"
+    echo "Then run ':PlugInstall' into Vim"
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
