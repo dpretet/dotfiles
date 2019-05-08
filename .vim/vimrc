@@ -70,6 +70,10 @@ let g:syntastic_loc_list_height = 1
 " file formatting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" shift-enter insert a new line but do not enter in insert mode
+nmap <S-Enter> O<Esc>j
+nmap <CR> o<Esc>k
+
 autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 
 " Disable show diff version of autopep8

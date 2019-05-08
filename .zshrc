@@ -95,6 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias chisel_template="sbt new seldridge/chisel-template.g8"
 alias sshferm="ssh -YC damien@192.168.100.231"
+
 export PATH=/Applications/gtkwave.app/Contents/Resources/bin/:$PATH
 export PATH=$HOME/.bin/diagrammer/:$PATH
+export PATH=$HOME/.bin/:$PATH
