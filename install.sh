@@ -54,5 +54,11 @@ if [ ! -d $HOME/.emacs.d ]; then
     git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 fi
 
+if [ ! -d $HOME/.fzf ]; then
+    echo "Install FZF"
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+fi
+
 echo "Install done!"
 exit 0

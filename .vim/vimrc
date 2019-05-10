@@ -13,11 +13,17 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tomlion/vim-solidity'
 Plugin 'keith/swift.vim'
 Plugin 'posva/vim-vue'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " General Setup
+
+" Enable FZF
+set rtp+=~/.fzf
+" Basic shortcut to avoid typing capital letters
+cabbrev fzf FZF
 
 set encoding=utf-8
 
