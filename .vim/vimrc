@@ -14,6 +14,10 @@ Plugin 'tomlion/vim-solidity'
 Plugin 'keith/swift.vim'
 Plugin 'posva/vim-vue'
 Plugin 'junegunn/fzf.vim'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'vim-scripts/AnsiEsc.vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -22,8 +26,6 @@ filetype plugin indent on    " required
 
 " Enable FZF
 set rtp+=~/.fzf
-" Basic shortcut to avoid typing capital letters
-cabbrev fzf FZF
 
 set encoding=utf-8
 
@@ -80,12 +82,22 @@ let g:syntastic_loc_list_height = 1
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
 
+command BD bp | sp | bn | bd
+
 autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 
 " Disable show diff version of autopep8
 let g:autopep8_disable_show_diff=1
 " Automatically format the file on save
 let g:autopep8_on_save = 1
+
+" Configure Scalafmt and autoformat
+let g:formatdef_scalafmt = "'scalafmt --stdin'"
+let g:formatters_scala = ['scalafmt']
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Verilog snippet
@@ -108,6 +120,7 @@ au bufNewFile *.xml 0r ~/.vim/templates/template.xml
 au bufNewFile *.html 0r ~/.vim/templates/template.html
 au BufRead, BufNewFile *.json set filetype=javascript
 au bufNewFile *.py 0r ~/.vim/templates/template.py
+au bufNewFile *.scala 0r ~/.vim/templates/template.scala
 au bufNewFile *.tcl 0r ~/.vim/templates/template.tcl
 au BufNewFile, BufRead *.sv, *.svh, *.vh, *.v so ~/.vim/bundle/systemverilog.vim/syntax/systemverilog.vim
 au BufRead, BufNewFile *.mkd, *.markdown, *.mdwn, *.mk, *.md set filetype=markdown
