@@ -22,10 +22,14 @@ Plugin 'mileszs/ack.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" General Setup
 
-" Enable FZF
-set rtp+=~/.fzf
+" Leader key setup
+nnoremap <Space> <Nop>
+let mapleader = "\<Space>"
+
+" Shortcut from leader key to FZF Files and Buffers
+noremap <leader>f :Files<cr>
+noremap <leader>b :Buffers<cr>
 
 set encoding=utf-8
 
@@ -61,6 +65,21 @@ set formatoptions+=r
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FZF setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable fzf
+set rtp+=~/.fzf
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-h': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout. Can be down / up / left / right
+let g:fzf_layout = { 'left': '~30%' }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -68,11 +87,10 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
-let g:syntastic_loc_list_height = 1
+let g:syntastic_loc_list_height = 2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " file formatting
@@ -94,9 +112,9 @@ let g:autopep8_on_save = 1
 " Configure Scalafmt and autoformat
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
+" let g:autoformat_autoindent = 1
+" let g:autoformat_retab = 0
+" let g:autoformat_remove_trailing_spaces = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
