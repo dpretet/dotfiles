@@ -28,8 +28,19 @@ nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
 
 " Shortcut from leader key to FZF Files and Buffers
+
+" Launch FZF file search
 noremap <leader>f :Files<cr>
+" Launch FZF buffer search
 noremap <leader>b :Buffers<cr>
+" Launch FZF text search in current buffer
+noremap <leader>l :BLines<cr>
+" Launch FZF text search in all loaded buffers
+noremap <leader>L :Lines<cr>
+" Launch FZF to display git history of the current buffer
+noremap <leader>g :BCommits<cr>
+" Launch FZF to display git history of the repository
+noremap <leader>G :Commits<cr>
 
 set encoding=utf-8
 
