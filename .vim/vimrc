@@ -17,30 +17,44 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'mileszs/ack.vim'
+Plugin 'hecal3/vim-leader-guide'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-" Leader key setup
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader key setup, handled with vim-leader-guide
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
 
-" Shortcut from leader key to FZF Files and Buffers
+" Shorten display time
+set timeoutlen=1
 
-" Launch FZF file search
-noremap <leader>f :Files<cr>
-" Launch FZF buffer search
-noremap <leader>b :Buffers<cr>
-" Launch FZF text search in current buffer
-noremap <leader>l :BLines<cr>
-" Launch FZF text search in all loaded buffers
-noremap <leader>L :Lines<cr>
-" Launch FZF to display git history of the current buffer
-noremap <leader>g :BCommits<cr>
-" Launch FZF to display git history of the repository
-noremap <leader>G :Commits<cr>
+" Make the menu to pop up
+call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
+nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
+
+let g:lmap = {'name':  "",
+                \'f': [":Files",       "FZF file search"],
+                \'b': [":Buffers",     "FZF buffer search"],
+                \'s': [":BLines",      "FZF text search into current buffer"],
+                \'S': [":Lines",       "FZF text search across loaded buffers"],
+                \'g': [":BCommits",    "FZF git commits of the current buffer"],
+                \'G': [":Commits",     "FZF git commits of the repository"],
+                \'v': [':vsplit',      'Split buffer verticaly'],
+                \'h': [':split',       'Split buffer horizontaly'],
+                \'d': [':Bd',          'Close buffer, but not the panel'],
+                \'r': [':so $MYVIMRC', 'Reload vimrc without restarting Vim'],
+            \}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set encoding=utf-8
 
@@ -111,7 +125,7 @@ let g:syntastic_loc_list_height = 2
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
 
-command BD bp | sp | bn | bd
+command Bd bp | sp | bn | bd
 
 autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 
