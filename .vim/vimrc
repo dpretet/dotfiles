@@ -28,22 +28,22 @@ filetype plugin indent on
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Leader key setup, handled with vim-leader-guide
+" Leader key setup, handled with vim-leader-guide plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use space bar as leader key
 nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
 
-" Shorten display time
+" Shorten plugin display time when pressing space
 set timeoutlen=1
 
-" Make the menu to pop up
+" Make the menu to pop up when pressing space
 call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 
-" Shortcut created and handled by Vum-leader-guide
+" Shortcut created and handled by Vim-leader-guide
 let g:lmap = {'name':  "",
                 \'f': [":Files",       "FZF file search"],
                 \'b': [":Buffers",     "FZF buffer search"],
@@ -56,6 +56,8 @@ let g:lmap = {'name':  "",
                 \'d': [':Bd',          'Close buffer, but not the panel'],
                 \'r': [':so $MYVIMRC', 'Reload vimrc without restarting Vim'],
                 \'q': [':wq',          'Write buffer and close'],
+                \'w': [':w',           'Write buffer'],
+                \'l': [':ls',          'List opened buffers'],
             \}
 
 
