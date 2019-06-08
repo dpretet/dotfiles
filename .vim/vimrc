@@ -1,11 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin management with Vundle
+" Plugin management, handled by Vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
 filetype off
-
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -107,8 +105,8 @@ autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 " Enable fzf
 set rtp+=~/.fzf
 
-" ^-h or ^-v can be pressed to open in new panel
-" on files found
+" ctrl-h or ctrl-v can be pressed to open a file found
+" into a new panel
 let g:fzf_action = {
   \ 'ctrl-h': 'split',
   \ 'ctrl-v': 'vsplit' }
@@ -165,13 +163,13 @@ au bufNewFile *.html 0r ~/.vim/templates/template.html
 au bufNewFile *.py 0r ~/.vim/templates/template.py
 au bufNewFile *.scala 0r ~/.vim/templates/template.scala
 
-" Run systemVerilog plugin for these extensions
+" Run systemVerilog plugin for these file extensions
 au BufNewFile, BufRead *.sv, *.svh, *.vh, *.v so ~/.vim/bundle/systemverilog.vim/syntax/systemverilog.vim
 
 " Specify JSON syntax checking for Javascript
 au BufRead, BufNewFile *.json set filetype=javascript
 
-" Specify Markdown syntax for these extensions
+" Specify Markdown syntax checking for these extensions
 au BufRead, BufNewFile *.mkd, *.markdown, *.mdwn, *.mk, *.md set filetype=markdown
 
 " Insert tabs, not spaces for Makefile
