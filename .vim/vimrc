@@ -1,5 +1,9 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin management with Vundle
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -19,15 +23,15 @@ Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'hecal3/vim-leader-guide'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-
+call vundle#end()
+filetype plugin indent on
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader key setup, handled with vim-leader-guide
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Use space bar as leader key
 nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
 
@@ -39,6 +43,7 @@ call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 
+" Shortcut created and handled by Vum-leader-guide
 let g:lmap = {'name':  "",
                 \'f': [":Files",       "FZF file search"],
                 \'b': [":Buffers",     "FZF buffer search"],
@@ -50,43 +55,47 @@ let g:lmap = {'name':  "",
                 \'h': [':split',       'Split buffer horizontaly'],
                 \'d': [':Bd',          'Close buffer, but not the panel'],
                 \'r': [':so $MYVIMRC', 'Reload vimrc without restarting Vim'],
+                \'q': [':wq',          'Write buffer and close'],
             \}
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set encoding=utf-8
-
 set wildmode=longest:full,full
 set wildmenu
 set showmatch
 set ignorecase
 set smartcase
-
 set number
 set numberwidth=4
-
 set mouse=a
-
 set expandtab
 set tabstop=4
 set shiftwidth=4
 set shiftround
-
 set colorcolumn=100
 set cursorline
 highlight ColorColumn ctermbg=8
 highlight CursorLine ctermbg=8
-
 set autoindent
-
 set incsearch
-
 set nobackup
 set noswapfile
-
 set formatoptions+=r
+
+" shift-enter insert a new line
+" but do not enter in insert mode
+nmap <S-Enter> O<Esc>j
+nmap <CR> o<Esc>k
+
+" Close a buffer, but not the panel
+command Bd bp | sp | bn | bd
+
+" Strip whitespaces and tabs on buffer write
+autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -96,13 +105,16 @@ set formatoptions+=r
 " Enable fzf
 set rtp+=~/.fzf
 
-" This is the default extra key bindings
+" ^-h or ^-v can be pressed to open in new panel
+" on files found
 let g:fzf_action = {
   \ 'ctrl-h': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" Default fzf layout. Can be down / up / left / right
-let g:fzf_layout = { 'left': '~30%' }
+" Open FZF in the middle of the screen.
+" Can be down / up / left / right
+let g:fzf_layout = { 'up': '~50%' }
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic setup
@@ -115,26 +127,23 @@ set statusline+=%*
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
-let g:syntastic_loc_list_height = 2
+let g:syntastic_loc_list_height = 3
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" file formatting
+" Autopep8 setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" shift-enter insert a new line but do not enter in insert mode
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>k
-
-command Bd bp | sp | bn | bd
-
-autocmd BufWritePre <buffer> :call <SID>StripWsTabs()
 
 " Disable show diff version of autopep8
 let g:autopep8_disable_show_diff=1
 " Automatically format the file on save
 let g:autopep8_on_save = 1
 
-" Configure Scalafmt and autoformat
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ScalaFMT setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']
 " let g:autoformat_autoindent = 1
@@ -143,36 +152,38 @@ let g:formatters_scala = ['scalafmt']
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Verilog snippet
+" File types setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-iab <for> for (i=0;i<max;i=i+1)<cr>begin<cr>end
-iab <always> always @ (posedge aclk or negedge arstn) begin<cr><cr>if (arstn == 1'b0) begin<cr>end<cr>else begin<cr>end<cr><bs>end
-iab <fsm> localparam [3:0] IDLE = 0, STATE1 = 1;<cr>reg[3:0] state;<cr><cr>always @ (posedge aclk or negedge arstn)<cr>begin<cr>if (arstn==1'b0) begin<cr>state <= IDLE;<cr>end<cr>else begin<cr>case (state)<cr>default : begin<cr>end<cr>STATE1: begin<cr>end<cr><bs>endcase<cr><bs>end<cr><bs>end
-iab <function> function integer func(input interger i);<cr>begin<cr>end<cr>endfunction
-iab <task> task myTask;<cr>begin<cr>end<cr>endtask<cr>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Automaticaly load templates when editing new buffer
-" regarding filetype
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open templates when editing a new file
 au bufNewFile *.cpp 0r ~/.vim/templates/template.cpp
 au bufNewFile *.h 0r ~/.vim/templates/template.h
 au bufNewFile *.v 0r ~/.vim/templates/template.v
-au bufNewFile *.xml 0r ~/.vim/templates/template.xml
 au bufNewFile *.html 0r ~/.vim/templates/template.html
-au BufRead, BufNewFile *.json set filetype=javascript
 au bufNewFile *.py 0r ~/.vim/templates/template.py
 au bufNewFile *.scala 0r ~/.vim/templates/template.scala
-au bufNewFile *.tcl 0r ~/.vim/templates/template.tcl
+
+" Run systemVerilog plugin for these extensions
 au BufNewFile, BufRead *.sv, *.svh, *.vh, *.v so ~/.vim/bundle/systemverilog.vim/syntax/systemverilog.vim
+
+" Specify JSON syntax checking for Javascript
+au BufRead, BufNewFile *.json set filetype=javascript
+
+" Specify Markdown syntax for these extensions
 au BufRead, BufNewFile *.mkd, *.markdown, *.mdwn, *.mk, *.md set filetype=markdown
+
+" Insert tabs, not spaces for Makefile
 autocmd FileType make setlocal noexpandtab
 
 " Vue.js setup
 autocmd FileType vue syntax sync fromstart
 autocmd BufRead, BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 let g:vue_disable_pre_processors=1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
@@ -202,13 +213,28 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 
+
 command! PrettyXML call DoPrettyXML()
 
+
 fun! <SID>StripWsTabs()
-    let l = line(".")
-    let c = col(".")
-    retab
-    %s/\t/    /e
-    %s/\s\+$//e
-    call cursor(l, c)
+  let l = line(".")
+  let c = col(".")
+  retab
+  %s/\t/    /e
+  %s/\s\+$//e
+  call cursor(l, c)
 endfun
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Verilog snippet
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+iab <for> for (i=0;i<max;i=i+1)<cr>begin<cr>end
+iab <always> always @ (posedge aclk or negedge arstn) begin<cr><cr>if (arstn == 1'b0) begin<cr>end<cr>else begin<cr>end<cr><bs>end
+iab <fsm> localparam [3:0] IDLE = 0, STATE1 = 1;<cr>reg[3:0] state;<cr><cr>always @ (posedge aclk or negedge arstn)<cr>begin<cr>if (arstn==1'b0) begin<cr>state <= IDLE;<cr>end<cr>else begin<cr>case (state)<cr>default : begin<cr>end<cr>STATE1: begin<cr>end<cr><bs>endcase<cr><bs>end<cr><bs>end
+iab <function> function integer func(input interger i);<cr>begin<cr>end<cr>endfunction
+iab <task> task myTask;<cr>begin<cr>end<cr>endtask<cr>
+
+
