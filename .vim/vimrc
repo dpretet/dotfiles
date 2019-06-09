@@ -43,20 +43,21 @@ vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 
 " Shortcut created and handled by Vim-leader-guide
 let g:lmap = {'name':  "",
-                \'f': [":Files",       "FZF file search"],
-                \'b': [":Buffers",     "FZF buffer search"],
-                \'s': [":BLines",      "FZF text search into current buffer"],
-                \'S': [":Lines",       "FZF text search across loaded buffers"],
-                \'g': [":BCommits",    "FZF git commits of the current buffer"],
-                \'G': [":Commits",     "FZF git commits of the repository"],
-                \'v': [':vsplit',      'Split buffer verticaly'],
-                \'h': [':split',       'Split buffer horizontaly'],
-                \'d': [':Bd',          'Close buffer, but not the panel'],
-                \'r': [':so $MYVIMRC', 'Reload vimrc without restarting Vim'],
-                \'q': [':wq',          'Write buffer and close'],
-                \'w': [':w',           'Write buffer'],
-                \'l': [':ls',          'List opened buffers'],
-            \}
+             \'f': [":Files",            "FZF file search"],
+             \'b': [":Buffers",          "FZF buffer search"],
+             \'s': [":BLines",           "FZF text search into current buffer"],
+             \'S': [":Lines",            "FZF text search across loaded buffers"],
+             \'g': [":BCommits",         "FZF git commits of the current buffer"],
+             \'G': [":Commits",          "FZF git commits of the repository"],
+             \'v': [':vsplit',           'Split buffer verticaly'],
+             \'h': [':split',            'Split buffer horizontaly'],
+             \'d': [':Bd',               'Close buffer, but not the panel'],
+             \'r': [':so $MYVIMRC',      'Reload vimrc without restarting Vim'],
+             \'q': [':wq',               'Write buffer and close'],
+             \'w': [':w',                'Write buffer'],
+             \'l': [':ls',               'List opened buffers'],
+             \'p': [':call Prettify()',  'Prettify the buffer'],
+             \}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -108,8 +109,8 @@ set rtp+=~/.fzf
 " ctrl-h or ctrl-v can be pressed to open a file found
 " into a new panel
 let g:fzf_action = {
-  \ 'ctrl-h': 'split',
-  \ 'ctrl-v': 'vsplit' }
+            \ 'ctrl-h': 'split',
+            \ 'ctrl-v': 'vsplit' }
 
 " Open FZF in the middle of the screen.
 " Can be down / up / left / right
@@ -185,46 +186,84 @@ let g:vue_disable_pre_processors=1
 " Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-function! DoPrettyXML()
-  " save the filetype so we can restore it later
-  let l:origft = &ft
-  set ft=
-  " delete the xml header if it exists. This will
-  " permit us to surround the document with fake tags
-  " without creating invalid xml.
-  1s/<?xml .*?>//e
-  " insert fake tags around the entire document.
-  " This will permit us to pretty-format excerpts of
-  " XML that may contain multiple top-level elements.
-  0put ='<PrettyXML>'
-  $put ='</PrettyXML>'
-  silent %!xmllint --format -
-  " xmllint will insert an <?xml?> header. it's easy enough to delete
-  " if you don't want it.
-  " delete the fake tags
-  2d
-  $d
-  " restore the 'normal' indentation, which is one extra level
-  " too deep due to the extra tags we wrapped around the document.
-  silent %<
-  " back to home
-  1
-  " restore the filetype
-  exe "set ft=" . l:origft
+" Pretiffy a XML file
+function! PrettyXML()
+
+    " save the filetype so we can restore it later
+    let l:origft = &ft
+    set ft=
+
+    " delete the xml header if it exists. This will
+    " permit us to surround the document with fake tags
+    " without creating invalid xml.
+    1s/<?xml .*?>//e
+
+    " insert fake tags around the entire document.
+    " This will permit us to pretty-format excerpts of
+    " XML that may contain multiple top-level elements.
+    0put ='<PrettyXML>'
+    $put ='</PrettyXML>'
+    silent %!xmllint --format -
+
+    " xmllint will insert an <?xml?> header. it's easy enough to delete
+    " if you don't want it.
+    " delete the fake tags
+    2d
+    $d
+
+    " restore the 'normal' indentation, which is one extra level
+    " too deep due to the extra tags we wrapped around the document.
+    silent %<
+    " back to home
+    1
+
+    " restore the filetype
+    exe "set ft=" . l:origft
+
 endfunction
 
+" Remove useless white spaces and convert tabs
+function! <SID>StripWsTabs()
 
-command! PrettyXML call DoPrettyXML()
+    " Save cursor place
+    let l = line(".")
+    let c = col(".")
 
+    " Clean up spaces/tabs
+    retab
+    %s/\t/    /e
+    %s/\s\+$//e
 
-fun! <SID>StripWsTabs()
-  let l = line(".")
-  let c = col(".")
-  retab
-  %s/\t/    /e
-  %s/\s\+$//e
-  call cursor(l, c)
-endfun
+    " Restore cursor
+    call cursor(l, c)
+
+endfunction
+
+" Prettify a buffer
+function! Prettify()
+
+    " Save cursor place
+    let l = line(".")
+    let c = col(".")
+
+    " Get filetype
+    let _ft = &filetype
+
+    " Prettify based on extension
+    if _ft ==? "json"
+        silent %!python -m json.tool
+    elseif _ft == "xml"
+        call PrettyXML()
+    else
+        normal gg=G
+        Autoformat
+    endif
+
+    " Clean up spaces/tabs and restore cursor
+    call <SID>StripWsTabs()
+    call cursor(l, c)
+
+endfunction
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -236,5 +275,4 @@ iab <always> always @ (posedge aclk or negedge arstn) begin<cr><cr>if (arstn == 
 iab <fsm> localparam [3:0] IDLE = 0, STATE1 = 1;<cr>reg[3:0] state;<cr><cr>always @ (posedge aclk or negedge arstn)<cr>begin<cr>if (arstn==1'b0) begin<cr>state <= IDLE;<cr>end<cr>else begin<cr>case (state)<cr>default : begin<cr>end<cr>STATE1: begin<cr>end<cr><bs>endcase<cr><bs>end<cr><bs>end
 iab <function> function integer func(input interger i);<cr>begin<cr>end<cr>endfunction
 iab <task> task myTask;<cr>begin<cr>end<cr>endtask<cr>
-
 
