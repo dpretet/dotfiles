@@ -20,6 +20,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'hecal3/vim-leader-guide'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -43,20 +44,22 @@ vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 
 " Shortcut created and handled by Vim-leader-guide
 let g:lmap = {'name':  "",
-             \'f': [":Files",            "FZF file search"],
-             \'b': [":Buffers",          "FZF buffer search"],
-             \'s': [":BLines",           "FZF text search into current buffer"],
-             \'S': [":Lines",            "FZF text search across loaded buffers"],
-             \'g': [":BCommits",         "FZF git commits of the current buffer"],
-             \'G': [":Commits",          "FZF git commits of the repository"],
-             \'v': [':vsplit',           'Split buffer verticaly'],
-             \'h': [':split',            'Split buffer horizontaly'],
-             \'d': [':Bd',               'Close buffer, but not the panel'],
-             \'r': [':so $MYVIMRC',      'Reload vimrc without restarting Vim'],
-             \'q': [':wq',               'Write buffer and close'],
-             \'w': [':w',                'Write buffer'],
-             \'l': [':ls',               'List opened buffers'],
-             \'p': [':call Prettify()',  'Prettify the buffer'],
+             \'f': [":Files",                       "FZF file search"],
+             \'b': [":Buffers",                     "FZF buffer search"],
+             \'s': [":BLines",                      "FZF text search into current buffer"],
+             \'S': [":Lines",                       "FZF text search across loaded buffers"],
+             \'g': [":BCommits",                    "FZF git commits of the current buffer"],
+             \'G': [":Commits",                     "FZF git commits of the repository"],
+             \'v': [':vsplit',                      'Split buffer verticaly'],
+             \'h': [':split',                       'Split buffer horizontaly'],
+             \'d': [':Bd',                          'Close buffer, but not the panel'],
+             \'r': [':so $MYVIMRC',                 'Reload vimrc without restarting Vim'],
+             \'q': [':wq',                          'Write buffer and close'],
+             \'w': [':w',                           'Write buffer'],
+             \'W': [':w !sudo tee % > /dev/null',   'Write buffer with Sudo rights'],
+             \'l': [':ls',                          'List opened buffers'],
+             \'p': [':call Prettify()',             'Prettify the buffer'],
+             \'z': [':Goyo',                        'Enter in Zen mode'],
              \}
 
 
@@ -64,28 +67,71 @@ let g:lmap = {'name':  "",
 " General setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Enable 256 colors" Enable 256 colors palette in Gnome Terminal
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+
+" Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
-set wildmode=longest:full,full
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+" Always show the status line
+set laststatus=2
+
+" Display Wild menu
 set wildmenu
-set showmatch
-set ignorecase
-set smartcase
+set wildmode=longest:full,full
+
+" Display line numbers
 set number
 set numberwidth=4
+
+" Enable mouse in all modes
 set mouse=a
+
+" Use spaces instead of tabs
 set expandtab
+" Deine 1 tab = 4 spaces
 set tabstop=4
 set shiftwidth=4
 set shiftround
+
+" Display max column width recommanded
 set colorcolumn=100
-set cursorline
 highlight ColorColumn ctermbg=8
+
+" Display current line
+set cursorline
 highlight CursorLine ctermbg=8
+
+" Auto indent lines
 set autoindent
+set smartindent
+
+" Display matched bracket or parenthesis
+set showmatch
+
+" Display pattern found while typing
 set incsearch
+" Ignore case when searching
+set ignorecase
+" When searching try to be smart about cases
+set smartcase
+" Highlight search results
+set hlsearch
+
+" Disable backup and swap
 set nobackup
 set noswapfile
+
+" Auto insert comment on new line if existed in previous
 set formatoptions+=r
+
+" A buffer becomes hidden when it is abandoned
+set hid
 
 " shift-enter insert a new line
 " but do not enter in insert mode
