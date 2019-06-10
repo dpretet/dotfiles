@@ -41,8 +41,9 @@ ln -sf "$DIR/.git-prompt.sh" "$HOME/.git-prompt.sh"
 
 if [ ! -d "$HOME/.vim/bundle/Vundle" ]; then
     echo "Vim Vundle plugin is not install. Clone it"
-    echo "Then run ':PlugInstall' into Vim to install the plugins"
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    echo "Install Vim plugins"
+    vim +PluginInstall +qall
 fi
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
