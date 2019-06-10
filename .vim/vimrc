@@ -95,7 +95,7 @@ set ffs=unix,dos,mac
 set laststatus=2
 
 " Display Wild menu
-set wildmenu
+set wildmenu""
 set wildmode=longest:full,full
 
 " Display line numbers
@@ -117,11 +117,8 @@ set smartindent
 
 " Display max column width recommanded
 set colorcolumn=100
-highlight ColorColumn ctermbg=8
-
 " Display current line
 set cursorline
-highlight CursorLine ctermbg=8
 
 " Display matched bracket or parenthesis
 set showmatch
@@ -139,11 +136,11 @@ set hlsearch
 set nobackup
 set noswapfile
 
-" Auto insert comment on new line if existed in previous
+" Auto comment new line if previous one was a comment
 set formatoptions+=r
 
 " A buffer becomes hidden when it is abandoned
-set hid
+set hidden
 
 " shift-enter insert a new line
 " but do not enter in insert mode
@@ -200,15 +197,20 @@ let g:autopep8_on_save = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ScalaFMT setup
+" AutoFormat setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
+" Scala setup
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
 let g:formatters_scala = ['scalafmt']
-" let g:autoformat_autoindent = 1
-" let g:autoformat_retab = 0
-" let g:autoformat_remove_trailing_spaces = 0
 
+" Python setup
+let g:formatter_yapf_style = 'pep8'
+let g:formatters_python = ['autopep8']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File types setup
@@ -311,7 +313,7 @@ function! Prettify()
     elseif _ft == "xml"
         call PrettyXML()
     else
-        normal gg=G
+        "normal gg=G
         Autoformat
     endif
 
