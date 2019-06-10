@@ -21,6 +21,7 @@ Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'hecal3/vim-leader-guide'
 Plugin 'junegunn/goyo.vim'
+Plugin 'liuchengxu/space-vim-dark'
 
 call vundle#end()
 filetype plugin indent on
@@ -60,6 +61,7 @@ let g:lmap = {'name':  "",
              \'l': [':ls',                          'List opened buffers'],
              \'p': [':call Prettify()',             'Prettify the buffer'],
              \'z': [':Goyo',                        'Enter in Zen mode'],
+             \'t': [':terminal zsh',                'Open a Zsh terminal'],
              \}
 
 
@@ -70,6 +72,17 @@ let g:lmap = {'name':  "",
 " Enable 256 colors" Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
+endif
+
+" Color scheme
+set t_Co=256
+set background=dark
+colorscheme space-vim-dark
+
+if $TERM_PROGRAM =~ 'Terminal'
+    hi Normal     ctermbg=NONE guibg=NONE
+    hi LineNr     ctermbg=NONE guibg=NONE
+    hi SignColumn ctermbg=NONE guibg=NONE
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -98,6 +111,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set shiftround
+" Auto indent lines
+set autoindent
+set smartindent
 
 " Display max column width recommanded
 set colorcolumn=100
@@ -106,10 +122,6 @@ highlight ColorColumn ctermbg=8
 " Display current line
 set cursorline
 highlight CursorLine ctermbg=8
-
-" Auto indent lines
-set autoindent
-set smartindent
 
 " Display matched bracket or parenthesis
 set showmatch
@@ -260,8 +272,6 @@ function! PrettyXML()
     " restore the 'normal' indentation, which is one extra level
     " too deep due to the extra tags we wrapped around the document.
     silent %<
-    " back to home
-    1
 
     " restore the filetype
     exe "set ft=" . l:origft
