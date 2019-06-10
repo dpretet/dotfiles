@@ -24,6 +24,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'yuttie/comfortable-motion.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -223,6 +224,17 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_no_extensions_in_markdown = 1
 let g:vim_markdown_auto_extension_ext = 'txt'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Comfortable motion setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(20)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-20)<CR>
+
+let g:comfortable_motion_friction = 40.0
+let g:comfortable_motion_air_drag = 3.0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
