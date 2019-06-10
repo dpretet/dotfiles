@@ -22,6 +22,8 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'hecal3/vim-leader-guide'
 Plugin 'junegunn/goyo.vim'
 Plugin 'liuchengxu/space-vim-dark'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
@@ -75,7 +77,6 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 " Color scheme
-set t_Co=256
 set background=dark
 colorscheme space-vim-dark
 
@@ -211,6 +212,18 @@ let g:formatters_scala = ['scalafmt']
 " Python setup
 let g:formatter_yapf_style = 'pep8'
 let g:formatters_python = ['autopep8']
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Markdown setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_no_extensions_in_markdown = 1
+let g:vim_markdown_auto_extension_ext = 'txt'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File types setup
