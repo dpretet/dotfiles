@@ -1,28 +1,7 @@
-# Unix/Linux Configuration
+# Unix/Linux Tools Configuration
 
-Host my vim and tmux configuration, and some terminal backgrounds
+Host my Zsh, Vim, Tmux and Git configuration, wtih some terminal backgrounds
 
-Vim configuration
+To install automatically, clone then execute `install.sh`. Take care to
+first backup your rc files for these 4 tools.
 
-- use pathogen
-- use 256 colors terminal
-- enable syntax highlightenment
-- show line number
-- tab replaced by 4 spaces
-- use themes thru airline/powerline
-- ^-space: completion
-- add always/fsm/function/tasks snippets for verilog language
-- write command cleanup the file of useless spaces and retab
-
-Tmux configuration
-
-- use 256 colors terminal
-- navigate thru panes with ^b-up/down/left/right
-- split panes with ^b-v for vertical split
-- split panes with ^b-h for horzontal split
-- status bar doesn't use green color and justify the terms
-- uses resurect and continum plugin to restore sessions
-
-ZSH is pretty simple:
-
-- enable git and tmux plugin
