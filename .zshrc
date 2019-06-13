@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/damien/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -12,21 +12,22 @@ ZSH_THEME="maran"
 
 plugins=(git tmux fzf)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 alias chisel_template="sbt new seldridge/chisel-template.g8"
 alias sshferm="ssh -YC damien@192.168.100.231"
 
-export PATH=/Applications/gtkwave.app/Contents/Resources/bin/:$PATH
-export PATH=$HOME/.bin/diagrammer/:$PATH
-export PATH=$HOME/.bin/:$PATH
-export PATH=$HOME/.svut/:$PATH
-export RISCV=$HOME/.bin/riscv-tools
+export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
+export PATH="$HOME/.bin/diagrammer/:$PATH"
+export PATH="$HOME/.bin/:$PATH"
+export PATH="$HOME/.svut/:$PATH"
+export RISCV="$HOME/.bin/riscv-tools"
+
 #-------------------------------------
 # Setup FZF
 #-------------------------------------
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source "$HOME/.fzf.zsh"
 
 # Use ~~ as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER=',,'

@@ -39,6 +39,9 @@ ln -sf "$DIR/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$DIR/.git-completion.zsh" "$HOME/.git-completion.zsh"
 ln -sf "$DIR/.git-prompt.sh" "$HOME/.git-prompt.sh"
 
+echo "Create Ctags sylink"
+ln -sf "$DIR/.ctags" "$HOME/.ctags"
+
 if [ ! -d "$HOME/.vim/bundle/Vundle" ]; then
     echo "Vim Vundle plugin is not install. Clone it"
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

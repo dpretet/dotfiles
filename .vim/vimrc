@@ -24,7 +24,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'yuttie/comfortable-motion.vim'
+Plugin 'craigemery/vim-autotag'
 
 call vundle#end()
 filetype plugin indent on
@@ -65,7 +65,7 @@ let g:lmap = {'name':  "",
              \'l': [':ls',                          'List opened buffers'],
              \'p': [':call Prettify()',             'Prettify the buffer'],
              \'z': [':Goyo',                        'Enter in Zen mode'],
-             \'t': [':terminal zsh',                'Open a Zsh terminal'],
+             \'t': [':Tags',                        'FZF tag search'],
              \}
 
 
@@ -174,6 +174,21 @@ let g:fzf_action = {
 " Can be down / up / left / right
 let g:fzf_layout = { 'up': '~50%' }
 
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic setup
@@ -228,14 +243,14 @@ let g:vim_markdown_auto_extension_ext = 'txt'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Comfortable motion setup
+" CTags & Autotag setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(20)<CR>
-noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-20)<CR>
+nmap <C-T> <C-]>
+set autochdir
+set tags+=./tags;
 
-let g:comfortable_motion_friction = 40.0
-let g:comfortable_motion_air_drag = 3.0
+let g:autotagTagsFile=".tags"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
