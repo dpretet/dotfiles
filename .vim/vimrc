@@ -25,6 +25,7 @@ Plugin 'liuchengxu/space-vim-dark'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'craigemery/vim-autotag'
+Plugin 'lifepillar/vim-mucomplete'
 
 call vundle#end()
 filetype plugin indent on
@@ -190,6 +191,7 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -249,8 +251,16 @@ let g:vim_markdown_auto_extension_ext = 'txt'
 nmap <C-T> <C-]>
 set autochdir
 set tags+=./tags;
-
 let g:autotagTagsFile=".tags"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mucomplete setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:mucomplete#enable_auto_at_startup = 1
+set completeopt+=menuone
+set completeopt+=noinsert
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
