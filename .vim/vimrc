@@ -67,6 +67,7 @@ let g:lmap = {'name':  "",
              \'p': [':call Prettify()',             'Prettify the buffer'],
              \'z': [':Goyo',                        'Enter in Zen mode'],
              \'t': [':Tags',                        'FZF tag search'],
+             \'o': [':normal gf',                   'Open file under cursor'],
              \}
 
 
@@ -255,8 +256,10 @@ let g:autotagTagsFile=".tags"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mucomplete setup
+" Completion and Mucomplete setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set omnifunc=syntaxcomplete#Complete
 
 let g:mucomplete#enable_auto_at_startup = 1
 set completeopt+=menuone
