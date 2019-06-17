@@ -11,12 +11,14 @@ echo "The script will also install Oh-My-Zsh, FZF and Vundle"
 echo "  - Vundle, Vim plugin manager: https://github.com/VundleVim/Vundle.vim"
 echo "  - Oh-My-Zsh, ZSH under steroids: https://github.com/robbyrussell/oh-my-zsh"
 echo "  - FZF, a command-line fuzzy finder: https://github.com/junegunn/fzf"
+echo ""
 
 read -rp "Do you want to continue (y/n)? " answer
+echo ""
 
 case ${answer:0:1} in
     y|Y )
-        echo" Start setup"
+        echo" Start setup\n"
     ;;
     * )
         echo "Abort..."
@@ -59,6 +61,13 @@ if [ ! -d "$HOME/.fzf" ]; then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 fi
+
+echo "To use ctrl-t in Vim, install Ctags to parse easily your source code: http://ctags.sourceforge.net"
+echo ""
+
+echo "For better rendering of NerdTree display in Vim, consider to install nerd-fonts:"
+echo "https://github.com/ryanoasis/nerd-fonts#font-installation"
+echo ""
 
 echo "Install done!"
 exit 0

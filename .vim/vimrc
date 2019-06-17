@@ -26,6 +26,9 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'craigemery/vim-autotag'
 Plugin 'lifepillar/vim-mucomplete'
+Plugin 'vim-scripts/AutoClose'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()
 filetype plugin indent on
@@ -68,6 +71,7 @@ let g:lmap = {'name':  "",
              \'z': [':Goyo',                        'Enter in Zen mode'],
              \'t': [':Tags',                        'FZF tag search'],
              \'o': [':normal gf',                   'Open file under cursor'],
+             \'n': [':NERDTreeToggle',              'Open/Close NerdTree file explorer'],
              \}
 
 
@@ -91,7 +95,7 @@ if $TERM_PROGRAM =~ 'Terminal'
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf-8
+set encoding=UTF-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
