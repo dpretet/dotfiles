@@ -102,6 +102,14 @@ set ffs=unix,dos,mac
 
 " Always show the status line
 set laststatus=2
+" display on status line:
+"   - buffer number,
+"   - line number / max line
+"   - file name
+set statusline=
+set statusline+=buffer\ %n\ -
+set statusline+=\ line\ %l/%L\ -
+set statusline+=\ %f
 
 " Display Wild menu
 set wildmenu""
