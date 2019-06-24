@@ -28,6 +28,7 @@ Plugin 'craigemery/vim-autotag'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'mhinz/vim-startify'
 
 call vundle#end()
 filetype plugin indent on
@@ -57,8 +58,8 @@ let g:lmap = {'name':  "",
              \'S': [":Lines",                       "FZF text search across loaded buffers"],
              \'g': [":BCommits",                    "FZF git commits of the current buffer"],
              \'G': [":Commits",                     "FZF git commits of the repository"],
-             \'v': [':vsplit',                      'Split buffer verticaly'],
-             \'h': [':split',                       'Split buffer horizontaly'],
+             \'v': [':vsplit',                      'Split buffer vertically'],
+             \'h': [':split',                       'Split buffer horizontally'],
              \'d': [':bd',                          'Close buffer'],
              \'D': [':Bd',                          'Close buffer, but not the panel'],
              \'r': [':so $MYVIMRC',                 'Reload vimrc without restarting Vim'],
@@ -287,6 +288,40 @@ let NERDTreeQuitOnOpen = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Startify
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:ascii = [
+      \ '                        __',
+      \ '                .--.--.|__|.--------.',
+      \ '                |  |  ||  ||        |',
+      \ '                |  |  ||  ||  |  |  |',
+      \ '                 \___/ |__||__|__|__|',
+      \ '',
+      \]
+
+let g:footer_common = [
+      \ '',
+      \ 'Many shortcuts available in space bar. PRESS IT!',
+      \ '',
+      \ '  - FZF to search buffer, file, ctags, git, text pattern',
+      \ '  - Split vertically/horizontally the panel',
+      \ '  - Toggle NERDTree',
+      \ '  - Prettify buffer',
+      \ '  - Open file under cursor',
+      \ '  - Zen mode to write peacefully',
+      \ '  - list, write (force), close buffer',
+      \ '',
+      \ 'Vim: `Ctrl-w =` to resize equally panels',
+      \ 'Vim: `Ctrl-t` on word to parse ctags',
+      \ 'TMux: `Ctrl-b z` to zoom/unzoom in panel',
+      \ 'TMux: `Ctrl-b up/down/left/right` to navigate in panels',
+      \ '',
+      \]
+
+let g:startify_custom_header = g:ascii + startify#fortune#boxed() + g:footer_common
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File types setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -403,9 +438,15 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 iab <for> for (i=0;i<max;i=i+1)<cr>begin<cr>end
-iab <always> always @ (posedge aclk or negedge arstn) begin<cr><cr>if (arstn == 1'b0) begin<cr>end<cr>else begin<cr>end<cr><bs>end
-iab <fsm> localparam [3:0] IDLE = 0, STATE1 = 1;<cr>reg[3:0] state;<cr><cr>always @ (posedge aclk or negedge arstn)<cr>begin<cr>if (arstn==1'b0) begin<cr>state <= IDLE;<cr>end<cr>else begin<cr>case (state)<cr>default : begin<cr>end<cr>STATE1: begin<cr>end<cr><bs>endcase<cr><bs>end<cr><bs>end
-iab <function> function integer func(input interger i);<cr>begin<cr>end<cr>endfunction
+
+iab <always> always @ (posedge aclk or negedge arstn) begin<cr><cr>
+            \if (arstn == 1'b0) begin<cr>end<cr>else begin<cr>end<cr><bs>end
+
+iab <fsm> localparam [3:0] IDLE = 0, STATE1 = 1;<cr>reg[3:0] state;<cr><cr>
+            \always @ (posedge aclk or negedge arstn)<cr>begin<cr>if (arstn==1'b0)
+            \begin<cr>state <= IDLE;<cr>end<cr>else begin<cr>case (state)<cr>
+            \default : begin<cr>end<cr>STATE1: begin<cr>end<cr><bs>endcase<cr><bs>end<cr><bs>end
+
+iab <function> function integer myFunc(input integer i);<cr>begin<cr>end<cr>endfunction
+
 iab <task> task myTask;<cr>begin<cr>end<cr>endtask<cr>
-
-
