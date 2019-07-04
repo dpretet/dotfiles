@@ -10,7 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="maran"
 
-plugins=(git tmux fzf)
+plugins=(git tmux fzf quotify)
 
 source "$ZSH/oh-my-zsh.sh"
 
@@ -46,3 +46,10 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
+
+# Zplugin Setup
+source '/Users/damien/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+zplugin light zdharma/fast-syntax-highlighting

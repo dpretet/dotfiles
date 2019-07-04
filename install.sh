@@ -7,10 +7,11 @@ echo ""
 echo "Make sure Vim, Git, Zsh, or Tmux configuration files exist in your home folder"
 echo "All configuration files will be symlinked from this folder. Please backup first your environment before continuing"
 echo ""
-echo "The script will also install Oh-My-Zsh, FZF and Vundle"
+echo "The script will also install additional softwares"
 echo "  - Vundle, Vim plugin manager: https://github.com/VundleVim/Vundle.vim"
 echo "  - Oh-My-Zsh, ZSH under steroids: https://github.com/robbyrussell/oh-my-zsh"
 echo "  - FZF, a command-line fuzzy finder: https://github.com/junegunn/fzf"
+echo "  - Zplugin: https://github.com/zdharma/zplugin"
 echo ""
 
 read -rp "Do you want to continue (y/n)? " answer
@@ -60,6 +61,11 @@ if [ ! -d "$HOME/.fzf" ]; then
     echo "Install FZF"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
+fi
+
+if [ ! -d "$HOME/.zplugin" ]; then
+    echo "Install Zplugin"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 fi
 
 echo "To use ctrl-t in Vim, install Ctags to parse easily your source code: http://ctags.sourceforge.net"
