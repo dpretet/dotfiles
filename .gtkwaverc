@@ -1,0 +1,47 @@
+# Highlight wave line when signal line selected
+highlight_wavewindow no
+
+accel "/Time/Zoom/Zoom In" c
+accel "/Time/Zoom/Zoom Out" o
+accel "/Time/Zoom/Zoom Full" f
+accel "/Edit/Create Group" g
+accel "/Edit/Toggle Group Open|Close" t
+accel "/Markers/Find Previous Edge" p
+accel "/Markers/Find Next Edge" n
+
+#
+# color additions
+#
+color_back   000000
+color_baseline ffffff
+color_grid   202070
+color_grid2  6a5acd
+color_high   79f6f2
+color_low    5dbebb
+color_1      00ff00
+color_0      008000
+color_trans  00c000
+color_mid    c0c000
+
+color_value  ffffff
+color_vbox   00ff00
+color_vtrans 00c000
+
+color_x      ff0000
+color_xfill  400000
+color_u      cc0000
+color_ufill  200000
+color_w      79f6f2
+color_wfill  3f817f
+color_dash   edf508
+color_dashfill 7d8104
+
+color_umark  ff8080
+color_mark   ffff80
+
+color_time   ffffff
+color_timeb  000000
+
+color_brkred cc0000
+color_ltblue 5dbebb
+color_gmstrd 7d8104

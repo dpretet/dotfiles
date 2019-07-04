@@ -42,8 +42,11 @@ ln -sf "$DIR/.gitconfig" "$HOME/.gitconfig"
 ln -sf "$DIR/.git-completion.zsh" "$HOME/.git-completion.zsh"
 ln -sf "$DIR/.git-prompt.sh" "$HOME/.git-prompt.sh"
 
-echo "Create Ctags sylink"
+echo "Create Ctags symlink"
 ln -sf "$DIR/.ctags" "$HOME/.ctags"
+
+echo "Create GtKWaverc symlink"
+ln -sf "$DIR/.gtkwaverc" "$HOME/.gtkwaverc"
 
 if [ ! -d "$HOME/.vim/bundle/Vundle" ]; then
     echo "Vim Vundle plugin is not install. Clone it"
@@ -68,7 +71,7 @@ if [ ! -d "$HOME/.zplugin" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
 fi
 
-echo "To use ctrl-t in Vim, install Ctags to parse easily your source code: http://ctags.sourceforge.net"
+echo "To use ctrl-t/o in Vim, install Exuberant Ctags to parse easily your source code: http://ctags.sourceforge.net"
 echo ""
 
 echo "For better rendering of NerdTree display in Vim, consider to install nerd-fonts:"
