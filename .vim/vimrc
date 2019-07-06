@@ -29,6 +29,7 @@ Plugin 'lifepillar/vim-mucomplete'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'mhinz/vim-startify'
+Plugin 'damofthemoon/vim-svtb'
 
 call vundle#end()
 filetype plugin indent on
