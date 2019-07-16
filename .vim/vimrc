@@ -30,6 +30,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'mhinz/vim-startify'
 Plugin 'damofthemoon/vim-svtb'
+Plugin 'junegunn/rainbow_parentheses.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -288,6 +289,13 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Rainbow Paranthesis
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+au VimEnter * RainbowParentheses
+let g:rainbow#max_level = 16
+let g:rainbow#pairs = [['(', ')'], ['[', ']']]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Startify
