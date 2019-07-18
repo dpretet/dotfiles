@@ -22,6 +22,8 @@ export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export RISCV="$HOME/.bin/riscv-tools"
 
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 #-------------------------------------
 # Setup FZF
 #-------------------------------------

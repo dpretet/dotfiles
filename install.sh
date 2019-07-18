@@ -48,11 +48,11 @@ ln -sf "$DIR/.ctags" "$HOME/.ctags"
 echo "Create GtKWaverc symlink"
 ln -sf "$DIR/.gtkwaverc" "$HOME/.gtkwaverc"
 
-if [ ! -d "$HOME/.vim/bundle/Vundle" ]; then
-    echo "Vim Vundle plugin is not install. Clone it"
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
+    echo "Vim-plugin is not install. Clone it"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     echo "Install Vim plugins"
-    vim +PluginInstall +qall
+    vim +PlugInstall +qall
 fi
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

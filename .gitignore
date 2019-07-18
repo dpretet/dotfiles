@@ -1,3 +1,5 @@
 .DS_Store
 .vim/bundle
 .vim/.netrwhist
+.vim/autoload
+.vim/plugged

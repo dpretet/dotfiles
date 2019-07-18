@@ -1,38 +1,40 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin management, handled by Vundle
+" Plugin management, handled by Vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'scrooloose/syntastic'
-Plugin 'vhda/verilog_systemverilog.vim'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'tpope/vim-sensible'
-Plugin 'tomlion/vim-solidity'
-Plugin 'keith/swift.vim'
-Plugin 'posva/vim-vue'
-Plugin 'junegunn/fzf.vim'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'vim-scripts/AnsiEsc.vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'hecal3/vim-leader-guide'
-Plugin 'junegunn/goyo.vim'
-Plugin 'liuchengxu/space-vim-dark'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'craigemery/vim-autotag'
-Plugin 'lifepillar/vim-mucomplete'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'mhinz/vim-startify'
-Plugin 'damofthemoon/vim-svtb'
-Plugin 'junegunn/rainbow_parentheses.vim'
+call plug#begin('~/.vim/plugged')
 
-call vundle#end()
+Plug 'scrooloose/syntastic'
+Plug 'vhda/verilog_systemverilog.vim'
+Plug 'tell-k/vim-autopep8'
+Plug 'derekwyatt/vim-scala'
+Plug 'tpope/vim-sensible'
+Plug 'tomlion/vim-solidity'
+Plug 'keith/swift.vim'
+Plug 'posva/vim-vue'
+Plug 'junegunn/fzf.vim'
+Plug 'Chiel92/vim-autoformat'
+Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'hecal3/vim-leader-guide'
+Plug 'junegunn/goyo.vim'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'craigemery/vim-autotag'
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
+Plug 'sharkdp/bat'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'damofthemoon/vim-svtb'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
 filetype plugin indent on
 
 
@@ -162,6 +164,12 @@ set formatoptions+=r
 " A buffer becomes hidden when it is abandoned
 set hidden
 
+" always show signcolumns
+set signcolumn=yes
+
+" Better display for messages
+set cmdheight=2
+
 " shift-enter insert a new line
 " but do not enter in insert mode
 nmap <S-Enter> O<Esc>j
@@ -271,14 +279,72 @@ let g:autotagTagsFile="./tags"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Completion and Mucomplete setup
+" Coc setup (Conquer of completion)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set omnifunc=syntaxcomplete#Complete
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
 
-let g:mucomplete#enable_auto_at_startup = 1
-set completeopt+=menuone
-set completeopt+=noinsert
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -289,6 +355,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rainbow Paranthesis
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -296,6 +363,7 @@ let NERDTreeQuitOnOpen = 1
 au VimEnter * RainbowParentheses
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']']]
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Startify
@@ -310,7 +378,7 @@ let g:ascii = [
       \ '',
       \]
 
-let g:footer_common = [
+let g:footer = [
       \ '',
       \ 'Many shortcuts available in space bar. PRESS IT!',
       \ '',
@@ -334,7 +402,7 @@ let g:footer_common = [
       \ '',
       \]
 
-let g:startify_custom_header = g:ascii + startify#fortune#boxed() + g:footer_common
+let g:startify_custom_header = g:ascii + startify#fortune#boxed() + g:footer
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File types setup
@@ -370,7 +438,7 @@ let g:vue_disable_pre_processors=1
 " Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Pretiffy a XML file
+" Pretiffy XML
 function! PrettyXML()
 
     " save the filetype so we can restore it later
