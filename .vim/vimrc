@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin management, handled by Vim-plug
+" Plugin management, managed by Vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
@@ -7,7 +7,7 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tell-k/vim-autopep8'
 Plug 'derekwyatt/vim-scala'
@@ -30,7 +30,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'sharkdp/bat'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'damofthemoon/vim-svtb'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -39,7 +38,7 @@ filetype plugin indent on
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Leader key setup, handled with vim-leader-guide plugin
+" Leader key setup, handled with vim-leader-guide
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use space bar as leader key
@@ -76,6 +75,7 @@ let g:lmap = {'name':  "",
              \'t': [':Tags',                        'FZF tag search'],
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
+             \'i': [':call PrintWorkflowInfo()',    'Print information about usual commands'],
              \}
 
 
@@ -244,9 +244,9 @@ let g:autopep8_on_save = 1
 " AutoFormat setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
+let g:autoformat_autoindent = 1
+let g:autoformat_retab = 1
+let g:autoformat_remove_trailing_spaces = 1
 
 " Scala setup
 let g:formatdef_scalafmt = "'scalafmt --stdin'"
@@ -283,9 +283,10 @@ let g:autotagTagsFile="./tags"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " You will have bad experience for diagnostic messages when it's default 4000.
+" Reduce also linting slowness
 set updatetime=300
 
-" don't give |ins-completion-menu| messages.
+" Don't give |ins-completion-menu| messages.
 set shortmess+=c
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -369,40 +370,29 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']']]
 " Startify
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ascii = [
-      \ '                        __',
-      \ '                .--.--.|__|.--------.',
-      \ '                |  |  ||  ||        |',
-      \ '                |  |  ||  ||  |  |  |',
-      \ '                 \___/ |__||__|__|__|',
-      \ '',
+let g:_ascii = [
+            \'   ',
+            \'           _/      _/  _/                 ',
+            \'          _/      _/      _/_/_/  _/_/    ',
+            \'         _/      _/  _/  _/    _/    _/   ',
+            \'          _/  _/    _/  _/    _/    _/    ',
+            \'           _/      _/  _/    _/    _/     ',
+            \'   ',
+            \]
+
+
+
+let g:_footer = [
+      \ ' ',
+      \ 'Many shortcuts are available with space bar. PRESS IT!',
+      \ '<space>i provides information about usual workflow',
       \]
 
-let g:footer = [
-      \ '',
-      \ 'Many shortcuts available in space bar. PRESS IT!',
-      \ '',
-      \ '  - FZF to search buffer, file, ctags, git, text pattern',
-      \ '  - Split vertically/horizontally the panel',
-      \ '  - Toggle NERDTree',
-      \ '  - Prettify buffer',
-      \ '  - Open file under cursor',
-      \ '  - Zen mode to write peacefully',
-      \ '  - list, write (force), close buffer',
-      \ '',
-      \ 'Other commands among Vim and TMux:',
-      \ '',
-      \ '  - Vim: w/b: jump forward/backward word, e: word end',
-      \ '  - Vim: )/(: jump forward/backward phrase, }/{: jump forward/backward paragraph',
-      \ '  - Vim: H/M/L: jump to the high/middle/low of the screen',
-      \ '  - Vim: `Ctrl-w =` to resize equally panels',
-      \ '  - Vim: `Ctrl-t` on word to parse ctags',
-      \ '  - TMux: `Ctrl-b z` to zoom/unzoom in panel',
-      \ '  - TMux: `Ctrl-b up/down/left/right` to navigate in panels',
-      \ '',
-      \]
+let g:startify_lists = [
+          \ { 'type': 'files',     'header': ['   MRU']            },
+          \ ]
 
-let g:startify_custom_header = g:ascii + startify#fortune#boxed() + g:footer
+let g:startify_custom_header = g:_ascii + startify#fortune#boxed() + g:_footer
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " File types setup
@@ -433,6 +423,8 @@ autocmd FileType vue syntax sync fromstart
 autocmd BufRead, BufNewFile *.vue setlocal filetype=vue.html.javascript.css
 let g:vue_disable_pre_processors=1
 
+" Configuration for vim-scala
+au BufRead,BufNewFile *.sbt set filetype=scala
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
@@ -515,6 +507,39 @@ function! Prettify()
 
 endfunction
 
+function! PrintWorkflowInfo()
+
+    let _info = [
+      \ ' ',
+      \ 'Many shortcuts available in space bar. PRESS IT!',
+      \ '',
+      \ '  - FZF to search buffer, file, ctags, git, text pattern',
+      \ '  - Split vertically/horizontally the panel',
+      \ '  - Toggle NERDTree',
+      \ '  - Prettify buffer',
+      \ '  - Open file under cursor',
+      \ '  - Zen mode to write peacefully',
+      \ '  - list, write (force), close buffer',
+      \ ' ',
+      \ 'Other commands among Vim and TMux:',
+      \ '',
+      \ '  - Vim: w/b: jump forward/backward word, e: word end',
+      \ '  - Vim: )/(: jump forward/backward phrase, }/{: jump forward/backward paragraph',
+      \ '  - Vim: H/M/L: jump to the high/middle/low of the screen',
+      \ '  - Vim: `Ctrl-w =` to resize equally panels',
+      \ '  - Vim: `Ctrl-t` on word to parse ctags, Ctrl-o to go back',
+      \ '  - TMux: `Ctrl-b z` to zoom/unzoom in panel',
+      \ '  - TMux: `Ctrl-b up/down/left/right` to navigate in panels',
+      \ ' ',
+      \]
+
+    let i = 0
+    while (i < len(_info))
+        echo _info[i]
+        let i += 1
+    endwhile
+
+endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Verilog snippet
