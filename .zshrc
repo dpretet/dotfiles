@@ -55,3 +55,7 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 zplugin light zdharma/fast-syntax-highlighting
+
+function calc() {
+    echo $[$1]
+}
