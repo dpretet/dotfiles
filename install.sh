@@ -56,7 +56,7 @@ if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
 fi
 
 echo "Install Vim coc extensions"
-vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml coc-java coc-scala coc-vimlsp coc-git +qall
+vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml coc-java coc-scala coc-vimlsp coc-tabnine +qall
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Install Oh-My-Zsh"

@@ -83,7 +83,7 @@ let g:lmap = {'name':  "",
 " General setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable 256 colors" Enable 256 colors palette in Gnome Terminal
+" Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
