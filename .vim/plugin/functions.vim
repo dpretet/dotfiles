@@ -45,7 +45,6 @@ function! StripWsTabs()
 
     " Clean up spaces/tabs
     retab
-    %s/\t/    /e
     %s/\s\+$//e
 
     " Restore cursor
