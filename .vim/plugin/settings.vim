@@ -37,6 +37,7 @@ let g:lmap = {'name':  "",
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
              \'i': [':call PrintWorkflowInfo()',    'Print information about usual commands'],
+             \'c': [':call CommentToggle()',        'Comment/Uncomment visual selection'],
              \}
 
 
