@@ -36,6 +36,7 @@ function! PrettyXML()
 
 endfunction
 
+
 " Remove useless white spaces and convert tabs
 function! StripWsTabs()
 
@@ -51,6 +52,7 @@ function! StripWsTabs()
     call cursor(l, c)
 
 endfunction
+
 
 " Prettify a buffer
 function! Prettify()
@@ -78,6 +80,8 @@ function! Prettify()
 
 endfunction
 
+
+" Print tips and useful commands
 function! PrintWorkflowInfo()
 
     let _info = [
@@ -111,6 +115,7 @@ function! PrintWorkflowInfo()
     endwhile
 
 endfunction
+
 
 " Run PlugUpdate every week automatically when entering Vim.
 function! OnVimEnter() abort
