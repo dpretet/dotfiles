@@ -22,3 +22,5 @@ let g:vue_disable_pre_processors=1
 " Configuration for Scala SBT build files
 au BufRead,BufNewFile *.sbt set filetype=scala
 
+" Use Scala style comments instead of Java style
+let g:scala_scaladoc_indent = 1

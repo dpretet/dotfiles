@@ -60,12 +60,12 @@ let g:autopep8_on_save = 1
 " AutoFormat setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:autoformat_autoindent = 1
-let g:autoformat_retab = 1
-let g:autoformat_remove_trailing_spaces = 1
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
 
 " Scala setup
-let g:formatdef_scalafmt = "'scalafmt --stdin'"
+let g:formatdef_scalafmt = '"scalafmt --stdin 2>/dev/null"'
 let g:formatters_scala = ['scalafmt']
 
 " Python setup
