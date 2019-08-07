@@ -67,6 +67,7 @@ let g:autoformat_remove_trailing_spaces = 0
 " Scala setup
 let g:formatdef_scalafmt = '"scalafmt --stdin 2>/dev/null"'
 let g:formatters_scala = ['scalafmt']
+let g:scala_scaladoc_indent = 1
 
 " Python setup
 let g:formatter_yapf_style = 'pep8'
