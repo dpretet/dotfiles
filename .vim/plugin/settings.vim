@@ -142,3 +142,8 @@ command Bd bp | sp | bn | bd
 
 " Strip whitespaces and tabs on buffer write
 autocmd BufWritePre <buffer> :call StripWsTabs()
+
+" histogram-based diff
+if has('nvim-0.3.2') || has("patch-8.1.0360")
+    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+endif
