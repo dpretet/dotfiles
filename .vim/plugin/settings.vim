@@ -153,3 +153,6 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " Control-c remove hightlighted search
 nnoremap <silent> <C-c> :noh<cr>
+
+" Indent wrapped lines
+set breakindent
