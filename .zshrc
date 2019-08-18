@@ -14,6 +14,8 @@ plugins=(git tmux fzf quotify)
 
 source "$ZSH/oh-my-zsh.sh"
 
+bindkey -v
+
 alias chisel_template="sbt new seldridge/chisel-template.g8"
 
 export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
