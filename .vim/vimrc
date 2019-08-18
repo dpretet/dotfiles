@@ -7,6 +7,10 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
+" Theme
+Plug 'liuchengxu/space-vim-dark'
+Plug 'ayu-theme/ayu-vim'
+" Languages
 Plug 'vim-syntastic/syntastic'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tell-k/vim-autopep8'
@@ -15,22 +19,21 @@ Plug 'tpope/vim-sensible'
 Plug 'tomlion/vim-solidity'
 Plug 'keith/swift.vim'
 Plug 'posva/vim-vue'
-Plug 'junegunn/fzf.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
+" Setup
+Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/AnsiEsc.vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'hecal3/vim-leader-guide'
 Plug 'junegunn/goyo.vim'
-Plug 'liuchengxu/space-vim-dark'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'craigemery/vim-autotag'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'sharkdp/bat'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -44,7 +47,7 @@ source ~/.vim/plugin/snippets.vim
 source ~/.vim/plugin/files.vim
 
 " Open templates when editing a new file.
-" Setup here else the template loaded is written twice 
+" Setup here else the template loaded is written twice
 " in the new file (previously was in files.vim).
 au bufNewFile *.cpp 0r      ~/.vim/templates/template.cpp
 au bufNewFile *.h 0r        ~/.vim/templates/template.h

@@ -52,7 +52,9 @@ endif
 
 " Color scheme
 set background=dark
-colorscheme space-vim-dark
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " light and mirage available
+colorscheme ayu
 
 if $TERM_PROGRAM =~ 'Terminal'
     hi Normal     ctermbg=NONE guibg=NONE
