@@ -12,6 +12,7 @@ echo "  - Vundle, Vim plugin manager: https://github.com/VundleVim/Vundle.vim"
 echo "  - Oh-My-Zsh, ZSH under steroids: https://github.com/robbyrussell/oh-my-zsh"
 echo "  - FZF, a command-line fuzzy finder: https://github.com/junegunn/fzf"
 echo "  - Zplugin: https://github.com/zdharma/zplugin"
+echo "  - SVUT: git@github.com:damofthemoon/svut.git"
 echo ""
 
 read -rp "Do you want to continue (y/n)? " answer
@@ -57,6 +58,11 @@ fi
 
 echo "Install Vim coc extensions"
 vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml coc-java coc-scala coc-vimlsp coc-tabnine +qall
+
+if [ ! -d "$HOME/.svut" ]; then
+    echo "Clone SVUT"
+    git clone git@github.com:damofthemoon/svut.git "$HOME/.svut"
+fi
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Install Oh-My-Zsh"
