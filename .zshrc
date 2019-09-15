@@ -1,29 +1,43 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+#-------------------------------------
+# Setup Zsh
+#-------------------------------------
 
-# Path to your oh-my-zsh installation.
+# Oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="kennethreitz"
-
 plugins=(git tmux fzf quotify)
-
 source "$ZSH/oh-my-zsh.sh"
 
-bindkey -v
+# History
+HISTSIZE=999999
+SAVEHIST=999999
+setopt hist_verify             # Show command with history expansion to user before running it
+setopt share_history           # Share command history data
+setopt extended_history        # Record timestamp of command in HISTFILE
+setopt hist_ignore_dups        # Ignore duplicated commands history list
+setopt inc_append_history      # Add commands to HISTFILE in order of execution
+setopt hist_expire_dups_first  # Delete duplicates first when HISTFILE size exceeds HISTSIZE
 
-alias chisel_template="sbt new seldridge/chisel-template.g8"
+# Autocompletion
+setopt auto_menu         # Show completion menu on successive tab press
+setopt always_to_end     # Move cursor to end of word if completed in-word
+setopt complete_in_word
+ZSH_CACHE_DIR=$HOME/.cache/zsh
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
+autoload -U compinit && compinit -u -d ${XDG_CACHE_HOME:-~/.cache}/zsh/zcompdump-$ZSH_VERSION
+
+# Miscellaneous
+bindkey -v
+unsetopt flowcontrol       # Disable Ctrl-S + Ctrl-Q
+unsetopt menu_complete     # Do not autoselect the first completion entry
 
 export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
-export PATH="$HOME/.bin/diagrammer/:$PATH"
-export PATH="$HOME/.bin/:$PATH"
-export PATH="$HOME/.svut/:$PATH"
-export RISCV="$HOME/.bin/riscv-tools"
-
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 #-------------------------------------
@@ -51,13 +65,21 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-# Zplugin Setup
+#-------------------------------------
+# Setup Zplugin
+#-------------------------------------
+
 source '/Users/damien/.zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 zplugin light zdharma/fast-syntax-highlighting
 
+#-------------------------------------
+# Miscellaneous
+#-------------------------------------
+
+# Function to calculate into the shell
 function calc() {
     echo $[$1]
 }
