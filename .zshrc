@@ -5,7 +5,7 @@
 # Oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="kennethreitz"
-plugins=(git tmux fzf quotify)
+plugins=(git fzf quotify)
 source "$ZSH/oh-my-zsh.sh"
 
 # History
@@ -83,3 +83,10 @@ zplugin light zdharma/fast-syntax-highlighting
 function calc() {
     echo $[$1]
 }
+
+# TMux alias (similar to Tmux plugin)
+alias ta='tmux attach -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
