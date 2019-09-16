@@ -138,7 +138,7 @@ nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>k
 
 " Close a buffer, but not the panel
-command Bd bp | sp | bn | bd
+command! Bd bp | sp | bn | bd
 
 " Strip whitespaces and tabs on buffer write
 autocmd BufWritePre <buffer> :call StripWsTabs()
