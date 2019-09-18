@@ -33,6 +33,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'sharkdp/bat'
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'mjbrownie/swapit'
 
 call plug#end()
 
