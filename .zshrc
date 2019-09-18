@@ -90,3 +90,6 @@ alias ts='tmux new-session -s'
 alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
+
+# Youtube MP3 Download
+alias youtubeMp3="youtube-dl -f bestaudio $1 --extract-audio --audio-format mp3"
