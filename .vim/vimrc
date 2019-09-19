@@ -56,3 +56,6 @@ au bufNewFile *.html 0r     ~/.vim/templates/template.html
 au bufNewFile *.py 0r       ~/.vim/templates/template.py
 au bufNewFile *.scala 0r    ~/.vim/templates/template.scala
 
+
+" Colorize ANSI escape codes by default
+autocmd BufRead *.{log,txt} AnsiEsc
