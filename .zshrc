@@ -1,46 +1,112 @@
+#!/usr/bin/env zsh
+
 #-------------------------------------
 # Setup Zsh
 #-------------------------------------
 
-# Oh-my-zsh
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="kennethreitz"
-plugins=(git fzf quotify)
-source "$ZSH/oh-my-zsh.sh"
+# Misc. aliases
 
-# History
-HISTSIZE=999999
-SAVEHIST=999999
-setopt hist_verify             # Show command with history expansion to user before running it
-setopt share_history           # Share command history data
-setopt extended_history        # Record timestamp of command in HISTFILE
-setopt hist_ignore_dups        # Ignore duplicated commands history list
-setopt inc_append_history      # Add commands to HISTFILE in order of execution
-setopt hist_expire_dups_first  # Delete duplicates first when HISTFILE size exceeds HISTSIZE
+# ls aliases relying on k plugin
+alias ls="k --no-vcs -h"
+alias ll="ls"
+alias l="ls"
+alias la="ls -A"
 
-# Autocompletion
-setopt auto_menu         # Show completion menu on successive tab press
-setopt always_to_end     # Move cursor to end of word if completed in-word
+alias compress="tar -cjf"
+alias uncompress="tar -xjf"
+
+alias rm="rm -r"
+alias cp="cp -r"
+
+alias pretty_json="python3 -m json.tool "
+
+# Tmux aliases
+alias ta='tmux attach -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
+
+# Colorize output and some exclusions
+alias grep="grep --color=auto --exclude-dir={.git,.gitignore,.metals}"
+
+# Misc. setup
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+export CLICOLOR=1
+export EDITOR=vim
+export KEYTIMEOUT=1
+export QUOTING_STYLE=literal
+export TERM=xterm-256color
+
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+
+autoload -U compinit && compinit
+zmodload -i zsh/complist
+
+unsetopt menu_complete
+unsetopt flowcontrol
+
+autoload colors; colors
+setopt prompt_subst
+setopt always_to_end
+setopt append_history
+setopt auto_menu
 setopt complete_in_word
-ZSH_CACHE_DIR=$HOME/.cache/zsh
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' matcher-list 'r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
-autoload -U compinit && compinit -u -d ${XDG_CACHE_HOME:-~/.cache}/zsh/zcompdump-$ZSH_VERSION
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt interactivecomments
+setopt share_history
 
-# Miscellaneous
+# Vim key binding
 bindkey -v
-unsetopt flowcontrol       # Disable Ctrl-S + Ctrl-Q
-unsetopt menu_complete     # Do not autoselect the first completion entry
+# Restore Emacs-like line navigation
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
 
-export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home)
 
-#-------------------------------------
+# -----------------------------------
+# Setup Zplugin (Always source last)
+# ----------------------------------
+
+source '/Users/damien/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+# Apply Pure theme
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
+
+# Some completions
+zplugin ice wait"0" blockf
+zplugin light "zsh-users/zsh-completions"
+zplugin light "zsh-users/zsh-autosuggestions"
+zplugin load "zdharma/history-search-multi-word"
+
+# Syntax highlighting
+zplugin light "zdharma/fast-syntax-highlighting"
+
+# Enhanced ls
+zplugin load "supercrabtree/k"
+
+# Personal quote printer plugin
+source "$HOME/.dotfiles/quotify/quotify.plugin.zsh"
+
+
+#------------------------------------
 # Setup FZF
 #-------------------------------------
 
@@ -53,9 +119,6 @@ export FZF_COMPLETION_TRIGGER=',,'
 export FZF_COMPLETION_OPTS='+c -x'
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
   fd --hidden --follow --exclude ".git" . "$1"
 }
@@ -65,15 +128,6 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-#-------------------------------------
-# Setup Zplugin
-#-------------------------------------
-
-source '/Users/damien/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-
-zplugin light zdharma/fast-syntax-highlighting
 
 #-------------------------------------
 # Miscellaneous
@@ -91,5 +145,14 @@ alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
-# Youtube MP3 Download
+# Youtube MP3 Download (brew install youtube-dl
 alias youtubeMp3="youtube-dl -f bestaudio $1 --extract-audio --audio-format mp3"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# To launch GTKWave with command line
+export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
+
+# Setup Java home and max memory during SBT compilation
+export JAVA_HOME=$(/usr/libexec/java_home)
+export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -Xss256M -Xmx2G -Duser.timezone=GMT"

@@ -9,7 +9,6 @@ echo "All configuration files will be symlinked from this folder. Please backup 
 echo ""
 echo "The script will also install additional softwares"
 echo "  - Vundle, Vim plugin manager: https://github.com/VundleVim/Vundle.vim"
-echo "  - Oh-My-Zsh, ZSH under steroids: https://github.com/robbyrussell/oh-my-zsh"
 echo "  - FZF, a command-line fuzzy finder: https://github.com/junegunn/fzf"
 echo "  - Zplugin: https://github.com/zdharma/zplugin"
 echo "  - SVUT: git@github.com:damofthemoon/svut.git"
@@ -62,11 +61,6 @@ vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml coc-java coc-
 if [ ! -d "$HOME/.svut" ]; then
     echo "Clone SVUT"
     git clone git@github.com:damofthemoon/svut.git "$HOME/.svut"
-fi
-
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Install Oh-My-Zsh"
-    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
 if [ ! -d "$HOME/.fzf" ]; then
