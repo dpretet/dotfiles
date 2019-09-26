@@ -103,7 +103,7 @@ zplugin light "zdharma/fast-syntax-highlighting"
 zplugin load "supercrabtree/k"
 
 # Personal quote printer plugin
-source "$HOME/.dotfiles/quotify/quotify.plugin.zsh"
+zplugin load "damofthemoon/zsh-quotify"
 
 
 #------------------------------------
