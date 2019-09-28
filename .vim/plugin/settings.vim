@@ -79,8 +79,8 @@ set statusline+=buffer\ %n\ -
 set statusline+=\ line\ %l/%L\ -
 set statusline+=\ %f
 
-" Display Wild menu
-set wildmenu""
+" Display wild menu
+set wildmenu
 set wildmode=longest:full,full
 
 " Display line numbers
@@ -157,3 +157,9 @@ nnoremap <silent> <C-c> :noh<cr>
 
 " Indent wrapped lines
 set breakindent
+
+" Search down into subfolders
+" Provides tab completion for all file-related tasks
+set path+=**
+
+command! MakeCtags !ctags -o tags .
