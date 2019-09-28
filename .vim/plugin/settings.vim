@@ -7,9 +7,6 @@
 nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
 
-" Shorten plugin display time when pressing space
-set timeoutlen=1
-
 " Make the menu to pop up when pressing space
 call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
@@ -70,8 +67,8 @@ set ffs=unix,dos,mac
 " Always show the status line
 set laststatus=2
 
-" display on status line:
-"   - buffer number,
+" Display on status line:
+"   - buffer number
 "   - line number / max line
 "   - file name
 set statusline=
@@ -92,10 +89,11 @@ set mouse=a
 
 " Use spaces instead of tabs
 set expandtab
-" Deine 1 tab = 4 spaces
+" Define 1 tab = 4 spaces
 set tabstop=4
 set shiftwidth=4
 set shiftround
+
 " Auto indent lines
 set autoindent
 set smartindent
@@ -150,7 +148,7 @@ if has('nvim-0.3.2') || has("patch-8.1.0360")
 endif
 
 " Reduce delay when pressing ESC
-set timeoutlen=10 ttimeoutlen=0
+set timeoutlen=1 ttimeoutlen=0
 
 " Control-c remove hightlighted search
 nnoremap <silent> <C-c> :noh<cr>
@@ -162,4 +160,11 @@ set breakindent
 " Provides tab completion for all file-related tasks
 set path+=**
 
+" Command to create ctags
 command! MakeCtags !ctags -o tags .
+
+" Allow access to external clipboard
+set clipboard+=unnamed
+
+" Built-in omni completion setup
+set omnifunc=syntaxcomplete#Complete
