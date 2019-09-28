@@ -13,7 +13,7 @@ let g:fzf_action = {
 
 " Open FZF in the middle of the screen.
 " Can be down / up / left / right
-let g:fzf_layout = { 'up': '~50%' }
+let g:fzf_layout = { 'down': '~50%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -91,7 +91,6 @@ let g:vim_markdown_auto_extension_ext = 'txt'
 
 nmap <C-T> <C-]>
 set tags=./tags;
-
 let g:autotagTagsFile="./tags"
 
 
@@ -119,15 +118,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
-
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
@@ -156,12 +148,12 @@ xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
+" Add status line support
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 

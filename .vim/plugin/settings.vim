@@ -1,4 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Leader key setup, handled with vim-leader-guide
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -149,7 +150,7 @@ if has('nvim-0.3.2') || has("patch-8.1.0360")
 endif
 
 " Reduce delay when pressing ESC
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=10 ttimeoutlen=0
 
 " Control-c remove hightlighted search
 nnoremap <silent> <C-c> :noh<cr>
