@@ -117,7 +117,7 @@ function! PrintWorkflowInfo()
 endfunction
 
 
-" Run PlugUpdate every week automatically when entering Vim.
+" Run updates every week automatically when entering Vim.
 function! OnVimEnter() abort
     if exists('g:plug_home')
         let l:filename = printf('%s/.vim_plug_update', g:plug_home)
