@@ -51,6 +51,8 @@ endif
 " Color scheme
 set background=dark
 colorscheme space-vim-dark
+" Enable true colors
+set termguicolors
 
 if $TERM_PROGRAM =~ 'Terminal'
     hi Normal     ctermbg=NONE guibg=NONE
