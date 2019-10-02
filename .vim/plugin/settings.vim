@@ -51,8 +51,6 @@ endif
 " Color scheme
 set background=dark
 colorscheme space-vim-dark
-" Enable true colors
-set termguicolors
 
 if $TERM_PROGRAM =~ 'Terminal'
     hi Normal     ctermbg=NONE guibg=NONE
@@ -122,6 +120,7 @@ set nobackup
 set noswapfile
 
 " Auto comment new line if previous one was a comment
+" (if was editing then <cr> or if inserting with normal o
 set formatoptions+=r
 
 " A buffer becomes hidden when it is abandoned
@@ -167,6 +166,3 @@ command! MakeCtags !ctags -o tags .
 
 " Allow access to external clipboard
 set clipboard+=unnamed
-
-" Built-in omni completion setup
-set omnifunc=syntaxcomplete#Complete

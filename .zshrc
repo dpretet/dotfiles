@@ -156,3 +156,8 @@ export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
 # Setup Java home and max memory during SBT compilation
 export JAVA_HOME=$(/usr/libexec/java_home)
 export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -Xss256M -Xmx2G -Duser.timezone=GMT"
+
+# Setup Go env, used only for coc.vim efm-langserver purpose
+export GOPATH=$HOME/.go
+# Source $GO/bin to call efm-langserver executable
+export PATH=$HOME/.go/bin/:$PATH

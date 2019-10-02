@@ -34,7 +34,6 @@ Plug 'mhinz/vim-startify'
 Plug 'sharkdp/bat'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mjbrownie/swapit'
-Plug 'ajh17/VimCompletesMe'
 
 call plug#end()
 
