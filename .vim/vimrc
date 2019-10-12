@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 " Theme
 Plug 'liuchengxu/space-vim-dark'
+Plug 'cocopon/iceberg.vim'
 " Languages
 Plug 'vim-syntastic/syntastic'
 Plug 'vhda/verilog_systemverilog.vim'

@@ -128,6 +128,9 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+# Follow symbolic links, and don't want it to exclude hidden files
+# Respect Git ignore file setup
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
 #-------------------------------------
 # Miscellaneous
@@ -161,3 +164,4 @@ export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -Xss256M -Xmx2G -Duser.timezone=G
 export GOPATH=$HOME/.go
 # Source $GO/bin to call efm-langserver executable
 export PATH=$HOME/.go/bin/:$PATH
+export PATH="/usr/local/sbin:$PATH"

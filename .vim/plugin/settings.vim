@@ -50,7 +50,8 @@ endif
 
 " Color scheme
 set background=dark
-colorscheme space-vim-dark
+
+colorscheme iceberg
 
 if $TERM_PROGRAM =~ 'Terminal'
     hi Normal     ctermbg=NONE guibg=NONE
