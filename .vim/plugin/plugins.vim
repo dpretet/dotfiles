@@ -33,20 +33,6 @@ let g:fzf_colors =
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
-let g:syntastic_loc_list_height = 3
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autopep8 setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
