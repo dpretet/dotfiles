@@ -1,4 +1,9 @@
 {
+    "codeLens.enable": true,
+    "diagnostic.errorSign": "✘",
+    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "",
+    "suggest.noselect": true,
     "languageserver": {
         "metals": {
             "command": "metals-vim",
