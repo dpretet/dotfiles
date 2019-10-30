@@ -5,7 +5,7 @@
 " Open templates when editing a new file.
 " Setup here else the template loaded is written twice
 " in the new file (previously was in files.vim).
-au bufNewFile *.cpp 0r      ~/.vim/templates/template.cpp
+au bufNewFile *.c 0r        ~/.vim/templates/template.c
 au bufNewFile *.h 0r        ~/.vim/templates/template.h
 au bufNewFile *.v 0r        ~/.vim/templates/template.v
 au bufNewFile *.html 0r     ~/.vim/templates/template.html
