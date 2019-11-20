@@ -99,7 +99,7 @@ set shiftround
 set autoindent
 set smartindent
 
-" Display max column width recommanded
+" Display max column width recommended
 set colorcolumn=100
 " Display current line
 set cursorline
@@ -121,7 +121,6 @@ set nobackup
 set noswapfile
 
 " Auto comment new line if previous one was a comment
-" (if was editing then <cr> or if inserting with normal o
 set formatoptions+=r
 
 " A buffer becomes hidden when it is abandoned
@@ -144,7 +143,7 @@ command! Bd bp | sp | bn | bd
 " Strip whitespaces and tabs on buffer write
 autocmd BufWritePre <buffer> :call StripWsTabs()
 
-" histogram-based diff
+" Histogram-based diff
 if has('nvim-0.3.2') || has("patch-8.1.0360")
     set diffopt=filler,internal,algorithm:histogram,indent-heuristic
 endif
@@ -161,9 +160,6 @@ set breakindent
 " Search down into subfolders
 " Provides tab completion for all file-related tasks
 set path+=**
-
-" Command to create ctags
-command! MakeCtags !ctags -o tags .
 
 " Allow access to external clipboard
 set clipboard+=unnamed

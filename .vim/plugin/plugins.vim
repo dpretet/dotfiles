@@ -157,32 +157,3 @@ let NERDTreeQuitOnOpen = 1
 au VimEnter * RainbowParentheses
 let g:rainbow#max_level = 16
 let g:rainbow#pairs = [['(', ')'], ['[', ']']]
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Startify
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:_ascii = [
-            \'   ',
-            \'           _/      _/  _/                 ',
-            \'          _/      _/      _/_/_/  _/_/    ',
-            \'         _/      _/  _/  _/    _/    _/   ',
-            \'          _/  _/    _/  _/    _/    _/    ',
-            \'           _/      _/  _/    _/    _/     ',
-            \'   ',
-            \]
-
-
-
-let g:_footer = [
-      \ ' ',
-      \ 'Many shortcuts are available with space bar. PRESS IT!',
-      \ '<space>i provides information about usual workflow',
-      \]
-
-let g:startify_lists = [
-          \ { 'type': 'files',     'header': ['   MRU']            },
-          \ ]
-
-let g:startify_custom_header = g:_ascii + startify#fortune#boxed() + g:_footer

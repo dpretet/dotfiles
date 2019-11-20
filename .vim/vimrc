@@ -8,16 +8,12 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Theme
-Plug 'liuchengxu/space-vim-dark'
 Plug 'cocopon/iceberg.vim'
+Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tell-k/vim-autopep8'
 Plug 'derekwyatt/vim-scala'
-Plug 'tpope/vim-sensible'
-Plug 'tomlion/vim-solidity'
-Plug 'keith/swift.vim'
-Plug 'posva/vim-vue'
 Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
@@ -29,9 +25,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'godlygeek/tabular'
 Plug 'craigemery/vim-autotag'
 Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'mhinz/vim-startify'
-Plug 'sharkdp/bat'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mjbrownie/swapit'
 
@@ -39,7 +32,10 @@ call plug#end()
 
 filetype plugin indent on
 
-" Source scripts handling the settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Scripts handling the settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 source ~/.vim/plugin/settings.vim
 source ~/.vim/plugin/functions.vim
 source ~/.vim/plugin/plugins.vim

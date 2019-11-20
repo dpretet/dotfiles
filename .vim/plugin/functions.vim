@@ -70,7 +70,6 @@ function! Prettify()
     elseif _ft == "xml"
         call PrettyXML()
     else
-        "normal gg=G
         Autoformat
     endif
 
@@ -139,7 +138,6 @@ autocmd VimEnter * call OnVimEnter()
 
 
 " Functions to comment/uncomment lines selected
-
 function! CommentToggle()
     "does the first line begin with a comment?
     let l:line=getpos("'<")[1]
@@ -157,15 +155,15 @@ autocmd BufNewFile,BufReadPost *.cpp   let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.scala let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.py    let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.*sh   let b:commentChar='#'
-autocmd BufNewFile,BufReadPost *.*vim  let b:commentChar='"'
+autocmd BufNewFile,BufReadPost *.vim   let b:commentChar='"'
 
+" Make comments on all the lines we've grabbed
 function! Docomment ()
-    "make comments on all the lines we've grabbed
     execute '''<,''>s/^\s*/&'.escape(b:commentChar, '\/').' /e'
 endfunction
 
+" Uncomment on all our lines
 function! Uncomment ()
-    "uncomment on all our lines
     execute '''<,''>s/\v(^\s*)'.escape(b:commentChar, '\/').'\v\s*/\1/e'
 endfunction
 

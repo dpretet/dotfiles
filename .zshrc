@@ -18,7 +18,12 @@ alias uncompress="tar -xjf"
 alias rm="rm -r"
 alias cp="cp -r"
 
+alias du="du -hs"
+
 alias pretty_json="python3 -m json.tool "
+
+# Youtube MP3 Download (brew install youtube-dl
+alias youtubeMp3="youtube-dl -f bestaudio $1 --extract-audio --audio-format mp3"
 
 # Tmux aliases
 alias ta='tmux attach -d -t'
@@ -77,7 +82,6 @@ bindkey -v
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-
 # -----------------------------------
 # Setup Zplugin (Always source last)
 # ----------------------------------
@@ -132,24 +136,12 @@ _fzf_compgen_dir() {
 # Respect Git ignore file setup
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
+source $HOME/.fzf/shell/completion.zsh
+source $HOME/.fzf/shell/key-bindings.zsh
+
 #-------------------------------------
-# Miscellaneous
+# Dev environment setup
 #-------------------------------------
-
-# Function to calculate into the shell
-function calc() {
-    echo $[$1]
-}
-
-# TMux alias (similar to Tmux plugin)
-alias ta='tmux attach -d -t'
-alias ts='tmux new-session -s'
-alias tl='tmux list-sessions'
-alias tksv='tmux kill-server'
-alias tkss='tmux kill-session -t'
-
-# Youtube MP3 Download (brew install youtube-dl
-alias youtubeMp3="youtube-dl -f bestaudio $1 --extract-audio --audio-format mp3"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -165,3 +157,13 @@ export GOPATH=$HOME/.go
 # Source $GO/bin to call efm-langserver executable
 export PATH=$HOME/.go/bin/:$PATH
 export PATH="/usr/local/sbin:$PATH"
+
+#-------------------------------------
+# Miscellaneous
+#-------------------------------------
+
+# Function to calculate into the shell
+function calc() {
+    echo $[$1]
+}
+
