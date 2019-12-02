@@ -6,6 +6,10 @@
 
 # Misc. aliases
 
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
 # ls aliases relying on k plugin
 alias ls="k --no-vcs -h"
 alias ll="ls"

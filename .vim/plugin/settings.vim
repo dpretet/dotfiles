@@ -1,5 +1,4 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Leader key setup, handled with vim-leader-guide
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -90,7 +89,7 @@ set mouse=a
 
 " Use spaces instead of tabs
 set expandtab
-" Define 1 tab = 4 spaces
+" Define 1 tab = 4 spaces by default
 set tabstop=4
 set shiftwidth=4
 set shiftround
@@ -132,16 +131,8 @@ set signcolumn=yes
 " Better display for messages
 set cmdheight=2
 
-" shift-enter insert a new line
-" but do not enter in insert mode
-nmap <S-Enter> O<Esc>j
-nmap <CR> o<Esc>k
-
 " Close a buffer, but not the panel
 command! Bd bp | sp | bn | bd
-
-" Strip whitespaces and tabs on buffer write
-autocmd BufWritePre <buffer> :call StripWsTabs()
 
 " Histogram-based diff
 if has('nvim-0.3.2') || has("patch-8.1.0360")

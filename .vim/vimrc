@@ -40,3 +40,4 @@ source ~/.vim/plugin/settings.vim
 source ~/.vim/plugin/functions.vim
 source ~/.vim/plugin/plugins.vim
 source ~/.vim/ftplugin/files.vim
+

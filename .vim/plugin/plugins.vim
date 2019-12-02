@@ -11,10 +11,6 @@ let g:fzf_action = {
             \ 'ctrl-h': 'split',
             \ 'ctrl-v': 'vsplit' }
 
-" Open FZF in the middle of the screen.
-" Can be down / up / left / right
-let g:fzf_layout = { 'down': '~50%' }
-
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -32,6 +28,30 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 
+" Using floating windows of Neovim to start fzf
+if has('nvim')
+  let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
+
+  function! FloatingFZF()
+    let width = float2nr(&columns * 0.9)
+    let height = float2nr(&lines * 0.6)
+    let opts = { 'relative': 'editor',
+               \ 'row': (&lines - height) / 2,
+               \ 'col': (&columns - width) / 2,
+               \ 'width': width,
+               \ 'height': height }
+
+    let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+  endfunction
+
+  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+else
+    " Open FZF in the middle of the screen.
+    " Can be down / up / left / right
+    let g:fzf_layout = { 'down': '~50%' }
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autopep8 setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

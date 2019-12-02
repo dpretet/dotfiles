@@ -2,6 +2,9 @@
 " File types setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Strip whitespaces and tabs on buffer write
+autocmd BufWritePre <buffer> :call StripWsTabs()
+
 " Open templates when editing a new file.
 " Setup here else the template loaded is written twice
 " in the new file (previously was in files.vim).
@@ -26,11 +29,6 @@ au BufRead,BufNewFile *.mkd, *.markdown, *.mdwn, *.mk, *.md set filetype=markdow
 
 " Insert tabs, not spaces for Makefile
 autocmd FileType make setlocal noexpandtab
-
-" Vue.js setup
-autocmd FileType vue syntax sync fromstart
-autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
-let g:vue_disable_pre_processors=1
 
 " Configuration for Scala SBT build files
 au BufRead,BufNewFile *.sbt set filetype=scala
