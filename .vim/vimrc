@@ -19,7 +19,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
 " Setup
 Plug 'junegunn/fzf.vim'
-Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'hecal3/vim-leader-guide'
 Plug 'junegunn/goyo.vim'
 Plug 'godlygeek/tabular'
