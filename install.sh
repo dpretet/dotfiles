@@ -55,6 +55,11 @@ if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
     vim +PlugInstall +qall
 fi
 
+if [ ! -d ~/.local/share/nvim/site/autoload/plug.vim]; then
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
 echo "Install Vim coc extensions"
 vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml coc-java coc-scala coc-vimlsp coc-tabnine +qall
 
