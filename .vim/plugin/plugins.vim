@@ -1,4 +1,44 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader key setup, handled with vim-leader-guide
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Use space bar as leader key
+nnoremap <Space> <Nop>
+let mapleader = "\<Space>"
+
+" Make the menu to pop up when pressing space
+call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
+nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
+
+" Shortcut created and handled by Vim-leader-guide
+let g:lmap = {'name':  "",
+             \'f': [":Files",                       "FZF file search"],
+             \'b': [":Buffers",                     "FZF buffer search"],
+             \'s': [":BLines",                      "FZF text search into current buffer"],
+             \'S': [":Lines",                       "FZF text search across loaded buffers"],
+             \'g': [":BCommits",                    "FZF git commits of the current buffer"],
+             \'G': [":Commits",                     "FZF git commits of the repository"],
+             \'v': [':vsplit',                      'Split buffer vertically'],
+             \'h': [':split',                       'Split buffer horizontally'],
+             \'d': [':bd',                          'Close buffer'],
+             \'D': [':Bd',                          'Close buffer, but not the panel'],
+             \'r': [':so $MYVIMRC',                 'Reload vimrc without restarting Vim'],
+             \'q': [':wq',                          'Write buffer and close'],
+             \'w': [':w',                           'Write buffer'],
+             \'W': [':w !sudo tee % > /dev/null',   'Write buffer with Sudo rights'],
+             \'l': [':ls',                          'List opened buffers'],
+             \'p': [':call Prettify()',             'Prettify the buffer'],
+             \'z': [':Goyo',                        'Enter in Zen mode'],
+             \'t': [':Tags',                        'FZF tag search'],
+             \'o': [':normal gf',                   'Open file under cursor'],
+             \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
+             \'i': [':call PrintWorkflowInfo()',    'Print information about usual commands'],
+             \'c': [':call CommentToggle()',        'Comment/Uncomment visual selection'],
+             \}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -33,8 +73,8 @@ if has('nvim')
   let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
 
   function! FloatingFZF()
-    let width = float2nr(&columns * 0.9)
-    let height = float2nr(&lines * 0.6)
+    let width = float2nr(&columns * 0.7)
+    let height = float2nr(&lines * 0.5)
     let opts = { 'relative': 'editor',
                \ 'row': (&lines - height) / 2,
                \ 'col': (&columns - width) / 2,
@@ -52,6 +92,8 @@ else
     " Can be down / up / left / right
     let g:fzf_layout = { 'down': '~50%' }
 endif
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autopep8 setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

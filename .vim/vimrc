@@ -16,8 +16,8 @@ Plug 'tell-k/vim-autopep8'
 Plug 'derekwyatt/vim-scala'
 Plug 'plasticboy/vim-markdown'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Misc.
 Plug 'Chiel92/vim-autoformat'
-" Setup
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'hecal3/vim-leader-guide'

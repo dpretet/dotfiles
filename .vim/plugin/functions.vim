@@ -29,11 +29,15 @@ function! Prettify()
     " Get filetype
     let _ft = &filetype
 
-    " Prettify based on extension
+    " Prettify based on extension:
+    
+    " Use python to prettify JSON
     if _ft ==? "json"
         silent %!python -m json.tool
-    elseif _ft == "xml"
+    " Use XMLLINT to prettify XML
+    elseif _ft ==? "xml"
         call PrettyXML()
+    " Else use Autoformat plugin
     else
         Autoformat
     endif
@@ -45,7 +49,7 @@ function! Prettify()
 endfunction
 
 
-" Pretiffy XML files
+" Pretiffy XML files with XMLLINT
 function! PrettyXML()
 
     " Save the filetype so we can restore it later
@@ -80,7 +84,7 @@ function! PrettyXML()
 endfunction
 
 
-" Print tips reminders and useful commands
+" Print tips, reminders and useful commands
 function! PrintWorkflowInfo()
 
     let _info = [
@@ -116,7 +120,7 @@ function! PrintWorkflowInfo()
 endfunction
 
 
-" Run updates every week automatically when entering Vim.
+" Run updates every week automatically when launching Vim.
 function! OnVimEnter() abort
     if exists('g:plug_home')
         let l:filename = printf('%s/.vim_plug_update', g:plug_home)
@@ -137,7 +141,7 @@ endfunction
 autocmd VimEnter * call OnVimEnter()
 
 
-" Functions to comment/uncomment lines selected
+" Functions to comment/uncomment lines selected in visual mode
 function! CommentToggle()
     "does the first line begin with a comment?
     let l:line=getpos("'<")[1]

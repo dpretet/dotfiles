@@ -6,8 +6,6 @@
 autocmd BufWritePre <buffer> :call StripWsTabs()
 
 " Open templates when editing a new file.
-" Setup here else the template loaded is written twice
-" in the new file (previously was in files.vim).
 au bufNewFile *.c 0r        ~/.vim/templates/template.c
 au bufNewFile *.h 0r        ~/.vim/templates/template.h
 au bufNewFile *.v 0r        ~/.vim/templates/template.v
@@ -15,7 +13,7 @@ au bufNewFile *.html 0r     ~/.vim/templates/template.html
 au bufNewFile *.py 0r       ~/.vim/templates/template.py
 au bufNewFile *.scala 0r    ~/.vim/templates/template.scala
 
-" Colorize ANSI escape codes by default with AnsiEsc plugin
+" Colorize ANSI escape codes by default with AnsiEsc plugin for txt and log extension
 autocmd BufRead *.{log,txt} AnsiEsc
 
 " Run systemVerilog plugin for these file extensions
