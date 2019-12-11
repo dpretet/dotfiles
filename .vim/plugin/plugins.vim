@@ -1,18 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Leader key setup, handled with vim-leader-guide
+" Leader key setup, handled with vim-leader-mapper
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Use space bar as leader key
-nnoremap <Space> <Nop>
-let mapleader = "\<Space>"
-
-" Make the menu to pop up when pressing space
-call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
-nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
-
-" Shortcut created and handled by Vim-leader-guide
-let g:lmap = {'name':  "",
+" Shortcut created and handled by Vim-leader-mapper
+let g:leaderMenu = {'name':  "",
              \'f': [":Files",                       "FZF file search"],
              \'b': [":Buffers",                     "FZF buffer search"],
              \'s': [":BLines",                      "FZF text search into current buffer"],
@@ -36,6 +27,12 @@ let g:lmap = {'name':  "",
              \'i': [':call PrintWorkflowInfo()',    'Print information about usual commands'],
              \'c': [':call CommentToggle()',        'Comment/Uncomment visual selection'],
              \}
+
+" Define leader key to space and call vim-leader-mapper
+nnoremap <Space> <Nop>
+let mapleader = "\<Space>"
+nnoremap <silent> <leader> :call leaderMapper#start() "<Space>"<CR>
+vnoremap <silent> <leader> :call leaderMapper#start() "<Space>"<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
