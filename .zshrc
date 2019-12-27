@@ -90,7 +90,12 @@ bindkey '^e' end-of-line
 # Setup Zplugin (Always source last)
 # ----------------------------------
 
-source '/Users/damien/.zplugin/bin/zplugin.zsh'
+if [ -d '/Users/damien' ]; then
+    source '/Users/damien/.zplugin/bin/zplugin.zsh'
+else
+    source '/home/damien/.zplugin/bin/zplugin.zsh'
+fi
+
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
