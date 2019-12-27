@@ -49,13 +49,14 @@ echo "Create GtKWaverc symlink"
 ln -sf "$DIR/.gtkwaverc" "$HOME/.gtkwaverc"
 
 if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
-    echo "Vim-plugin is not install. Clone it"
+    echo "Vim-plugin is not install. Clone it (Vim8)"
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     echo "Install Vim plugins"
     vim +PlugInstall +qall
 fi
 
 if [ ! -d ~/.local/share/nvim/site/autoload/plug.vim]; then
+    echo "Vim-plugin is not install. Clone it (Neovim)"
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
