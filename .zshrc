@@ -158,7 +158,9 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
 
 # Setup Java home and max memory during SBT compilation
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [ -d "/usr/libexec/java_home" ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -Xss256M -Xmx2G -Duser.timezone=GMT"
 
 # Setup Go env, used only for coc.vim efm-langserver purpose
