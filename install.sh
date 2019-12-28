@@ -1,17 +1,28 @@
 #!/usr/bin/env bash
 
+# Get absolute path of current location for symlink
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-echo "Hello! This script is about to install a dev setup relying on Vim, Tmux, Git, Zsh"
+echo "Hello! This script is about to install a dev setup relying on Vim, Tmux, Git, Zsh."
 echo ""
-echo "Make sure Vim, Git, Zsh, or Tmux configuration files exist in your home folder"
-echo "All configuration files will be symlinked from this folder. Please backup first your environment before continuing"
+echo "Make sure to save first Vim, Git, Zsh, or Tmux existing configuration."
+echo "All configuration files will be symlinked from this folder."
 echo ""
-echo "The script will also install additional softwares"
-echo "  - Vundle, Vim plugin manager: https://github.com/VundleVim/Vundle.vim"
+echo "Please backup first your environment before continuing!"
+echo ""
+echo "The script will also install additional softwares:"
 echo "  - FZF, a command-line fuzzy finder: https://github.com/junegunn/fzf"
 echo "  - Zplugin: https://github.com/zdharma/zplugin"
 echo "  - SVUT: git@github.com:damofthemoon/svut.git"
+echo "  - Vim-plug: https://github.com/junegunn/vim-plug"
+echo ""
+echo "To continue successfully the install, please install first:"
+echo "  - Zsh"
+echo "  - Vim 8"
+echo "  - Neovim"
+echo "  - Git"
+echo "  - Node.js"
+echo "  - Exuberant Ctags"
 echo ""
 
 read -rp "Do you want to continue (y/n)? " answer
@@ -27,13 +38,15 @@ case ${answer:0:1} in
     ;;
 esac
 
-echo "Create .vim symlink"
+echo "Create Vim symlinks"
 ln -sf "$DIR/.vim" "$HOME/.vim"
+mkdir -p "$HOME/.config/nvim"
+ln -sf "$DIR/.vim/vimrc" "$HOME/.config/nvim/init.vim"
 
-echo "Create .zshrc symlink"
+echo "Create Zsh symlink"
 ln -sf "$DIR/.zshrc" "$HOME/.zshrc"
 
-echo "Create .tmux.conf symlink"
+echo "Create Tmux symlink"
 ln -sf "$DIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DIR/.tmux" "$HOME/.tmux"
 
@@ -45,23 +58,28 @@ ln -sf "$DIR/.git-prompt.sh" "$HOME/.git-prompt.sh"
 echo "Create Ctags symlink"
 ln -sf "$DIR/.ctags" "$HOME/.ctags"
 
-echo "Create GtKWaverc symlink"
+echo "Create GTKWave symlink"
 ln -sf "$DIR/.gtkwaverc" "$HOME/.gtkwaverc"
 
+if [ ! -d "$HOME/.zplugin" ]; then
+    echo "Install Zplugin"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+fi
+
 if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
-    echo "Vim-plugin is not install. Clone it (Vim8)"
+    echo "Vim-plugin is not installed. Clone it (Vim8)"
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo "Install Vim plugins"
-    vim +PlugInstall +qall
 fi
 
 if [ ! -d ~/.local/share/nvim/site/autoload/plug.vim]; then
-    echo "Vim-plugin is not install. Clone it (Neovim)"
+    echo "Vim-plugin is not installed. Clone it (Neovim)"
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-echo "Install Vim coc extensions"
+echo "Install Vim plugins"
+vim +PlugInstall +qall
+echo "Install coc.vim extensions"
 vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml coc-java coc-scala coc-vimlsp coc-tabnine +qall
 
 if [ ! -d "$HOME/.svut" ]; then
@@ -75,17 +93,17 @@ if [ ! -d "$HOME/.fzf" ]; then
     ~/.fzf/install
 fi
 
-if [ ! -d "$HOME/.zplugin" ]; then
-    echo "Install Zplugin"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
-fi
-
-echo "To use ctrl-t/o in Vim, install Exuberant Ctags to parse easily your source code: http://ctags.sourceforge.net"
+echo "To use tags parsing (ctrl-t/o) in Vim, install Exuberant Ctags to parse easily your code: "
+echo "  http://ctags.sourceforge.net"
 echo ""
 
 echo "For better rendering of NerdTree display in Vim, consider to install nerd-fonts:"
-echo "https://github.com/ryanoasis/nerd-fonts#font-installation"
+echo "  https://github.com/ryanoasis/nerd-fonts#font-installation"
 echo ""
 
+echo "coc.vim requieres further install for language servers. Please visit this page for details:"
+echo "  https://github.com/neoclide/coc.nvim"
+
 echo "Install done!"
+
 exit 0
