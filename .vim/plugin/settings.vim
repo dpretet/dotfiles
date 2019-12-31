@@ -2,21 +2,10 @@
 " General setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
 " Color scheme
 set background=dark
 
 colorscheme iceberg
-
-if $TERM_PROGRAM =~ 'Terminal'
-    hi Normal     ctermbg=NONE guibg=NONE
-    hi LineNr     ctermbg=NONE guibg=NONE
-    hi SignColumn ctermbg=NONE guibg=NONE
-endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=UTF-8

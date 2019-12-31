@@ -135,7 +135,7 @@ let g:vim_markdown_auto_extension_ext = 'txt'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <C-T> <C-]>
-set tags=./tags,./../tags,./*/tags
+set tags=tags,./tags,./../tags,./*/tags
 let g:autotagTagsFile="./tags"
 
 
