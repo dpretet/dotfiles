@@ -7,6 +7,7 @@ autocmd BufWritePre <buffer> :call StripWsTabs()
 
 " Open templates when editing a new file.
 au bufNewFile *.c 0r        ~/.vim/templates/template.c
+au bufNewFile *.cpp 0r      ~/.vim/templates/template.cpp
 au bufNewFile *.h 0r        ~/.vim/templates/template.h
 au bufNewFile *.v 0r        ~/.vim/templates/template.v
 au bufNewFile *.html 0r     ~/.vim/templates/template.html
