@@ -15,9 +15,9 @@
     ui = true
 
 [alias]
-	ck = checkout
-	co = commit -am
-	ps = push origin
-	pl = pull origin
-	cl = clean -fd
-	st = status
+    ck = checkout
+    co = !bash "git-commit.sh"
+    ps = push origin
+    pl = pull origin
+    cl = clean -fd
+    st = status

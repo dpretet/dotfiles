@@ -168,6 +168,7 @@ export GOPATH=$HOME/.go
 # Source $GO/bin to call efm-langserver executable
 export PATH=$HOME/.go/bin/:$PATH
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.svut/:$PATH"
 
 #-------------------------------------
 # Miscellaneous

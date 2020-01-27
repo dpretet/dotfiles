@@ -158,7 +158,7 @@ autocmd BufNewFile,BufReadPost *.[ch]  let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.cpp   let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.scala let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.py    let b:commentChar='#'
-autocmd BufNewFile,BufReadPost *.*sh   let b:commentChar='#'
+autocmd BufNewFile,BufReadPost *.sh    let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.vim   let b:commentChar='"'
 
 " Make comments on all the lines we've grabbed
