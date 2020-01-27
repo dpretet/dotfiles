@@ -15,9 +15,9 @@ fi
 # commit subject, concatenation of all script argument
 subject="$*"
 
-echo -e "Commit type?"
+echo ""
 echo -e "${Green}(1)${Blue} Feature ${Green}(2)${Blue} Fix ${Green}(3)${Blue} Refactor ${Green}(4)${Blue} Chore ${Green}(5)${Blue} Doc${NC} "
-read -s answer
+read -p "Commit type: " answer
 echo ""
 
 case ${answer} in
@@ -42,22 +42,23 @@ case ${answer} in
     ;;
 esac
 
-# Print the message's first line
-echo $type${subject[@]}
-echo ""
+# the commit message is stored in a file to simply the
+# message construction. Handling new line support
+# and edition capability with Readline is not possible
 
-# Read the body message
-read -a array -p "Body: "
-echo ""
+# First store the message header
+header=$type${subject[@]}
+echo $header > msg.txt
+echo "" >> msg.txt
 
-# create a multi line version of the complete message
-# including new lines
-read -r -d '' msg << EOF
-$type${subject[@]}
-
-${array[@]}
-EOF
-echo $msg
+echo "Body:"
+# iterate over user entires until he fills an empty line
+while read line
+do
+    [ -z "$line" ] && break
+    echo "$line" >> msg.txt
+done
 
 # Run commit command
-git commit -m "$msg"
+git commit --file msg.txt
+rm -f msg.txt
