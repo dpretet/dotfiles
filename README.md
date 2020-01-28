@@ -1,4 +1,4 @@
-# Unix/Linux Tools Configuration
+# • dotfiles •
 
 Host my Zsh, Vim, Tmux and Git configuration, with some terminal backgrounds.
 
