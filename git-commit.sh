@@ -60,5 +60,17 @@ do
 done
 
 # Run commit command
-git commit --file msg.txt
-rm -f msg.txt
+git commit --file msg.txt > /dev/null
+
+# Final check to ensure the user didn't forget to add files to commit
+if [[ $? -eq 0 ]]; then
+    rm -f msg.txt
+    echo ""
+    git log -n 1
+    echo ""
+    exit 0
+else
+    rm -f msg.txt
+    echo "WARNING: commit went wrong. Did you add a file to commit?"
+    exit 1
+fi
