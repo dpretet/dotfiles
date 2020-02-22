@@ -109,11 +109,6 @@ let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
 
-" Scala setup
-let g:formatdef_scalafmt = '"scalafmt --stdin 2>/dev/null"'
-let g:formatters_scala = ['scalafmt']
-let g:scala_scaladoc_indent = 1
-
 " Python setup
 let g:formatter_yapf_style = 'pep8'
 let g:formatters_python = ['autopep8']
@@ -131,23 +126,22 @@ let g:vim_markdown_auto_extension_ext = 'txt'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CTags & Autotag setup
+" CTags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <C-T> <C-]>
 set tags=tags,./tags,./../tags,./*/tags
-let g:autotagTagsFile="./tags"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Coc setup (Conquer of completion)
+" Coc.nvim setup (Conquer of completion)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 " Reduce also linting slowness
 set updatetime=100
 
-" Don't give |ins-completion-menu| messages.
+" Don't pass |ins-completion-menu|
 set shortmess+=c
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -164,37 +158,20 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if has('patch8.1.1068')
+  " Use `complete_info` if your (Neo)Vim version supports it.
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -207,12 +184,3 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Rainbow Paranthesis
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-au VimEnter * RainbowParentheses
-let g:rainbow#max_level = 16
-let g:rainbow#pairs = [['(', ')'], ['[', ']']]

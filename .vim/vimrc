@@ -11,20 +11,18 @@ call plug#begin('~/.vim/plugged')
 Plug 'cocopon/iceberg.vim'
 Plug 'ryanoasis/vim-devicons'
 " Languages
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tell-k/vim-autopep8'
-Plug 'derekwyatt/vim-scala'
 Plug 'plasticboy/vim-markdown'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Misc.
 Plug 'Chiel92/vim-autoformat'
+" Misc.
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'damofthemoon/vim-leader-mapper'
 Plug 'junegunn/goyo.vim'
-Plug 'craigemery/vim-autotag'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdtree'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'mjbrownie/swapit'
 
 call plug#end()

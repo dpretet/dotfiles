@@ -40,6 +40,8 @@ function! Prettify()
     " Else use Autoformat plugin
     else
         Autoformat
+        call CocAction('format')
+        call CocAction('runCommand', 'editor.action.organizeImport')
     endif
 
     " Clean up spaces/tabs and restore cursor
@@ -84,42 +86,6 @@ function! PrettyXML()
 endfunction
 
 
-" Print tips, reminders and useful commands
-function! PrintWorkflowInfo()
-
-    let _info = [
-                \ ' ',
-                \ 'Many shortcuts available in space bar. PRESS IT!',
-                \ '',
-                \ '  - FZF to search buffer, file, ctags, git, text pattern',
-                \ '  - Split vertically/horizontally the panel',
-                \ '  - Toggle NERDTree',
-                \ '  - Prettify buffer',
-                \ '  - Open file under cursor',
-                \ '  - Zen mode to write peacefully',
-                \ '  - list, write (force), close buffer',
-                \ ' ',
-                \ 'Other commands among Vim and TMux:',
-                \ '',
-                \ '  - Vim: w/b: jump forward/backward word, e: word end',
-                \ '  - Vim: )/(: jump forward/backward phrase, }/{: jump forward/backward paragraph',
-                \ '  - Vim: H/M/L: jump to the high/middle/low of the screen',
-                \ '  - Vim: `Ctrl-w =` to resize equally panels',
-                \ '  - Vim: `Ctrl-t` on word to parse ctags, Ctrl-o to go back',
-                \ '  - TMux: `Ctrl-b z` to zoom/unzoom in panel',
-                \ '  - TMux: `Ctrl-b up/down/left/right` to navigate in panels',
-                \ ' ',
-                \]
-
-    let i = 0
-    while (i < len(_info))
-        echo _info[i]
-        let i += 1
-    endwhile
-
-endfunction
-
-
 " Run updates every week automatically when launching Vim.
 function! OnVimEnter() abort
     if exists('g:plug_home')
@@ -149,20 +115,19 @@ function! CommentToggle()
     if match(getline(l:line), '^\s*'.b:commentChar)>-1
         call Uncomment()
     else
-        call Docomment()
+        call DoComment()
     endif
 endfunction
 
 let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.[ch]  let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.cpp   let b:commentChar='//'
-autocmd BufNewFile,BufReadPost *.scala let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.py    let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.sh    let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.vim   let b:commentChar='"'
 
 " Make comments on all the lines we've grabbed
-function! Docomment ()
+function! DoComment ()
     execute '''<,''>s/^\s*/&'.escape(b:commentChar, '\/').' /e'
 endfunction
 

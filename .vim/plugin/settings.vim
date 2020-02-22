@@ -100,6 +100,3 @@ set breakindent
 " Search down into subfolders with find command
 " Provides tab completion for all file-related tasks
 set path+=**
-
-" Allow access to external clipboard
-set clipboard+=unnamed

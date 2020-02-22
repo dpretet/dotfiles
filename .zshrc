@@ -162,6 +162,7 @@ export GOPATH=$HOME/.go
 export PATH=$HOME/.go/bin/:$PATH
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.svut/:$PATH"
+export PATH="$HOME/.dotfiles/:$PATH"
 
 #-------------------------------------
 # Miscellaneous
