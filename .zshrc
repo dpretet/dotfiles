@@ -84,34 +84,35 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 # -----------------------------------
-# Setup Zplugin (Always source last)
+# Setup zinit (Always source last)
 # ----------------------------------
 
 if [ -d '/Users/damien' ]; then
-    source '/Users/damien/.zplugin/bin/zplugin.zsh'
+    source '/Users/damien/.zinit/bin/zinit.zsh'
 else
-    source '/home/damien/.zplugin/bin/zplugin.zsh'
+    source '/home/damien/.zinit/bin/zinit.zsh'
 fi
 
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
 
 # Apply Pure theme
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
 
 # Syntax highlighting
-zplugin light "zdharma/fast-syntax-highlighting"
+zinit light "zdharma/fast-syntax-highlighting"
 
 # Enhanced ls utility
-zplugin load "supercrabtree/k"
+zinit load "supercrabtree/k"
 
 # Personal quote printer plugin
-zplugin load "damofthemoon/zsh-quotify"
+zinit load "damofthemoon/zsh-quotify"
 
 # Aditional completion
-zplugin light "zsh-users/zsh-completions"
-zplugin light "zsh-users/zsh-autosuggestions"
+zinit light "zsh-users/zsh-completions"
+zinit light "zsh-users/zsh-autosuggestions"
 
 #------------------------------------
 # Setup FZF
