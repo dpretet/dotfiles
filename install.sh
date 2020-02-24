@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# -e: exit if one command fails
+# -u: treat unset variable as an error
+# -f: disable filename expansion upon seeing *, ?, ...
+# -o pipefail: causes a pipeline to fail if any command fails
+set -euf -o pipefail
+
 # Get absolute path of current location for symlink
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -30,13 +36,23 @@ echo ""
 
 case ${answer:0:1} in
     y|Y )
-        echo" Start setup\n"
+        echo "Start setup"
     ;;
     * )
         echo "Abort..."
         exit 1
     ;;
 esac
+
+echo "Create .bin folder"
+if [ ! -d "$HOME/.bin" ]; then
+    mkdir $HOME/.bin
+fi
+
+echo "Install Neovim"
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage "$HOME/.bin/nvim"
 
 echo "Create Vim symlinks"
 ln -sf "$DIR/.vim" "$HOME/.vim"
@@ -71,7 +87,7 @@ if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-if [ ! -d ~/.local/share/nvim/site/autoload/plug.vim]; then
+if [ ! -d ~/.local/share/nvim/site/autoload/plug.vim ]; then
     echo "Vim-plugin is not installed. Clone it (Neovim)"
     curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -84,7 +100,7 @@ vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml coc-java coc-
 
 if [ ! -d "$HOME/.svut" ]; then
     echo "Clone SVUT"
-    git clone git@github.com:damofthemoon/svut.git "$HOME/.svut"
+    git clone "https://github.com/damofthemoon/svut.git" "$HOME/.svut"
 fi
 
 if [ ! -d "$HOME/.fzf" ]; then
