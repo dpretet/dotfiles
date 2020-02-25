@@ -7,119 +7,241 @@
 set -euf -o pipefail
 
 # Get absolute path of current location for symlink
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# Variable used to point the user targeted. Trick for AWS
+export MYHOME=""
 
-echo "Hello! This script is about to install a dev setup relying on Vim, Tmux, Git, Zsh."
-echo ""
-echo "Make sure to save first Vim, Git, Zsh, or Tmux existing configuration."
-echo "All configuration files will be symlinked from this folder."
-echo ""
-echo "Please backup first your environment before continuing!"
-echo ""
-echo "The script will also install additional softwares:"
-echo "  - FZF, a command-line fuzzy finder: https://github.com/junegunn/fzf"
-echo "  - Zplugin: https://github.com/zdharma/zplugin"
-echo "  - SVUT: git@github.com:damofthemoon/svut.git"
-echo "  - Vim-plug: https://github.com/junegunn/vim-plug"
-echo ""
-echo "To continue successfully the install, please install first:"
-echo "  - Zsh"
-echo "  - Vim 8"
-echo "  - Neovim"
-echo "  - Git"
-echo "  - Node.js"
-echo "  - Exuberant Ctags"
-echo ""
+# Reset
+export Color_Off='\033[0m'       # Text Reset
 
-read -rp "Do you want to continue (y/n)? " answer
-echo ""
+# Bash color codes
+export Red='\033[0;31m'
+export Green='\033[0;32m'
+export Yellow='\033[0;33m'
+export Blue='\033[0;34m'
 
-case ${answer:0:1} in
-    y|Y )
-        echo "Start setup"
-    ;;
-    * )
-        echo "Abort..."
-        exit 1
-    ;;
-esac
+function printerror {
+    echo -e "${Red}ERROR: ${1}${Color_Off}"
+}
 
-echo "Create .bin folder"
-if [ ! -d "$HOME/.bin" ]; then
-    mkdir $HOME/.bin
-fi
+function printwarning {
+    echo -e "${Yellow}WARNING: ${1}${Color_Off}"
+}
 
-echo "Install Neovim"
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod u+x nvim.appimage
-mv nvim.appimage "$HOME/.bin/nvim"
+function printinfo {
+    echo -e "${Blue}INFO: ${1}${Color_Off}"
+}
 
-echo "Create Vim symlinks"
-ln -sf "$DIR/.vim" "$HOME/.vim"
-mkdir -p "$HOME/.config/nvim"
-ln -sf "$DIR/.vim/vimrc" "$HOME/.config/nvim/init.vim"
+function printsuccess {
+    echo -e "${Green}INFO: ${1}${Color_Off}"
+}
 
-echo "Create Zsh symlink"
-ln -sf "$DIR/.zshrc" "$HOME/.zshrc"
 
-echo "Create Tmux symlink"
-ln -sf "$DIR/.tmux.conf" "$HOME/.tmux.conf"
-ln -sf "$DIR/.tmux" "$HOME/.tmux"
+function welcome {
 
-echo "Create .git files symlinks"
-ln -sf "$DIR/.gitconfig" "$HOME/.gitconfig"
-ln -sf "$DIR/.git-completion.zsh" "$HOME/.git-completion.zsh"
-ln -sf "$DIR/.git-prompt.sh" "$HOME/.git-prompt.sh"
+    printinfo ""
+    printinfo "Welcome! This script is about to install a dev setup relying on Vim,"
+    printinfo "Tmux, Git, Zsh & Ctags. PLEASE BACKUP FIRST YOUR ENVIRONMENT!"
+    printinfo ""
+    printinfo "The script will also install automatically these softwares:"
+    printinfo "  - Zinit: https://github.com/zdharma/zinit"
+    printinfo "  - Vim-plug: https://github.com/junegunn/vim-plug"
+    printinfo "  - FZF: https://github.com/junegunn/fzf"
+    printinfo "  - SVUT: https://github.com/damofthemoon/svut.git"
+    printinfo ""
 
-echo "Create Ctags symlink"
-ln -sf "$DIR/.ctags" "$HOME/.ctags"
+    read -rp "=> Do you want to continue (y/n)? " answer
+    echo ""
 
-echo "Create GTKWave symlink"
-ln -sf "$DIR/.gtkwaverc" "$HOME/.gtkwaverc"
+    case ${answer:0:1} in
+        y|Y )
+            echo "Start setup"
+        ;;
+        * )
+            echo "Abort..."
+            exit 1
+        ;;
+    esac
 
-if [ ! -d "$HOME/.zplugin" ]; then
-    echo "Install Zplugin"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
-fi
+    read -rp "=> Enter is your HOME path: " path
+    export MYHOME=$path
+}
 
-if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
-    echo "Vim-plugin is not installed. Clone it (Vim8)"
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+function bye {
 
-if [ ! -d ~/.local/share/nvim/site/autoload/plug.vim ]; then
-    echo "Vim-plugin is not installed. Clone it (Neovim)"
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+    echo ""
+    printinfo 'To finish the install, consider to add these folders in your $PATH:'
+    echo ""
+    echo 'export PATH=~/.dotfiles:$PATH'
+    echo 'export PATH=~/.bin:$PATH'
+    echo 'export PATH=~/.svut:$PATH'
+    echo ""
+    echo "For better rendering of NerdTree display in Vim, consider to"
+    echo "install nerd-fonts:"
+    echo "  https://github.com/ryanoasis/nerd-fonts#font-installation"
+    echo ""
+    printsuccess "Installation done!"
+}
 
-echo "Install Vim plugins"
-vim +PlugInstall +qall
-echo "Install coc.vim extensions"
-vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml coc-java coc-scala coc-vimlsp coc-tabnine +qall
+function recommended_install {
 
-if [ ! -d "$HOME/.svut" ]; then
-    echo "Clone SVUT"
-    git clone "https://github.com/damofthemoon/svut.git" "$HOME/.svut"
-fi
+    echo "To continue successfully the install, please install first:"
+    echo "  - Zsh"
+    echo "  - Git"
+    echo "  - Vim 8"
+    echo "  - Neovim"
+    echo "  - Node.js"
+    echo "  - Exuberant Ctags"
+    echo ""
 
-if [ ! -d "$HOME/.fzf" ]; then
-    echo "Install FZF"
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
-fi
+    read -rp "=> Do you want to install these recommended applications (y/n)? " answer
+    echo ""
 
-echo "To use tags parsing (ctrl-t/o) in Vim, install Exuberant Ctags to parse easily your code: "
-echo "  http://ctags.sourceforge.net"
-echo ""
+    case ${answer:0:1} in
+        y|Y )
+            read -rp "Enter your package manager install command: " cmd
+            install_dep "$cmd" "Zsh" "zsh"
+            install_dep "$cmd" "Git" "git"
+            install_dep "$cmd" "Vim 8" "vim"
+            install_dep "$cmd" "Neovim" "neovim"
+            install_dep "$cmd" "Node.js" "nodejs"
+            install_dep "$cmd" "Exuberant Ctags" "exuberant-ctags"
+        ;;
+    esac
 
-echo "For better rendering of NerdTree display in Vim, consider to install nerd-fonts:"
-echo "  https://github.com/ryanoasis/nerd-fonts#font-installation"
-echo ""
+    echo "Create ~/.bin folder"
+    if [ ! -d "$MYHOME/.bin" ]; then
+        mkdir "$MYHOME"/.bin
+    fi
 
-echo "coc.vim requieres further install for language servers. Please visit this page for details:"
-echo "  https://github.com/neoclide/coc.nvim"
+    read -rp "=> Try to install latest Neovim appimage? (y/n) " answer
+    case ${answer:0:1} in
+        y|Y )
+            echo "Appimages require FUSE. Install it"
+            sudo yum --enablerepo=epel -y install fuse-sshfs
+            sudo yum install fuse-devel
+            echo "Install Neovim appimage in $MYHOME/.bin"
+            curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+            chmod u+x nvim.appimage
+            mv nvim.appimage "$MYHOME/.bin/nvim"
+        ;;
+    esac
+}
 
-echo "Install done!"
+function install_dep {
+
+    # Installs a package:
+    #   - $1: install command
+    #   - $2: name of the software
+    #   - $3: name of the software's package
+    # Disable error handling, just prompt the user if an error is issued
+
+    read -rp "Try to install $2? (y/n): " answer
+    case ${answer:0:1} in
+        y|Y )
+            echo "Install $2"
+            if ! $1 $3
+            then
+                read -rp  "$2 installation failed. Press enter to continue." any
+            fi
+        ;;
+    esac
+}
+
+function create_symlink {
+
+    printinfo "Create Vim symlinks"
+    ln -sf "$DIR/.vim" "$MYHOME/.vim"
+    if [ ! -d "$MYHOME/.config/nvim/" ]; then mkdir -p "$MYHOME/.config/nvim"; fi
+    ln -sf "$DIR/.vim/vimrc" "$MYHOME/.config/nvim/init.vim"
+
+    printinfo "Create Zsh symlink"
+    ln -sf "$DIR/.zshrc" "$MYHOME/.zshrc"
+
+    printinfo "Create Tmux symlink"
+    ln -sf "$DIR/.tmux.conf" "$MYHOME/.tmux.conf"
+
+    printinfo "Create Git symlinks"
+    ln -sf "$DIR/.gitconfig" "$MYHOME/.gitconfig"
+    ln -sf "$DIR/.git-completion.zsh" "$MYHOME/.git-completion.zsh"
+    ln -sf "$DIR/.git-prompt.sh" "$MYHOME/.git-prompt.sh"
+
+    printinfo "Create Ctags symlink"
+    ln -sf "$DIR/.ctags" "$MYHOME/.ctags"
+
+    printinfo "Create GTKWave symlink"
+    ln -sf "$DIR/.gtkwaverc" "$MYHOME/.gtkwaverc"
+}
+
+function install_vim {
+
+    printinfo "Proceed to (Neo)Vim installation"
+
+    # Create manually the local folder because on AWS F1,
+    # centos and root are nearly the same user. Create it
+    # then give rights to 'centos' user
+    sudo mkdir -p $MYHOME/.local
+    sudo chown -R $USER:$USER $MYHOME/.local
+
+    if [ ! -d "$MYHOME/.vim/autoload/plug.vim" ]; then
+        echo "Vim-plugin is not installed for Vim. Clone it"
+        curl -fLo $MYHOME/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+
+    if [ ! -d ~/.local/share/nvim/site/autoload/plug.vim ]; then
+        echo "Vim-plugin is not installed for Neovim. Clone it"
+        curl -fLo $MYHOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    fi
+
+    printwarning "Install Vim plugins. Next commands will partially fail"
+    printwarning "because Vim is not initialized completly."
+    read -rp "Just press enter to continue the install" any
+    vim +PlugInstall +qall
+
+    echo "Install coc.vim extensions"
+    vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml \
+        coc-vimlsp coc-tabnine +qall
+
+    echo ""
+    echo "coc.vim requires further install for the language servers."
+    echo "Please visit this page for installation details:"
+    echo "  https://github.com/neoclide/coc.nvim"
+    echo ""
+}
+
+function further_install {
+
+    if [ ! -d "$MYHOME/.zinit" ]; then
+        echo "Install Zinit"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    fi
+
+    if [ ! -d "$MYHOME/.svut" ]; then
+        echo "Clone SVUT"
+        git clone "https://github.com/damofthemoon/svut.git" "$MYHOME/.svut"
+    fi
+
+    if [ ! -d "$MYHOME/.fzf" ]; then
+        echo "Install FZF"
+        git clone --depth 1 https://github.com/junegunn/fzf.git $MYHOME/.fzf
+        $MYHOME/.fzf/install
+    fi
+}
+
+welcome
+
+set +e
+recommended_install
+set -e
+
+create_symlink
+
+install_vim
+
+further_install
+
+bye
 
 exit 0

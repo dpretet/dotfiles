@@ -83,11 +83,6 @@ set cmdheight=2
 " Close a buffer, but not the panel
 command! Bd bp | sp | bn | bd
 
-" Histogram-based diff
-if has('nvim') || has("patch-8.1.0360")
-    set diffopt=filler,internal,algorithm:histogram,indent-heuristic
-endif
-
 " Reduce delay when pressing ESC
 set timeoutlen=1 ttimeoutlen=0
 
