@@ -134,53 +134,37 @@ set tags=tags,./tags,./../tags,./*/tags
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Coc.nvim setup (Conquer of completion)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" You will have bad experience for diagnostic messages when it's default 4000.
-" Reduce also linting slowness
-set updatetime=100
-
-" Don't pass |ins-completion-menu|
-set shortmess+=c
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Add status line support
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-lsp setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:lsp_signs_enabled = 1
+let g:lsp_signs_error = {'text': '✗'}
+let g:lsp_signs_warning = {'text': '‼'}
+let g:lsp_highlight_references_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" asyncomplete setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Tab completion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+" Force refresh completion
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+" Enable preview window
+set completeopt+=preview
+" Auto close preview once completion done
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+

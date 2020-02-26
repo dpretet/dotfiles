@@ -9,6 +9,7 @@ set -euf -o pipefail
 # Get absolute path of current location for symlink
 export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Variable used to point the user targeted. Trick for AWS
+# or any OS where basic user is root/sudo on the machine
 export MYHOME=""
 
 # Reset
@@ -36,6 +37,9 @@ function printsuccess {
     echo -e "${Green}INFO: ${1}${Color_Off}"
 }
 
+function test {
+    printinfo ""
+}
 
 function welcome {
 
@@ -48,6 +52,7 @@ function welcome {
     printinfo "  - Vim-plug: https://github.com/junegunn/vim-plug"
     printinfo "  - FZF: https://github.com/junegunn/fzf"
     printinfo "  - SVUT: https://github.com/damofthemoon/svut.git"
+    printinfo "  - Node.js: https://nodejs.org/en/"
     printinfo ""
 
     read -rp "=> Do you want to continue (y/n)? " answer
@@ -91,7 +96,8 @@ function recommended_install {
     echo "  - Vim 8"
     echo "  - Neovim"
     echo "  - Node.js"
-    echo "  - Exuberant Ctags"
+    echo "  - Python 3"
+    echo "  - Ctags"
     echo ""
 
     read -rp "=> Do you want to install these recommended applications (y/n)? " answer
@@ -104,8 +110,29 @@ function recommended_install {
             install_dep "$cmd" "Git" "git"
             install_dep "$cmd" "Vim 8" "vim"
             install_dep "$cmd" "Neovim" "neovim"
-            install_dep "$cmd" "Node.js" "nodejs"
-            install_dep "$cmd" "Exuberant Ctags" "exuberant-ctags"
+            install_dep "$cmd" "Ctags" "ctags"
+            install_dep "$cmd" "GTKWave" "gtkwave"
+            install_dep "$cmd" "Python 3" "python3"
+
+            printinfo "Install Node.js"
+            # Try two different package name
+            # node for MacOS, nodejs for Linux
+            $cmd "node"
+            ret=$?
+            if [ $ret != 0 ]; then
+                $cmd "nodejs"
+                ret=$?
+            fi
+
+            if [ $ret != 0 ]; then
+                read -rp  "=> Node.js installation failed. Press enter to continue." any
+            else
+                printinfo "Update Node.js to latest version"
+                sudo npm cache clean -f
+                sudo npm install -g n
+                sudo n stable
+                sudo npm install -g neovim
+            fi
         ;;
     esac
 
@@ -114,12 +141,11 @@ function recommended_install {
         mkdir "$MYHOME"/.bin
     fi
 
-    read -rp "=> Try to install latest Neovim appimage? (y/n) " answer
+    read -rp "=> Try to install latest Neovim appimage? (y/N) " answer
     case ${answer:0:1} in
         y|Y )
             echo "Appimages require FUSE. Install it"
-            sudo yum --enablerepo=epel -y install fuse-sshfs
-            sudo yum install fuse-devel
+            sudo yum --enablerepo=epel -y install fuse-sshfs fuse-devel
             echo "Install Neovim appimage in $MYHOME/.bin"
             curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
             chmod u+x nvim.appimage
@@ -136,13 +162,13 @@ function install_dep {
     #   - $3: name of the software's package
     # Disable error handling, just prompt the user if an error is issued
 
-    read -rp "Try to install $2? (y/n): " answer
+    read -rp "Try to install $2? (y/N): " answer
     case ${answer:0:1} in
         y|Y )
             echo "Install $2"
             if ! $1 $3
             then
-                read -rp  "$2 installation failed. Press enter to continue." any
+                read -rp  "=> $2 installation failed. Press enter to continue." any
             fi
         ;;
     esac
@@ -198,17 +224,12 @@ function install_vim {
     printwarning "Install Vim plugins. Next commands will partially fail"
     printwarning "because Vim is not initialized completly."
     read -rp "Just press enter to continue the install" any
-    vim +PlugInstall +qall
 
-    echo "Install coc.vim extensions"
-    vim +CocInstall coc-highlight coc-python coc-json coc-yaml coc-xml \
-        coc-vimlsp coc-tabnine +qall
-
-    echo ""
-    echo "coc.vim requires further install for the language servers."
-    echo "Please visit this page for installation details:"
-    echo "  https://github.com/neoclide/coc.nvim"
-    echo ""
+    if [ -e $MYHOME/.bin/nvim ]; then
+        $MYHOME/.bin/nvim +PlugInstall +qall
+    else
+        vim +PlugInstall +qall
+    fi
 }
 
 function further_install {

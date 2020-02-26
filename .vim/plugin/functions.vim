@@ -98,7 +98,6 @@ function! OnVimEnter() abort
         let l:contents = readfile(l:filename)
         if index(l:contents, l:this_week) < 0
             call execute('PlugUpdate')
-            call execute('CocUpdate')
             call writefile([l:this_week], l:filename, 'a')
         endif
     endif

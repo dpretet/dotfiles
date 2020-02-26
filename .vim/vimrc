@@ -11,7 +11,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'cocopon/iceberg.vim'
 Plug 'ryanoasis/vim-devicons'
 " Languages
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'tell-k/vim-autopep8'
 Plug 'plasticboy/vim-markdown'

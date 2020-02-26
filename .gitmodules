@@ -1,3 +1,0 @@
-[submodule "quotify"]
-	path = quotify
-	url = https://github.com/damofthemoon/zsh-quotify.git
