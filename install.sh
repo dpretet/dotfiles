@@ -11,6 +11,8 @@ export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Variable used to point the user targeted. Trick for AWS
 # or any OS where basic user is root/sudo on the machine
 export MYHOME=""
+# Variable storing the command to install a package
+export install_cmd=""
 
 # Reset
 export Color_Off='\033[0m'       # Text Reset
@@ -70,6 +72,8 @@ function welcome {
 
     read -rp "=> Enter is your HOME path: " path
     export MYHOME=$path
+    read -rp "Enter your package manager install command: " cmd
+    export install_cmd=$cmd
 }
 
 function bye {
@@ -105,22 +109,21 @@ function recommended_install {
 
     case ${answer:0:1} in
         y|Y )
-            read -rp "Enter your package manager install command: " cmd
-            install_dep "$cmd" "Zsh" "zsh"
-            install_dep "$cmd" "Git" "git"
-            install_dep "$cmd" "Vim 8" "vim"
-            install_dep "$cmd" "Neovim" "neovim"
-            install_dep "$cmd" "Ctags" "ctags"
-            install_dep "$cmd" "GTKWave" "gtkwave"
-            install_dep "$cmd" "Python 3" "python3"
+            install_dep "$install_cmd" "Zsh" "zsh"
+            install_dep "$install_cmd" "Git" "git"
+            install_dep "$install_cmd" "Vim 8" "vim"
+            install_dep "$install_cmd" "Neovim" "neovim"
+            install_dep "$install_cmd" "Ctags" "ctags"
+            install_dep "$install_cmd" "GTKWave" "gtkwave"
+            install_dep "$install_cmd" "Python 3" "python3"
 
             printinfo "Install Node.js"
             # Try two different package name
             # node for MacOS, nodejs for Linux
-            $cmd "node"
+            $install_cmd "node"
             ret=$?
             if [ $ret != 0 ]; then
-                $cmd "nodejs"
+                $install_cmd "nodejs"
                 ret=$?
             fi
 
@@ -145,7 +148,11 @@ function recommended_install {
     case ${answer:0:1} in
         y|Y )
             echo "Appimages require FUSE. Install it"
-            sudo yum --enablerepo=epel -y install fuse-sshfs fuse-devel
+            if [[ $install_cmd =~ "yum" ]]; then
+                $install_cmd --enablerepo=epel -y fuse-sshfs fuse-devel
+            else
+                $install_cmd fuse-sshfs fuse-devel
+            fi
             echo "Install Neovim appimage in $MYHOME/.bin"
             curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
             chmod u+x nvim.appimage
