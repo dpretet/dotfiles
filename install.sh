@@ -103,6 +103,8 @@ function recommended_install {
     echo "  - Python 3"
     echo "  - Ctags"
     echo ""
+    echo "These applications will be installed with your package manager"
+    echo ""
 
     read -rp "=> Do you want to install these recommended applications (y/n)? " answer
     echo ""
