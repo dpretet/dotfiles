@@ -18,6 +18,10 @@ alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
+# Color and prompt setup
+force_color_prompt=yes
+export PS1='\[\e[0;36m\]\u\[\e[0m\]@\[\e[0;36m\]\h\[\e[0m\]:\[\e[0;33m\]\W\[\e[0m\] \[\e[0;35m\]❯\[\e[0m\] '
+
 #-----------------------------------------------------------
 # Setup from mrzool/bash-sensible
 #-----------------------------------------------------------
@@ -63,12 +67,6 @@ shopt -s dirspell 2> /dev/null
 # Correct spelling errors in arguments supplied to cd
 shopt -s cdspell 2> /dev/null
 
-# Vim key binding
-bindkey -v
-# Restore Emacs-like like navigation
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
-
 #-----------------------------------------------------------
 # Enable FZF
 #-----------------------------------------------------------
@@ -95,8 +93,8 @@ _fzf_compgen_dir() {
 # Respect Git ignore file setup
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-source $HOME/.fzf/shell/completion.zsh
-source $HOME/.fzf/shell/key-bindings.zsh
+source $HOME/.fzf/shell/completion.bash
+source $HOME/.fzf/shell/key-bindings.bash
 
 extract ()
 {
