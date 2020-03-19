@@ -195,6 +195,7 @@ function create_symlink {
 
     printinfo "Create Bash symlink"
     ln -sf "$DIR/.bashrc" "$MYHOME/.bashrc"
+    ln -sf "$DIR/.inputrc" "$MYHOME/.inputrc"
 
     printinfo "Create Tmux symlink"
     ln -sf "$DIR/.tmux.conf" "$MYHOME/.tmux.conf"
