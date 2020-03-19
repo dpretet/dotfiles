@@ -193,6 +193,9 @@ function create_symlink {
     printinfo "Create Zsh symlink"
     ln -sf "$DIR/.zshrc" "$MYHOME/.zshrc"
 
+    printinfo "Create Bash symlink"
+    ln -sf "$DIR/.bashrc" "$MYHOME/.bashrc"
+
     printinfo "Create Tmux symlink"
     ln -sf "$DIR/.tmux.conf" "$MYHOME/.tmux.conf"
 

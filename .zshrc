@@ -36,7 +36,7 @@ alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
 # Colorize output and some exclusions
-alias grep="grep --color=auto --exclude-dir={.git,.gitignore,.metals}"
+alias grep="grep --color=auto --exclude-dir={.git,.gitignore}"
 
 # Misc. setup
 export LANG=en_US.UTF-8
