@@ -1,5 +1,7 @@
 # Misc. aliases
-alias ll="ls -lh"
+alias ls="ls -lh --color"
+alias l="ls"
+alias ll="ls"
 alias la="ls -lha"
 alias rm="rm -r"
 alias cp="cp -r"
