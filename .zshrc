@@ -149,29 +149,43 @@ source $HOME/.fzf/shell/key-bindings.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# To launch GTKWave with command line
-export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
+# To launch GTKWave with command line on MacOs
+if [ -d '/Applications/gtkwave.app' ]; then
+    export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
+fi
 
 # Setup Java home and max memory during SBT compilation
 if [ -d "/usr/libexec/java_home" ]; then
     export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
-# Setup Go env, used only for coc.vim efm-langserver purpose
-export GOPATH=$HOME/.go
-# Source $GO/bin to call efm-langserver executable
-export PATH=$HOME/.go/bin/:$PATH
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
-export PATH="$HOME/.bin/:$PATH"
 
 #-------------------------------------
-# Miscellaneous
+# Generic function to extract archive
 #-------------------------------------
 
-# Function to calculate into the shell
-function calc() {
-    echo $[$1]
+extract ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1   ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' Cant't be extracted" ;;
+    esac
+  else
+    echo "'$1' Invalid file"
+  fi
 }
-
