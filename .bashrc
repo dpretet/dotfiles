@@ -2,10 +2,10 @@
 # Misc. aliases
 #-----------------------------------------------------------
 
-alias ls="ls -lh --color"
+alias ls="ls -l --color"
 alias l="ls"
 alias ll="ls"
-alias la="ls -lha"
+alias la="ls -a"
 
 alias rm="rm -r"
 alias cp="cp -r"
@@ -18,9 +18,20 @@ alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
+# Enable Git completion
+source $HOME/.git-completion.bash
+source $HOME/.git-prompt.sh
+
+#-----------------------------------------------------------
 # Color and prompt setup
+#-----------------------------------------------------------
+
 force_color_prompt=yes
-export PS1='\[\e[0;36m\]\u\[\e[0m\]@\[\e[0;36m\]\h\[\e[0m\]:\[\e[0;33m\]\W\[\e[0m\] \[\e[0;35m\]❯\[\e[0m\] '
+BLUE="\[\e[0;34m\]"
+GREY="\[\e[1;30m\]"
+PURPLE="\[\e[0;35m\]"
+NOCOLOR="\[\e[0m\]"
+export PS1="${GREY}\u@\h${NOCOLOR} ${BLUE}\w${NOCOLOR}${GREY}$(__git_ps1)${NOCOLOR} ${PURPLE}❯${NOCOLOR} "
 
 #-----------------------------------------------------------
 # Setup from mrzool/bash-sensible
@@ -96,6 +107,12 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 source $HOME/.fzf/shell/completion.bash
 source $HOME/.fzf/shell/key-bindings.bash
 
+# Source custom local install
+export PATH="$HOME/.bin/:$PATH"
+export PATH="$HOME/.svut/:$PATH"
+export PATH="$HOME/.dotfiles/:$PATH"
+
+# Utility to extract archive
 extract ()
 {
   if [ -f $1 ] ; then
