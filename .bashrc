@@ -22,6 +22,10 @@ alias tkss='tmux kill-session -t'
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
 
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
 #-----------------------------------------------------------
 # Color and prompt setup
 #-----------------------------------------------------------
