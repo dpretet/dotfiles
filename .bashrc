@@ -1,4 +1,12 @@
 #-----------------------------------------------------------
+# Source custom local install
+#-----------------------------------------------------------
+
+export PATH="$HOME/.bin/:$PATH"
+export PATH="$HOME/.svut/:$PATH"
+export PATH="$HOME/.dotfiles/:$PATH"
+
+#-----------------------------------------------------------
 # Misc. aliases
 #-----------------------------------------------------------
 
@@ -22,12 +30,11 @@ alias tkss='tmux kill-session -t'
 source $HOME/.git-completion.bash
 source $HOME/.git-prompt.sh
 
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-fi
+# Alias vim to nvim
+if [[ $(type nvim) ]]; then alias vim="nvim"; fi
 
 #-----------------------------------------------------------
-# Color and prompt setup
+# Prompt setup
 #-----------------------------------------------------------
 
 force_color_prompt=yes
@@ -38,7 +45,7 @@ NOCOLOR="\[\e[0m\]"
 export PS1="${GREY}\u@\h${NOCOLOR} ${BLUE}\w${NOCOLOR}${GREY}$(__git_ps1)${NOCOLOR} ${PURPLE}❯${NOCOLOR} "
 
 #-----------------------------------------------------------
-# Setup from mrzool/bash-sensible
+# Setup (from mrzool/bash-sensible)
 #-----------------------------------------------------------
 
 # Update window size after every command
@@ -111,14 +118,13 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 source $HOME/.fzf/shell/completion.bash
 source $HOME/.fzf/shell/key-bindings.bash
 
-# Source custom local install
-export PATH="$HOME/.bin/:$PATH"
-export PATH="$HOME/.svut/:$PATH"
-export PATH="$HOME/.dotfiles/:$PATH"
+#-----------------------------------------------------------
+# Misc. functions
+#-----------------------------------------------------------
 
 # Utility to extract archive
-extract ()
-{
+extract() {
+
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
