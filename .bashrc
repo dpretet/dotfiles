@@ -10,6 +10,8 @@ export PATH="$HOME/.dotfiles/:$PATH"
 # Misc. aliases
 #-----------------------------------------------------------
 
+set -o vi
+
 alias ls="ls -l --color"
 alias l="ls"
 alias ll="ls"

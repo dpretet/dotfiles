@@ -9,5 +9,9 @@ Control-q: complete
 
 # Display the list of matches when no further completion is possible
 set show-all-if-unmodified on
+
 # Display possible completions using different colors to indicate file type
 set colored-stats on
+
+# Indicate Vim mode (bash >= 4.3)
+ set show-mode-in-prompt on
