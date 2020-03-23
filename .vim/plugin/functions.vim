@@ -30,7 +30,7 @@ function! Prettify()
     let _ft = &filetype
 
     " Prettify based on extension:
-    
+
     " Use python to prettify JSON
     if _ft ==? "json"
         silent %!python -m json.tool
@@ -40,8 +40,6 @@ function! Prettify()
     " Else use Autoformat plugin
     else
         Autoformat
-        call CocAction('format')
-        call CocAction('runCommand', 'editor.action.organizeImport')
     endif
 
     " Clean up spaces/tabs and restore cursor
@@ -123,6 +121,8 @@ autocmd BufNewFile,BufReadPost *.[ch]  let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.cpp   let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.py    let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.sh    let b:commentChar='#'
+autocmd BufNewFile,BufReadPost *.tcl   let b:commentChar='#'
+autocmd BufNewFile,BufReadPost *.ys   let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.vim   let b:commentChar='"'
 
 " Make comments on all the lines we've grabbed
