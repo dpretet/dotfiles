@@ -16,7 +16,7 @@ alias ls="ls -l --color"
 alias l="ls"
 alias ll="ls"
 alias la="ls -a"
-
+alias diff="vimdiff"
 alias rm="rm -r"
 alias cp="cp -r"
 alias du="du -hs"

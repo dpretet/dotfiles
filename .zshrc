@@ -15,7 +15,7 @@ alias ls="k --no-vcs -h"
 alias ll="ls"
 alias l="ls"
 alias la="ls -A"
-
+alias diff="vimdiff"
 alias compress="tar -cjf"
 alias uncompress="tar -xjf"
 
