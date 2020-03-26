@@ -74,7 +74,7 @@ zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 
 autoload -Uz compinit && compinit
-
+autoload -U promptinit; promptinit
 autoload colors; colors
 
 # Vim key binding
@@ -98,7 +98,7 @@ autoload -Uz _zinit
 
 
 # Apply Pure theme
-zinit ice pick"async.zsh" src"pure.zsh"
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 
 # Syntax highlighting
@@ -172,14 +172,12 @@ extract ()
 {
   if [ -f $1 ] ; then
     case $1 in
+      *.tar)       tar xf $1    ;;
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
       *.bz2)       bunzip2 $1   ;;
       *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
       *.zip)       unzip $1     ;;
       *.Z)         uncompress $1;;
       *.7z)        7z x $1      ;;
