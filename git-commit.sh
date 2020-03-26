@@ -5,6 +5,7 @@ NC='\033[0m'
 # Regular Colors
 Green='\033[0;32m'
 Blue='\033[0;34m'
+RED='\033[0;31m'
 
 # Check if arguments exist, will be the message subject
 if [ $# -eq 0 ]; then
@@ -71,6 +72,6 @@ if [[ $? -eq 0 ]]; then
     exit 0
 else
     rm -f msg.txt
-    echo "WARNING: commit went wrong. Did you add a file to commit?"
+    echo -e "${RED}ERROR: commit went wrong. Did you add a file to commit?${NC}"
     exit 1
 fi
