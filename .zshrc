@@ -187,3 +187,7 @@ extract ()
     echo "'$1' Invalid file"
   fi
 }
+
+function pretty_csv {
+    column -t -s, "$@" | less -F -S -X -K
+}
