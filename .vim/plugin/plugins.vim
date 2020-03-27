@@ -17,14 +17,13 @@ let g:leaderMenu = {'name':  "",
              \'r': [':so $MYVIMRC',                 'Reload vimrc without restarting Vim'],
              \'q': [':wq',                          'Write buffer and close'],
              \'w': [':w',                           'Write buffer'],
-             \'W': [':w !sudo tee % > /dev/null',   'Write buffer with Sudo rights'],
+             \'W': [':w !sudo tee % > /dev/null',   'Write buffer with sudo rights'],
              \'l': [':ls',                          'List opened buffers'],
              \'p': [':call Prettify()',             'Prettify the buffer'],
              \'z': [':Goyo',                        'Enter in Zen mode'],
              \'t': [':Tags',                        'FZF tag search'],
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
-             \'i': [':call PrintWorkflowInfo()',    'Print information about usual commands'],
              \'c': [':call CommentToggle()',        'Comment/Uncomment visual selection'],
              \}
 
@@ -67,6 +66,7 @@ let g:fzf_colors =
 
 " Using floating windows of Neovim to start fzf
 if has('nvim')
+
   let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
 
   function! FloatingFZF()
@@ -92,26 +92,12 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Autopep8 setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Disable show diff version of autopep8
-let g:autopep8_disable_show_diff=1
-" Automatically format the file on save
-let g:autopep8_on_save = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AutoFormat setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:autoformat_autoindent = 0
 let g:autoformat_retab = 0
 let g:autoformat_remove_trailing_spaces = 0
-
-" Python setup
-let g:formatter_yapf_style = 'pep8'
-let g:formatters_python = ['autopep8']
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -143,28 +129,19 @@ let NERDTreeQuitOnOpen = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-lsp setup
+" ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:lsp_signs_enabled = 1
-let g:lsp_signs_error = {'text': '✗'}
-let g:lsp_signs_warning = {'text': '‼'}
-let g:lsp_highlight_references_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
+let g:ale_completion_enabled = 1
 
+let g:ale_linters = {
+\   'c': ['clangcheck'],
+\   'cpp': ['clangcheck'],
+\   'python': ['flake8'],
+\   'verilog_systemverilog': ['verilator'],
+\}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" asyncomplete setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Tab completion
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-" Force refresh completion
-imap <c-space> <Plug>(asyncomplete_force_refresh)
-" Enable preview window
-set completeopt+=preview
-" Auto close preview once completion done
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️ '
+set omnifunc=ale#completion#OmniFunc

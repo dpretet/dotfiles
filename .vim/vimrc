@@ -11,13 +11,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'cocopon/iceberg.vim'
 Plug 'ryanoasis/vim-devicons'
 " Languages
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'dense-analysis/ale'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'vhda/verilog_systemverilog.vim'
-Plug 'tell-k/vim-autopep8'
 Plug 'plasticboy/vim-markdown'
 Plug 'Chiel92/vim-autoformat'
 " Misc.
@@ -25,7 +21,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'damofthemoon/vim-leader-mapper'
 Plug 'junegunn/goyo.vim'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'scrooloose/nerdtree'
 Plug 'mjbrownie/swapit'
 
@@ -41,4 +36,3 @@ source ~/.vim/plugin/settings.vim
 source ~/.vim/plugin/functions.vim
 source ~/.vim/plugin/plugins.vim
 source ~/.vim/ftplugin/files.vim
-
