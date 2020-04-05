@@ -119,10 +119,12 @@ endfunction
 let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.[ch]  let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.cpp   let b:commentChar='//'
+autocmd BufNewFile,BufReadPost *.v     let b:commentChar='//'
+autocmd BufNewFile,BufReadPost *.sv    let b:commentChar='//'
 autocmd BufNewFile,BufReadPost *.py    let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.sh    let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.tcl   let b:commentChar='#'
-autocmd BufNewFile,BufReadPost *.ys   let b:commentChar='#'
+autocmd BufNewFile,BufReadPost *.ys    let b:commentChar='#'
 autocmd BufNewFile,BufReadPost *.vim   let b:commentChar='"'
 
 " Make comments on all the lines we've grabbed
