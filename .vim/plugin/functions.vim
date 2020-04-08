@@ -85,6 +85,8 @@ endfunction
 
 
 " Run updates every week automatically when launching Vim.
+autocmd VimEnter * call OnVimEnter()
+
 function! OnVimEnter() abort
     if exists('g:plug_home')
         let l:filename = printf('%s/.vim_plug_update', g:plug_home)
@@ -101,39 +103,47 @@ function! OnVimEnter() abort
     endif
 endfunction
 
-autocmd VimEnter * call OnVimEnter()
 
+" Function to toggle comment of a selection of lines
+" Only works if selected with visual mode
+function! Commenter()
 
-" Functions to comment/uncomment lines selected in visual mode
-function! CommentToggle()
-    "does the first line begin with a comment?
-    let l:line=getpos("'<")[1]
-    "if there's a match
-    if match(getline(l:line), '^\s*'.b:commentChar)>-1
-        call Uncomment()
+    " Comment symbol by language
+    let comment_map = {
+       \   "c": '\/\/',
+       \   "cpp": '\/\/',
+       \   "javascript": '\/\/',
+       \   "lua": '--',
+       \   "vhdl": '--',
+       \   "python": '#',
+       \   "rust": '\/\/',
+       \   "verilog": '\/\/',
+       \   "systemverilog": '\/\/',
+       \   "sh": '#',
+       \   "conf": '#',
+       \   "profile": '#',
+       \   "bashrc": '#',
+       \   "bash_profile": '#',
+       \   "vim": '"',
+       \   "vimrc": '"',
+       \   "tex": '%',
+       \ }
+
+    " Grab comment symbol to use
+    let _comment = comment_map[&filetype]
+
+    " Get line number of the first selection's line
+    " ('< is the start of the visual selection)
+    let line=getpos("'<")[1]
+
+    " Check if the line start with the comment symbol (may be preceeded
+    " by space)
+    if match(getline(line), '^\s*'._comment) > -1
+        " Uncomment
+         execute '''<,''>s/\v(^\s*)'.escape(_comment, '\/').'\v\s*/\1/e'
     else
-        call DoComment()
+        " Comment
+        execute '''<,''>s/^\s*/&'.escape(_comment, '\/').' /e'
     endif
+
 endfunction
-
-let b:commentChar='//'
-autocmd BufNewFile,BufReadPost *.[ch]  let b:commentChar='//'
-autocmd BufNewFile,BufReadPost *.cpp   let b:commentChar='//'
-autocmd BufNewFile,BufReadPost *.v     let b:commentChar='//'
-autocmd BufNewFile,BufReadPost *.sv    let b:commentChar='//'
-autocmd BufNewFile,BufReadPost *.py    let b:commentChar='#'
-autocmd BufNewFile,BufReadPost *.sh    let b:commentChar='#'
-autocmd BufNewFile,BufReadPost *.tcl   let b:commentChar='#'
-autocmd BufNewFile,BufReadPost *.ys    let b:commentChar='#'
-autocmd BufNewFile,BufReadPost *.vim   let b:commentChar='"'
-
-" Make comments on all the lines we've grabbed
-function! DoComment ()
-    execute '''<,''>s/^\s*/&'.escape(b:commentChar, '\/').' /e'
-endfunction
-
-" Uncomment on all our lines
-function! Uncomment ()
-    execute '''<,''>s/\v(^\s*)'.escape(b:commentChar, '\/').'\v\s*/\1/e'
-endfunction
-

@@ -74,9 +74,6 @@ set formatoptions+=r
 " A buffer becomes hidden when it is abandoned
 set hidden
 
-" always show signcolumns
-set signcolumn=yes
-
 " Better display for messages
 set cmdheight=2
 
