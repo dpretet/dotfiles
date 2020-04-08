@@ -191,3 +191,4 @@ extract ()
 function pretty_csv {
     column -t -s, "$@" | less -F -S -X -K
 }
+### End of Zinit's installer chunk
