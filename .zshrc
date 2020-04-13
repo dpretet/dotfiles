@@ -177,6 +177,8 @@ if [[ -d $MACOS_CPLUS_INCLUDE_PATH ]]; then
     export CPLUS_INCLUDE_PATH=$MACOS_CPLUS_INCLUDE_PATH:$CPLUS_INCLUDE_PATH
 fi
 
+# Setup Rust development environment
+export PATH="$HOME/.cargo/bin:$PATH"
 
 #-------------------------------------
 # Generic function to extract archive

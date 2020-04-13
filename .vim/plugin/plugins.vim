@@ -146,3 +146,11 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 let g:ale_sign_error = '🔻'
 let g:ale_sign_warning = '🔸'
+
+" Specify rustc and not cargo as default checker
+let g:ale_linters = {
+\   'rust': ['rustc'],
+\}
+
+" Specify rustc option for linting (avoid to use nightly build)
+let g:ale_rust_rustc_options=""
