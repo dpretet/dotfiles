@@ -15,7 +15,6 @@ alias ls="k --no-vcs -h"
 alias ll="ls"
 alias l="ls"
 alias la="ls -A"
-alias diff="vimdiff"
 alias compress="tar -cjf"
 alias uncompress="tar -xjf"
 
@@ -163,6 +162,21 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
+
+# Setup C and C++ include path for macOs
+
+MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+
+if [[ -d $MACOS_C_INCLUDE_PATH ]]; then
+    export C_INCLUDE_PATH=$MACOS_C_INCLUDE_PATH:$C_INCLUDE_PATH
+fi
+
+MACOS_CPLUS_INCLUDE_PATH="/Library/Developer/CommandLineTools/usr/include/c++/v1/"
+
+if [[ -d $MACOS_CPLUS_INCLUDE_PATH ]]; then
+    export CPLUS_INCLUDE_PATH=$MACOS_CPLUS_INCLUDE_PATH:$CPLUS_INCLUDE_PATH
+fi
+
 
 #-------------------------------------
 # Generic function to extract archive
