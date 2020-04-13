@@ -25,7 +25,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mjbrownie/swapit'
 Plug 'damofthemoon/vim-commenter'
-Plug 'doums/coBra'
 
 call plug#end()
 
