@@ -84,7 +84,7 @@ command! Bd bp | sp | bn | bd
 set timeoutlen=1 ttimeoutlen=0
 
 " Control-c remove hightlighted search
-nnoremap <silent> <C-c> :noh<cr>
+ noremap <silent> <C-c> :noh<cr>
 
 " Indent wrapped lines
 set breakindent

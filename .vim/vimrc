@@ -12,17 +12,20 @@ Plug 'cocopon/iceberg.vim'
 Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'Chiel92/vim-autoformat'
 " Misc.
+Plug 'damofthemoon/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'damofthemoon/vim-leader-mapper'
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mjbrownie/swapit'
+Plug 'damofthemoon/vim-commenter'
+Plug 'doums/coBra'
 
 call plug#end()
 

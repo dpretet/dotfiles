@@ -24,15 +24,14 @@ let g:leaderMenu = {'name':  "",
              \'t': [':Tags',                        'FZF tag search'],
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
-             \'c': [':call CommentToggle()',        'Comment/Uncomment visual selection'],
+             \'c': [':Commenter',                   'Comment/Uncomment visual selection'],
              \}
 
 " Define leader key to space and call vim-leader-mapper
 nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
-nnoremap <silent> <leader> :call leaderMapper#start() "<Space>"<CR>
-vnoremap <silent> <leader> :call leaderMapper#start() "<Space>"<CR>
-
+nnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
+vnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF setup
@@ -117,31 +116,33 @@ let g:vim_markdown_auto_extension_ext = 'txt'
 
 nmap <C-T> <C-]>
 set tags=tags,./tags,./../tags,./*/tags
+" let g:gutentags_trace = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Use NERDTree because netrw suffers several problems:
+" - open empty buffer, and may prevent to close vim
+" - don't auto close explore once a file is selected
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Deoplete
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ale_completion_enabled = 1
-
-let g:ale_linters = {
-\   'c': ['clangcheck'],
-\   'cpp': ['clangcheck'],
-\   'python': ['flake8'],
-\   'verilog_systemverilog': ['verilator'],
-\}
-
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️ '
-set omnifunc=ale#completion#OmniFunc
+let g:ale_sign_error = '🔻'
+let g:ale_sign_warning = '🔸'

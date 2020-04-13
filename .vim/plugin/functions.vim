@@ -29,8 +29,6 @@ function! Prettify()
     " Get filetype
     let _ft = &filetype
 
-    " Prettify based on extension:
-
     " Use python to prettify JSON
     if _ft ==? "json"
         silent %!python -m json.tool
@@ -101,49 +99,4 @@ function! OnVimEnter() abort
             call writefile([l:this_week], l:filename, 'a')
         endif
     endif
-endfunction
-
-
-" Function to toggle comment of a selection of lines
-" Only works if selected with visual mode
-function! Commenter()
-
-    " Comment symbol by language
-    let comment_map = {
-       \   "c": '\/\/',
-       \   "cpp": '\/\/',
-       \   "javascript": '\/\/',
-       \   "lua": '--',
-       \   "vhdl": '--',
-       \   "python": '#',
-       \   "rust": '\/\/',
-       \   "verilog": '\/\/',
-       \   "systemverilog": '\/\/',
-       \   "sh": '#',
-       \   "conf": '#',
-       \   "profile": '#',
-       \   "bashrc": '#',
-       \   "bash_profile": '#',
-       \   "vim": '"',
-       \   "vimrc": '"',
-       \   "tex": '%',
-       \ }
-
-    " Grab comment symbol to use
-    let _comment = comment_map[&filetype]
-
-    " Get line number of the first selection's line
-    " ('< is the start of the visual selection)
-    let line=getpos("'<")[1]
-
-    " Check if the line start with the comment symbol (may be preceeded
-    " by space)
-    if match(getline(line), '^\s*'._comment) > -1
-        " Uncomment
-         execute '''<,''>s/\v(^\s*)'.escape(_comment, '\/').'\v\s*/\1/e'
-    else
-        " Comment
-        execute '''<,''>s/^\s*/&'.escape(_comment, '\/').' /e'
-    endif
-
 endfunction
