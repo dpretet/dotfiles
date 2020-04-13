@@ -5,14 +5,14 @@ Host my development environment relying on Zsh, (Neo)Vim, Tmux, Ctags and Git.
 To install locally the repository:
 
 ```bash
-    git clone https://github.com/damofthemoon/dotfiles.git ~/.dotfiles
+git clone https://github.com/damofthemoon/dotfiles.git ~/.dotfiles
 ```
 
 Then complete the installation with the next commands:
 
 ```bash
-    cd ~/.dotfiles
-    ./install.sh
+cd ~/.dotfiles
+./install.sh
 ```
 
 DON'T LAUNCH THE SCRIPT WITH SUDO! Sudo should be usefull only if you want to
