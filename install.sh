@@ -7,21 +7,21 @@
 set -euf -o pipefail
 
 # Get absolute path of current location for symlink
-export DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # Variable used to point the user targeted. Trick for AWS
 # or any OS where basic user is root/sudo on the machine
-export MYHOME=""
+MYHOME=""
 # Variable storing the command to install a package
-export install_cmd=""
-
-# Reset
-export Color_Off='\033[0m'       # Text Reset
+install_cmd=""
 
 # Bash color codes
-export Red='\033[0;31m'
-export Green='\033[0;32m'
-export Yellow='\033[0;33m'
-export Blue='\033[0;34m'
+Red='\033[0;31m'
+Green='\033[0;32m'
+Yellow='\033[0;33m'
+Blue='\033[0;34m'
+# Reset
+Color_Off='\033[0m'       # Text Reset
+
 
 function printerror {
     echo -e "${Red}ERROR: ${1}${Color_Off}"
@@ -113,11 +113,13 @@ function recommended_install {
         y|Y )
             install_dep "$install_cmd" "Zsh" "zsh"
             install_dep "$install_cmd" "Git" "git"
-            install_dep "$install_cmd" "Vim 8" "vim"
+            install_dep "$install_cmd" "Vim" "vim"
             install_dep "$install_cmd" "Neovim" "neovim"
             install_dep "$install_cmd" "Ctags" "ctags"
             install_dep "$install_cmd" "GTKWave" "gtkwave"
             install_dep "$install_cmd" "Python 3" "python3"
+            install_dep "$install_cmd" "Fd" "fd-find"
+            install_dep "$install_cmd" "Fd" "fd"
 
             printinfo "Install Node.js"
             # Try two different package name
@@ -221,18 +223,18 @@ function install_vim {
     # Create manually the local folder because on AWS F1,
     # centos and root are nearly the same user. Create it
     # then give rights to 'centos' user
-    sudo mkdir -p $MYHOME/.local
-    sudo chown -R $USER:$USER $MYHOME/.local
+    sudo mkdir -p "$MYHOME/.local"
+    sudo chown -R "$USER:$USER $MYHOME/.local"
 
     if [ ! -d "$MYHOME/.vim/autoload/plug.vim" ]; then
         echo "Vim-plugin is not installed for Vim. Clone it"
-        curl -fLo $MYHOME/.vim/autoload/plug.vim --create-dirs \
+        curl -fLo "$MYHOME/.vim/autoload/plug.vim" --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
 
     if [ ! -d ~/.local/share/nvim/site/autoload/plug.vim ]; then
         echo "Vim-plugin is not installed for Neovim. Clone it"
-        curl -fLo $MYHOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        curl -fLo "$MYHOME/.local/share/nvim/site/autoload/plug.vim" --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
 
@@ -240,8 +242,8 @@ function install_vim {
     printwarning "because Vim is not initialized completly."
     read -rp "Just press enter to continue the install" any
 
-    if [ -e $MYHOME/.bin/nvim ]; then
-        $MYHOME/.bin/nvim +PlugInstall +qall
+    if [ -e "$MYHOME/.bin/nvim" ]; then
+        "$MYHOME/.bin/nvim" +PlugInstall +qall
     else
         vim +PlugInstall +qall
     fi
@@ -261,8 +263,8 @@ function further_install {
 
     if [ ! -d "$MYHOME/.fzf" ]; then
         echo "Install FZF"
-        git clone --depth 1 https://github.com/junegunn/fzf.git $MYHOME/.fzf
-        $MYHOME/.fzf/install
+        git clone --depth 1 https://github.com/junegunn/fzf.git "$MYHOME/.fzf"
+        "$MYHOME/.fzf/install"
     fi
 }
 
