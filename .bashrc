@@ -28,8 +28,8 @@ alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
 # Enable Git completion
-source $HOME/.git-completion.bash
-source $HOME/.git-prompt.sh
+source "$HOME/.git-completion.bash"
+source "$HOME/.git-prompt.sh"
 
 # Alias vim to nvim
 if [[ $(type nvim) ]]; then alias vim="nvim"; fi
@@ -97,27 +97,10 @@ shopt -s cdspell 2> /dev/null
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Use ~~ as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER=',,'
+export FZF_COMPLETION_TRIGGER='@'
 
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
-
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-# Follow symbolic links, and don't want it to exclude hidden files
-# Respect Git ignore file setup
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-
-source $HOME/.fzf/shell/completion.bash
-source $HOME/.fzf/shell/key-bindings.bash
 
 #-----------------------------------------------------------
 # Misc. functions

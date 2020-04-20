@@ -118,8 +118,6 @@ function recommended_install {
             install_dep "$install_cmd" "Ctags" "ctags"
             install_dep "$install_cmd" "GTKWave" "gtkwave"
             install_dep "$install_cmd" "Python 3" "python3"
-            install_dep "$install_cmd" "Fd" "fd-find"
-            install_dep "$install_cmd" "Fd" "fd"
 
             printinfo "Install Node.js"
             # Try two different package name

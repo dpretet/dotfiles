@@ -119,28 +119,16 @@ zinit light "zsh-users/zsh-autosuggestions"
 
 [ -f ~/.fzf.zsh ] && source "$HOME/.fzf.zsh"
 
-# Use ~~ as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER=',,'
+# Use ,, as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='@'
 
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
-
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-_fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
-}
-
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
-}
 
 # Follow symbolic links, and don't want it to exclude hidden files
 # Respect Git ignore file setup
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 
-source $HOME/.fzf/shell/completion.zsh
-source $HOME/.fzf/shell/key-bindings.zsh
 
 #-------------------------------------
 # Dev environment setup
