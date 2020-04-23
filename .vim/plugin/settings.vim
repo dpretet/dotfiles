@@ -68,6 +68,9 @@ set hlsearch
 set nobackup
 set noswapfile
 
+" Always display sign column
+set signcolumn=yes
+
 " Auto comment new line if previous one was a comment
 set formatoptions+=r
 
