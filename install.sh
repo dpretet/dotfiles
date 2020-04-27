@@ -222,7 +222,7 @@ function install_vim {
     # centos and root are nearly the same user. Create it
     # then give rights to 'centos' user
     sudo mkdir -p "$MYHOME/.local"
-    sudo chown -R "$USER:$USER $MYHOME/.local"
+    sudo chown -R "$USER:$USER" "$MYHOME/.local"
 
     if [ ! -d "$MYHOME/.vim/autoload/plug.vim" ]; then
         echo "Vim-plugin is not installed for Vim. Clone it"
