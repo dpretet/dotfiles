@@ -236,6 +236,14 @@ function install_vim {
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
 
+    # Install necessary python module for Neovim
+    if [[ ! $(type pip) ]]; then
+        pip install neovim
+    fi
+    if [[ ! $(type pip3) ]]; then
+        pip3 install neovim
+    fi
+
     printwarning "Install Vim plugins. Next commands will partially fail"
     printwarning "because Vim is not initialized completly."
     read -rp "Just press enter to continue the install" any
