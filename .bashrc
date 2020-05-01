@@ -20,6 +20,7 @@ alias rm="rm -r"
 alias cp="cp -r"
 alias du="du -hs"
 alias grep="grep --color=auto --exclude-dir={.git,.gitignore}"
+alias j="jobs"
 
 alias ta='tmux attach -d -t'
 alias ts='tmux new-session -s'
@@ -97,7 +98,7 @@ shopt -s cdspell 2> /dev/null
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # Use ~~ as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER='@'
+export FZF_COMPLETION_TRIGGER='@@'
 
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'

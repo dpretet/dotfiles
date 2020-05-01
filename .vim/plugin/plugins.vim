@@ -24,7 +24,7 @@ let g:leaderMenu = {'name':  "",
              \'t': [':Tags',                        'FZF tag search'],
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
-             \'c': [':Commenter',                   'Comment/Uncomment visual selection'],
+             \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
              \}
 
 " Define leader key to space and call vim-leader-mapper

@@ -17,6 +17,7 @@ alias l="ls"
 alias la="ls -A"
 alias compress="tar -cjf"
 alias uncompress="tar -xjf"
+alias j="jobs"
 
 alias rm="rm -r"
 alias cp="cp -r"
@@ -48,7 +49,10 @@ export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
 export TERM=xterm-256color
 
-# History setup
+autoload -Uz compinit && compinit -i
+
+# History setup:
+
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=50000
 SAVEHIST=10000
@@ -59,21 +63,46 @@ setopt hist_ignore_space
 setopt inc_append_history
 setopt share_history
 
-# Completion
-setopt auto_menu
-setopt always_to_end
-setopt complete_in_word
-unsetopt flow_control
-unsetopt menu_complete
-zstyle ':completion:*:*:*:*:*' menu select
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
+# Completion behavior setup:
+
+setopt COMPLETE_IN_WORD # Complete from both ends of a word
+setopt ALWAYS_TO_END    # Move cursor to the end of a completed word
+setopt PATH_DIRS        # Perform path search even on command names with slashes
+setopt AUTO_LIST        # Automatically list choices on ambiguous completion
+setopt AUTO_PARAM_SLASH # If completed parameter is a directory, add a slash
+setopt AUTO_MENU        # Show completion menu on a succesive tab press
+unsetopt MENU_COMPLETE  # Do not autoselect the first completion entry
+unsetopt FLOW_CONTROL   # Disable ^S/^Q flow contro
+
+# Enable a local cache to setup completion
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 
-autoload -Uz compinit && compinit
-autoload -U promptinit; promptinit
+# Group matches and describe.
+zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*:matches' group 'yes'
+zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*:options' auto-description '%d'
+zstyle ':completion:*:corrections' format ' %F{green}-- %d (errors: %e) --%f'
+zstyle ':completion:*:descriptions' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose yes
+
+# Case-insensitive (all), partial-word, and then substring completion.
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+unsetopt CASE_GLOB
+
+# Kill
+zstyle ':completion:*:*:*:*:processes' command 'ps -u $USER -o pid,user,comm -w'
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;36=0=01'
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:*:kill:*' force-list always
+zstyle ':completion:*:*:kill:*' insert-ids single
+
 autoload colors; colors
 
 # Vim key binding
@@ -120,15 +149,10 @@ zinit light "zsh-users/zsh-autosuggestions"
 [ -f ~/.fzf.zsh ] && source "$HOME/.fzf.zsh"
 
 # Use ,, as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER='@'
+export FZF_COMPLETION_TRIGGER='@@'
 
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
-
-# Follow symbolic links, and don't want it to exclude hidden files
-# Respect Git ignore file setup
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-
 
 #-------------------------------------
 # Dev environment setup
