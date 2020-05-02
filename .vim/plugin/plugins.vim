@@ -154,3 +154,4 @@ let g:ale_linters = {
 
 " Specify rustc option for linting (avoid to use nightly build)
 let g:ale_rust_rustc_options=""
+let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -I src/"

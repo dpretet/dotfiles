@@ -17,6 +17,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'Chiel92/vim-autoformat'
+Plug 'damofthemoon/vim-svtb'
 " Misc.
 Plug 'damofthemoon/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
