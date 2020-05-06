@@ -17,15 +17,15 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'vhda/verilog_systemverilog.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'Chiel92/vim-autoformat'
-Plug 'damofthemoon/vim-svtb'
+Plug 'dpretet/vim-svtb'
 " Misc.
-Plug 'damofthemoon/vim-leader-mapper'
+Plug 'dpretet/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mjbrownie/swapit'
-Plug 'damofthemoon/vim-commenter'
+Plug 'dpretet/vim-commenter'
 
 call plug#end()
 
