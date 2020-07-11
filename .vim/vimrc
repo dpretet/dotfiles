@@ -24,7 +24,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'mjbrownie/swapit'
+Plug 'Konfekt/vim-CtrlXA'
 Plug 'dpretet/vim-commenter'
 
 call plug#end()

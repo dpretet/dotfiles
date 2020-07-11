@@ -149,10 +149,11 @@ let g:ale_sign_warning = '🔸'
 
 " Specify rustc and not cargo as default checker
 let g:ale_linters = {
+\   'verilog_systemverilog': [''],
 \   'rust': ['rustc'],
 \}
 
 " Specify rustc option for linting (avoid to use nightly build)
 let g:ale_rust_rustc_options=""
-let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -Isrc/ -I../src"
+let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -Isrc/ -I../src -f files.f"
 let g:ale_verilog_verilator_options = "+1800-2017ext+sv +1800-2005ext+v -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
