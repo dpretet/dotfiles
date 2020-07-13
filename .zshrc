@@ -126,8 +126,10 @@ autoload -Uz _zinit
 
 
 # Apply Pure theme
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
+# zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+# zinit light sindresorhus/pure
+zinit light denysdovhan/spaceship-prompt
+spaceship_vi_mode_enable
 
 # Syntax highlighting
 zinit light "zdharma/fast-syntax-highlighting"
