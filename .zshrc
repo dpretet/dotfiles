@@ -176,6 +176,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
+export PATH="/Users/damien/Library/Python/2.7/bin:$PATH"
 
 # Setup C and C++ include path for macOs
 

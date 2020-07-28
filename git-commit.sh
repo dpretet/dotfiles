@@ -17,7 +17,13 @@ fi
 subject="$*"
 
 echo ""
-echo -e "${Green}(1)${Blue} Feature ${Green}(2)${Blue} Fix ${Green}(3)${Blue} Refactor ${Green}(4)${Blue} Chore ${Green}(5)${Blue} Doc${NC} "
+echo -e "${Green}(1)${Blue} Feature"
+echo -e "${Green}(2)${Blue} Fix"
+echo -e "${Green}(3)${Blue} Refactor"
+echo -e "${Green}(4)${Blue} Chore"
+echo -e "${Green}(5)${Blue} Doc"
+echo -e "${NC} "
+
 read -p "Commit type: " answer
 echo ""
 

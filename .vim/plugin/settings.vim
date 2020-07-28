@@ -23,6 +23,7 @@ set laststatus=2
 set statusline=
 set statusline+=buffer\ %n\ -
 set statusline+=\ line\ %l/%L\ -
+set statusline+=\ col.\ %c\ -
 set statusline+=\ %f
 
 " Display wild menu
