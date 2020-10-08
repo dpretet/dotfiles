@@ -48,6 +48,7 @@ export EDITOR=vim
 export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
 export TERM=xterm-256color
+export MANPAGER='nvim +Man!'
 
 autoload -Uz compinit && compinit -i
 
@@ -132,7 +133,7 @@ zinit light denysdovhan/spaceship-prompt
 spaceship_vi_mode_enable
 
 # Syntax highlighting
-zinit light "zdharma/fast-syntax-highlighting"
+# zinit light "zdharma/fast-syntax-highlighting"
 
 # Enhanced ls utility
 zinit load "supercrabtree/k"

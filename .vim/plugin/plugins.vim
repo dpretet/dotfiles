@@ -126,7 +126,6 @@ set tags=tags,./tags,./../tags,./*/tags
 " Use NERDTree because netrw suffers several problems:
 " - open empty buffer, and may prevent to close vim
 " - don't auto close explore once a file is selected
-let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 
@@ -157,47 +156,3 @@ let g:ale_linters = {
 let g:ale_rust_rustc_options=""
 let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -Isrc/ -I../src -f files.f"
 let g:ale_verilog_verilator_options = "+1800-2017ext+sv +1800-2005ext+v -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
-
-
-let g:CtrlXA_Toggles = [
-      \ ['&&', '||'], ['and', 'or'],
-      \ ['+', '-'], ['++', '--'],
-      \ ['==', '!='] , ['=~', '!~'], ['===', '!=='],
-      \ ['<', '>'], ['<=', '>='], ['>>', '<<'],
-      \ ['verbose', 'debug', 'info', 'warn', 'error', 'fatal'],
-      \ ['remote', 'local', 'base'], ['REMOTE', 'LOCAL', 'BASE'],
-      \ ['ours', 'theirs'], ['Ours', 'Theirs'],
-      \ ['true', 'false'], ['True', 'False'], ['TRUE', 'FALSE'],
-      \ ['yes', 'no'], ['Yes', 'No'], ['YES', 'NO'],
-      \ ['on', 'off'], ['On', 'Off'], ['ON', 'OFF'],
-      \ ['up', 'down'], ['Up', 'Down'] ,['UP', 'DOWN'],
-      \ ['set', 'unset'],
-      \ ['is', 'isnot'] ,
-      \ ['input', 'output'] ,
-      \ ['reg', 'wire'] ,
-      \ ['task', 'function'] ,
-      \ ['enable', 'disable'], ['Enable', 'Disable'],
-      \ ['enabled', 'disabled'], ['Enabled', 'Disabled'],
-      \ ['maximum', 'minimum'], ['Maximum', 'Minimum'],
-      \ ['maximal', 'minimal'], ['Maximal', 'Minimal'],
-      \ ['maximize', 'minimize'], ['Maximize', 'Minimize'],
-      \ ['upper', 'lower'], ['Upper', 'Lower'],
-      \ ['top', 'bottom'], ['Top', 'Bottom'],
-      \ ['above', 'below'], ['Above', 'Below'],
-      \ ['forward', 'backward'], ['Forward', 'Backward'],
-      \ ['right', 'middle', 'left'], ['Right', 'Middle', 'Left'],
-      \ ['next', 'previous'], ['Next', 'Previous'],
-      \ ['first', 'last'], ['First', 'Last'],
-      \ ['begin', 'end'], ['Begin', 'End'],
-      \ ['before', 'after'], ['Before', 'After'],
-      \ ['more', 'less'], ['More', 'Less'],
-      \ ['fast', 'slow'], ['Fast', 'Slow'],
-      \ ['light', 'dark'] , ['Light', 'Dark'] ,
-      \ ['good', 'bad'], ['Good', 'Bad'],
-      \ ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omikron', 'pi', 'rho', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega'],
-      \ ['Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon', 'Zeta', 'Eta', 'Theta', 'Iota', 'Kappa', 'Lambda', 'Mu', 'Nu', 'Xi', 'Omikron', 'Pi', 'Rho',  'Sigma', 'Tau', 'Upsilon', 'Phi', 'Chi', 'Psi', 'Omega'],
-      \ ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z'],
-      \ ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'W', 'X', 'Y', 'Z'],
-      \ ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix'],
-      \ ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],
-      \ ]

@@ -56,6 +56,8 @@ set cursorline
 " Display matched bracket or parenthesis
 set showmatch
 
+set nowrap
+
 " Display pattern found while typing
 set incsearch
 " Ignore case when searching
