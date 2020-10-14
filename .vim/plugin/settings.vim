@@ -99,6 +99,5 @@ set breakindent
 " Provides tab completion for all file-related tasks
 set path+=**
 
-
 " Live substitution with s command
 set inccommand=split

@@ -26,6 +26,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'dpretet/vim-commenter'
+Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 

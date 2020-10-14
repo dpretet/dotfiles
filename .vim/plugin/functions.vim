@@ -100,3 +100,15 @@ function! OnVimEnter() abort
         endif
     endif
 endfunction
+
+" Build Ctags using Universal Ctags
+function! BuildCtags()
+
+    silent ! touch tags
+    AsyncRun! find . -name "*.sh"
+                \ -o -name "*.c*"
+                \ -o -name "*.h"
+                \ -o -name "*.py"
+                \ -o -name "*.*v"
+                \ -exec ctags -a {} \;
+endfunction

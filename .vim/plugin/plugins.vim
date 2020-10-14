@@ -22,6 +22,7 @@ let g:leaderMenu = {'name':  "",
              \'p': [':call Prettify()',             'Prettify the buffer'],
              \'z': [':Goyo',                        'Enter in Zen mode'],
              \'t': [':Tags',                        'FZF tag search'],
+             \'T': [':call BuildCtags()',           'Create tags'],
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
              \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
@@ -116,7 +117,6 @@ let g:vim_markdown_auto_extension_ext = 'txt'
 
 nmap <C-T> <C-]>
 set tags=tags,./tags,./../tags,./*/tags
-" let g:gutentags_trace = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
