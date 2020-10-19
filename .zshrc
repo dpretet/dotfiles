@@ -108,9 +108,6 @@ autoload colors; colors
 
 # Vim key binding
 bindkey -v
-# Restore Emacs-like like navigation
-bindkey '^a' beginning-of-line
-bindkey '^e' end-of-line
 
 # -----------------------------------
 # Setup zinit (Always source last)
@@ -173,14 +170,14 @@ if [ -d "/usr/libexec/java_home" ]; then
     export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
-export PATH="/Users/damien/Library/Python/2.7/bin:$PATH"
 
 # Setup C and C++ include path for macOs
-
 MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
 
 if [[ -d $MACOS_C_INCLUDE_PATH ]]; then

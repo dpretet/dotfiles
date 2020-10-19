@@ -8,8 +8,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Theme
-Plug 'cocopon/iceberg.vim'
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
@@ -22,7 +21,6 @@ Plug 'dpretet/vim-veritoolbox'
 Plug 'dpretet/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'dpretet/vim-commenter'
