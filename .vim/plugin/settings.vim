@@ -4,8 +4,7 @@
 
 " Color scheme
 set background=dark
-
-colorscheme dracula
+colorscheme atom-dark-256
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=UTF-8

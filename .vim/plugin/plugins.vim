@@ -25,6 +25,7 @@ let g:leaderMenu = {'name':  "",
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
              \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
+             \' ': [':call FloatTerm()',            'Open a terminal in a floating window'],
              \}
 
 " Define leader key to space and call vim-leader-mapper

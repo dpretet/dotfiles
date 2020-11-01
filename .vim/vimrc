@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 
 " Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'gosukiwi/vim-atom-dark'
 Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'

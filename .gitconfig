@@ -21,3 +21,4 @@
     pl = pull origin
     cl = clean -fd
     st = status
+    root = rev-parse --show-toplevel

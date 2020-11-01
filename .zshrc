@@ -149,7 +149,7 @@ zinit light "zsh-users/zsh-autosuggestions"
 [ -f ~/.fzf.zsh ] && source "$HOME/.fzf.zsh"
 
 # Use ,, as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER='@@'
+export FZF_COMPLETION_TRIGGER=',,'
 
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
