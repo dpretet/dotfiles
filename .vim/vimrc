@@ -8,14 +8,13 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Theme
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vhda/verilog_systemverilog.vim'
-Plug 'plasticboy/vim-markdown'
+Plug 'dpretet/vim-markdown-tool'
 Plug 'Chiel92/vim-autoformat'
 Plug 'dpretet/vim-veritoolbox'
 " Misc.
@@ -23,13 +22,14 @@ Plug 'dpretet/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'scrooloose/nerdtree'
-Plug 'Konfekt/vim-CtrlXA'
+Plug 'AndrewRadev/switch.vim'
 Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
 
 filetype plugin indent on
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Scripts handling the settings

@@ -25,7 +25,7 @@ let g:leaderMenu = {'name':  "",
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
              \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
-             \' ': [':call FloatTerm()',            'Open a terminal in a floating window'],
+             \':': [':call FloatTerm()',            'Open a terminal in a floating window'],
              \}
 
 " Define leader key to space and call vim-leader-mapper
@@ -101,22 +101,25 @@ let g:autoformat_remove_trailing_spaces = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Markdown setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_math = 1
-let g:vim_markdown_json_frontmatter = 1
-let g:vim_markdown_no_extensions_in_markdown = 1
-let g:vim_markdown_auto_extension_ext = 'txt'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nmap <C-T> <C-]>
 set tags=tags,./tags,./../tags,./*/tags
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Switch
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:switch_custom_definitions =
+    \ [
+    \   ['input', 'output'],
+    \   ['reg', 'wire', 'logic'],
+    \   ['===', '!=='],
+    \   ['task', 'function'],
+    \   ['posedge', 'negedge'],
+    \   ['New', 'Change', 'Fix', 'Feature', 'Refactor', 'Chore', 'Doc'],
+    \ ]
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

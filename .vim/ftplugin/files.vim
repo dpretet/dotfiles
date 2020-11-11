@@ -22,7 +22,7 @@ autocmd BufRead *.{log,txt} AnsiEsc
 au BufRead,BufNewFile *.json set filetype=javascript
 
 " Specify Markdown syntax checking for these extensions
-au BufRead,BufNewFile *.mkd, *.markdown, *.mdwn, *.mk, *.md set filetype=markdown
+au BufRead,BufNewFile *.mkd, *.md, *.txt set filetype=markdown.pandoc
 
 " Insert tabs, not spaces for Makefile
 autocmd FileType make setlocal noexpandtab

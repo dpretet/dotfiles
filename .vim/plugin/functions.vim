@@ -111,6 +111,7 @@ function! BuildCtags()
                 \ -o -name "*.h"
                 \ -o -name "*.py"
                 \ -o -name "*.*v"
+                \ -o -name "*.vim"
                 \ -exec ctags -a {} \;
 endfunction
 
