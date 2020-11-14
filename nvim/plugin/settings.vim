@@ -55,7 +55,11 @@ set cursorline
 " Display matched bracket or parenthesis
 set showmatch
 
+" Don't wrap lines
 set nowrap
+
+" Display absolute and relative line number
+set nu rnu
 
 " Display pattern found while typing
 set incsearch

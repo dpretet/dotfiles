@@ -1,11 +1,11 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin management, managed by Vim-plug
+" Plugin management, by Vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
 filetype off
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Theme
 Plug 'gosukiwi/vim-atom-dark'
@@ -14,7 +14,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vhda/verilog_systemverilog.vim'
-Plug 'dpretet/vim-markdown-tool'
+Plug 'dpretet/vim-markdown-tool', { 'tag': 'main' }
 Plug 'Chiel92/vim-autoformat'
 Plug 'dpretet/vim-veritoolbox'
 " Misc.
@@ -32,10 +32,10 @@ filetype plugin indent on
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Scripts handling the settings
+" Sub scripts handling the settings for plugins and core
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ~/.vim/plugin/settings.vim
-source ~/.vim/plugin/functions.vim
-source ~/.vim/plugin/plugins.vim
-source ~/.vim/ftplugin/files.vim
+source ~/.config/nvim/plugin/settings.vim
+source ~/.config/nvim/plugin/functions.vim
+source ~/.config/nvim/plugin/plugins.vim
+source ~/.config/nvim/ftplugin/files.vim

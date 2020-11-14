@@ -186,32 +186,30 @@ function install_dep {
 function create_symlink {
 
     printinfo "Create Vim symlinks"
-    ln -sf "$DIR/.vim" "$MYHOME/.vim"
-    if [ ! -d "$MYHOME/.config/nvim/" ]; then mkdir -p "$MYHOME/.config/nvim"; fi
-    ln -sf "$DIR/.vim/vimrc" "$MYHOME/.config/nvim/init.vim"
+    ln -sf "$DIR/nvim/" "$MYHOME/.config/nvim"
 
     printinfo "Create Zsh symlink"
-    ln -sf "$DIR/.zshrc" "$MYHOME/.zshrc"
+    ln -sf "$DIR/zshrc" "$MYHOME/.zshrc"
 
     printinfo "Create Bash symlink"
-    ln -sf "$DIR/.bashrc" "$MYHOME/.bashrc"
-    ln -sf "$DIR/.inputrc" "$MYHOME/.inputrc"
-    ln -sf "$DIR/.git-prompt.sh" "$MYHOME/.git-prompt.sh"
-    ln -sf "$DIR/.git-completion.bash" "$MYHOME/.git-completion.bash"
+    ln -sf "$DIR/bashrc" "$MYHOME/.bashrc"
+    ln -sf "$DIR/inputrc" "$MYHOME/.inputrc"
+    ln -sf "$DIR/git-prompt.sh" "$MYHOME/.git-prompt.sh"
+    ln -sf "$DIR/git-completion.bash" "$MYHOME/.git-completion.bash"
 
     printinfo "Create Tmux symlink"
-    ln -sf "$DIR/.tmux.conf" "$MYHOME/.tmux.conf"
+    ln -sf "$DIR/tmux.conf" "$MYHOME/.tmux.conf"
 
     printinfo "Create Git symlinks"
-    ln -sf "$DIR/.gitconfig" "$MYHOME/.gitconfig"
-    ln -sf "$DIR/.git-completion.zsh" "$MYHOME/.git-completion.zsh"
-    ln -sf "$DIR/.git-prompt.sh" "$MYHOME/.git-prompt.sh"
+    ln -sf "$DIR/gitconfig" "$MYHOME/.gitconfig"
+    ln -sf "$DIR/git-completion.zsh" "$MYHOME/.git-completion.zsh"
+    ln -sf "$DIR/git-prompt.sh" "$MYHOME/.git-prompt.sh"
 
     printinfo "Create Ctags symlink"
-    ln -sf "$DIR/.ctags" "$MYHOME/.ctags"
+    ln -sf "$DIR/ctags" "$MYHOME/.ctags"
 
     printinfo "Create GTKWave symlink"
-    ln -sf "$DIR/.gtkwaverc" "$MYHOME/.gtkwaverc"
+    ln -sf "$DIR/gtkwaverc" "$MYHOME/.gtkwaverc"
 }
 
 function install_vim {
