@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -15,15 +15,8 @@ set ffs=unix,dos,mac
 " Always show the status line
 set laststatus=2
 
-" Display on status line:
-"   - buffer number
-"   - line number / max line
-"   - file name
-set statusline=
-set statusline+=buffer\ %n\ -
-set statusline+=\ line\ %l/%L\ -
-set statusline+=\ col.\ %c\ -
-set statusline+=\ %f
+" Display cursor position
+set ruler
 
 " Display wild menu
 set wildmenu
@@ -46,6 +39,7 @@ set shiftround
 " Auto indent lines
 set autoindent
 set smartindent
+set nocindent
 
 " Display max column width recommended
 set colorcolumn=80
@@ -55,7 +49,7 @@ set cursorline
 " Display matched bracket or parenthesis
 set showmatch
 
-" Don't wrap lines
+" Don't wrap long lines
 set nowrap
 
 " Display absolute and relative line number
@@ -78,7 +72,7 @@ set noswapfile
 set signcolumn=yes
 
 " Auto comment new line if previous one was a comment
-set formatoptions+=r
+" set formatoptions+=r
 
 " A buffer becomes hidden when it is abandoned
 set hidden
@@ -93,10 +87,7 @@ command! Bd bp | sp | bn | bd
 set timeoutlen=1 ttimeoutlen=0
 
 " Control-c remove hightlighted search
- noremap <silent> <C-c> :noh<cr>
-
-" Indent wrapped lines
-set breakindent
+noremap <silent> <C-c> :noh<cr>
 
 " Search down into subfolders with find command
 " Provides tab completion for all file-related tasks

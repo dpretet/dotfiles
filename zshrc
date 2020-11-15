@@ -220,3 +220,6 @@ extract ()
 function pretty_csv {
     column -t -s, "$@" | less -F -S -X -K
 }
+
+export VIMRC="$HOME/.dotfiles/nvim"
+export NOTES="$HOME/.notes"

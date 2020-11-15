@@ -14,7 +14,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vhda/verilog_systemverilog.vim'
-Plug 'dpretet/vim-markdown-tool', { 'tag': 'main' }
+Plug 'dpretet/vim-markdown-tool'
 Plug 'Chiel92/vim-autoformat'
 Plug 'dpretet/vim-veritoolbox'
 " Misc.
