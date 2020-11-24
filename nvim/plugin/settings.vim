@@ -95,3 +95,9 @@ set path+=**
 
 " Live substitution with s command
 set inccommand=split
+
+" Disable arrows in normal, take goods habits!
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>

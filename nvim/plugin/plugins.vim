@@ -2,14 +2,39 @@
 " Leader key setup, handled with vim-leader-mapper
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Shortcut created and handled by Vim-leader-mapper
-let g:leaderMenu = {'name':  "",
+" Define the sub-menu dedicated to Markdown tool
+let MdMenu = {'name':  "Markdown Menu",
+             \'tk':  [":MdAddTask",          "Add a new task"],
+             \'stk': [":MdAddSubTask",       "Add a new sub task"],
+             \'tt':  [":MdChangeToTask",     "Change list item to task"],
+             \'tb':  [":MdAddTable",         "Add a table"],
+             \'ac':  [":MdAddColumn",        "Add a column"],
+             \'ar':  [":MdAddRow",           "Add a row"],
+             \'swc': [":MdSwapColumn",       "Swap two columns"],
+             \'swr': [":MdSwapRow",          "Swap two rows"],
+             \'p':   [":MdPrettify",         "Prettify a table"],
+             \'i':   [":MdAddImage",         "Add image"],
+             \'l':   [":MdAddLink",          "Add link"],
+             \'sn':  [":MdStatusNew",        "Assign to task 'New' status"],
+             \'so':  [":MdStatusOngoing",    "Assign to task 'Ongoing' status"],
+             \'sc':  [":MdStatusCancel",     "Assign to task 'Cancel' status"],
+             \'sd':  [":MdStatusDone",       "Assign to task 'Done' status"],
+             \}
+
+" Define FZF leader key menu
+let g:FZFMenu = {'name':  "FZF Menu",
              \'f': [":Files",                       "FZF file search"],
              \'b': [":Buffers",                     "FZF buffer search"],
              \'s': [":BLines",                      "FZF text search into current buffer"],
              \'S': [":Lines",                       "FZF text search across loaded buffers"],
              \'g': [":BCommits",                    "FZF git commits of the current buffer"],
              \'G': [":Commits",                     "FZF git commits of the repository"],
+             \'t': [':Tags',                        'FZF tag search'],
+             \}
+
+" Define Main leader key menu
+let g:leaderMenu = {'name':  "Main",
+             \'f': [FZFMenu,                        "Open FZF menu"],
              \'v': [':vsplit',                      'Split buffer vertically'],
              \'h': [':split',                       'Split buffer horizontally'],
              \'d': [':bd',                          'Close buffer'],
@@ -20,12 +45,12 @@ let g:leaderMenu = {'name':  "",
              \'W': [':w !sudo tee % > /dev/null',   'Write buffer with sudo rights'],
              \'l': [':ls',                          'List opened buffers'],
              \'p': [':call Prettify()',             'Prettify the buffer'],
-             \'t': [':Tags',                        'FZF tag search'],
-             \'T': [':call BuildCtags()',           'Create tags'],
+             \'t': [':call BuildCtags()',           'Create tags'],
              \'o': [':normal gf',                   'Open file under cursor'],
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
              \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
              \':': [':call FloatTerm()',            'Open a terminal in a floating window'],
+             \'m': [MdMenu,                         'Open Markdown-Tool menu'],
              \}
 
 " Define leader key to space and call vim-leader-mapper
