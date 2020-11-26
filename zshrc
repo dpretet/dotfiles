@@ -139,8 +139,8 @@ zinit load "supercrabtree/k"
 zinit load "damofthemoon/zsh-quotify"
 
 # Aditional completion
-zinit light "zsh-users/zsh-completions"
-zinit light "zsh-users/zsh-autosuggestions"
+# zinit light "zsh-users/zsh-completions"
+# zinit light "zsh-users/zsh-autosuggestions"
 
 #------------------------------------
 # Setup FZF
@@ -176,6 +176,8 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
+export VIMRC="$HOME/.dotfiles/nvim"
+export NOTES="$HOME/.notes"
 
 # Setup C and C++ include path for macOs
 MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
@@ -220,6 +222,3 @@ extract ()
 function pretty_csv {
     column -t -s, "$@" | less -F -S -X -K
 }
-
-export VIMRC="$HOME/.dotfiles/nvim"
-export NOTES="$HOME/.notes"
