@@ -27,7 +27,7 @@ set number
 set numberwidth=4
 
 " Enable mouse in all modes
-set mouse=a
+" set mouse=a
 
 " Use spaces instead of tabs
 set expandtab
@@ -86,8 +86,8 @@ command! Bd bp | sp | bn | bd
 " Reduce delay when pressing ESC
 set timeoutlen=1 ttimeoutlen=0
 
-" Control-c remove hightlighted search
-noremap <silent> <C-c> :noh<cr>
+" Control-c remove hightlighted search and sneak match
+noremap <silent> <C-c> :noh \| call sneak#cancel()<cr>
 
 " Search down into subfolders with find command
 " Provides tab completion for all file-related tasks
@@ -101,3 +101,6 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+
+" Enter key is equivalent to c-y thus doesn't add a new line when completing
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"

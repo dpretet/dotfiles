@@ -122,15 +122,11 @@ fi
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-
 # Apply Pure theme
-# zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-# zinit light sindresorhus/pure
+zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
+zinit light sindresorhus/pure
 zinit light denysdovhan/spaceship-prompt
 spaceship_vi_mode_enable
-
-# Syntax highlighting
-# zinit light "zdharma/fast-syntax-highlighting"
 
 # Enhanced ls utility
 zinit load "supercrabtree/k"
@@ -138,9 +134,6 @@ zinit load "supercrabtree/k"
 # Personal quote printer plugin
 zinit load "damofthemoon/zsh-quotify"
 
-# Aditional completion
-# zinit light "zsh-users/zsh-completions"
-# zinit light "zsh-users/zsh-autosuggestions"
 
 #------------------------------------
 # Setup FZF

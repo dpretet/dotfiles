@@ -18,6 +18,7 @@ Plug 'dpretet/vim-markdown-tool'
 Plug 'Chiel92/vim-autoformat'
 Plug 'dpretet/vim-veritoolbox'
 " Misc.
+Plug 'justinmk/vim-sneak'
 Plug 'dpretet/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
