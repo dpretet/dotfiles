@@ -13,10 +13,14 @@ Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'vhda/verilog_systemverilog.vim'
+Plug 'dpretet/nvim-lspconfig'
+"Plug 'neovim/nvim-lsp'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete-lsp'
 Plug 'dpretet/vim-markdown-tool'
 Plug 'Chiel92/vim-autoformat'
 Plug 'dpretet/vim-veritoolbox'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Misc.
 Plug 'justinmk/vim-sneak'
 Plug 'dpretet/vim-leader-mapper'
@@ -36,7 +40,7 @@ filetype plugin indent on
 " Sub scripts handling the settings for plugins and core
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source ~/.config/nvim/plugin/settings.vim
-source ~/.config/nvim/plugin/functions.vim
-source ~/.config/nvim/plugin/plugins.vim
-source ~/.config/nvim/ftplugin/files.vim
+source $HOME/.config/nvim/plugin/settings.vim
+source $HOME/.config/nvim/plugin/plugins.vim
+source $HOME/.config/nvim/plugin/functions.vim
+source $HOME/.config/nvim/ftplugin/files.vim

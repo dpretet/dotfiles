@@ -31,11 +31,13 @@ let g:FZFMenu = {'name':  "FZF Menu",
              \'g': [":BCommits",                    "FZF git commits of the current buffer"],
              \'G': [":Commits",                     "FZF git commits of the repository"],
              \'t': [':Tags',                        'FZF tag search'],
+             \'h': [':History:',                    'FZF command history search'],
              \}
 
 " Define Main leader key menu
 let g:leaderMenu = {'name':  "Main",
              \'f': [FZFMenu,                        "Open FZF menu"],
+             \'m': [MdMenu,                         'Open Markdown-Tool menu'],
              \'v': [':vsplit',                      'Split buffer vertically'],
              \'h': [':split',                       'Split buffer horizontally'],
              \'d': [':bd',                          'Close buffer'],
@@ -51,7 +53,6 @@ let g:leaderMenu = {'name':  "Main",
              \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
              \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
              \':': [':call FloatTerm()',            'Open a terminal in a floating window'],
-             \'m': [MdMenu,                         'Open Markdown-Tool menu'],
              \}
 
 " Define leader key to space and call vim-leader-mapper
@@ -59,6 +60,40 @@ nnoremap <Space> <Nop>
 let mapleader = "\<Space>"
 nnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
 vnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tree-Sitter setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+lua << END
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,  -- false will disable the whole extension
+    disable = { },  -- list of language that will be disabled
+  },
+}
+END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" LSP setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+lua << END
+
+-- C/Cpp/ObjC server
+require'lspconfig'.ccls.setup{}
+
+-- SystemVerilog server
+require'lspconfig'.svls.setup{}
+
+-- vimL server
+require'lspconfig'.vimls.setup{}
+
+-- bash server
+require'lspconfig'.bashls.setup{}
+
+END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF setup

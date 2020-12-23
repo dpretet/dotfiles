@@ -1,6 +1,49 @@
 #!/usr/bin/env zsh
 
 #-------------------------------------
+# Dev environment setup
+#-------------------------------------
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# To launch GTKWave with command line on MacOs
+if [ -d '/Applications/gtkwave.app' ]; then
+    export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
+fi
+
+# Setup Java home and max memory during SBT compilation
+if [ -d "/usr/libexec/java_home" ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="$HOME/.bin/nvim-osx64/bin:$PATH"
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.bin/:$PATH"
+export PATH="$HOME/.svut/:$PATH"
+export PATH="$HOME/.dotfiles/:$PATH"
+export VIMRC="$HOME/.dotfiles/nvim"
+export NOTES="$HOME/.notes"
+
+# Setup C and C++ include path for macOs
+MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+
+if [[ -d $MACOS_C_INCLUDE_PATH ]]; then
+    export C_INCLUDE_PATH=$MACOS_C_INCLUDE_PATH:$C_INCLUDE_PATH
+fi
+
+MACOS_CPLUS_INCLUDE_PATH="/Library/Developer/CommandLineTools/usr/include/c++/v1/"
+
+if [[ -d $MACOS_CPLUS_INCLUDE_PATH ]]; then
+    export CPLUS_INCLUDE_PATH=$MACOS_CPLUS_INCLUDE_PATH:$CPLUS_INCLUDE_PATH
+fi
+
+# Setup Rust development environment
+export PATH="$HOME/.cargo/bin:$PATH"
+
+
+#-------------------------------------
 # Setup Zsh
 #-------------------------------------
 
@@ -147,46 +190,6 @@ export FZF_COMPLETION_TRIGGER=',,'
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
 
-#-------------------------------------
-# Dev environment setup
-#-------------------------------------
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# To launch GTKWave with command line on MacOs
-if [ -d '/Applications/gtkwave.app' ]; then
-    export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
-fi
-
-# Setup Java home and max memory during SBT compilation
-if [ -d "/usr/libexec/java_home" ]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
-fi
-
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.bin/:$PATH"
-export PATH="$HOME/.svut/:$PATH"
-export PATH="$HOME/.dotfiles/:$PATH"
-export VIMRC="$HOME/.dotfiles/nvim"
-export NOTES="$HOME/.notes"
-
-# Setup C and C++ include path for macOs
-MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
-
-if [[ -d $MACOS_C_INCLUDE_PATH ]]; then
-    export C_INCLUDE_PATH=$MACOS_C_INCLUDE_PATH:$C_INCLUDE_PATH
-fi
-
-MACOS_CPLUS_INCLUDE_PATH="/Library/Developer/CommandLineTools/usr/include/c++/v1/"
-
-if [[ -d $MACOS_CPLUS_INCLUDE_PATH ]]; then
-    export CPLUS_INCLUDE_PATH=$MACOS_CPLUS_INCLUDE_PATH:$CPLUS_INCLUDE_PATH
-fi
-
-# Setup Rust development environment
-export PATH="$HOME/.cargo/bin:$PATH"
 
 #-------------------------------------
 # Generic function to extract archive

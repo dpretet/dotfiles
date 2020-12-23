@@ -27,7 +27,7 @@ set number
 set numberwidth=4
 
 " Enable mouse in all modes
-" set mouse=a
+set mouse=n
 
 " Use spaces instead of tabs
 set expandtab
@@ -104,3 +104,16 @@ noremap <Right> <NOP>
 
 " Enter key is equivalent to c-y thus doesn't add a new line when completing
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Easier Moving between splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Sizing window horizontally
+nnoremap <c-,> <C-W><
+nnoremap <c-.> <C-W>>
+nnoremap <A-,> <C-W>5<
+nnoremap <A-.> <C-W>5>
+
