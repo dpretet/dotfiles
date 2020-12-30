@@ -2,7 +2,7 @@
 " Plugin management, by Vim-plug
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible
+"set nocompatible
 filetype off
 
 call plug#begin('~/.config/nvim/plugged')
@@ -12,16 +12,16 @@ Plug 'gosukiwi/vim-atom-dark'
 Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'dpretet/nvim-lspconfig'
-"Plug 'neovim/nvim-lsp'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/deoplete-lsp'
-Plug 'dpretet/vim-markdown-tool'
-Plug 'Chiel92/vim-autoformat'
-Plug 'dpretet/vim-veritoolbox'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'dpretet/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-treesitter/completion-treesitter'
+Plug 'kristijanhusak/completion-tags'
+
+Plug 'dpretet/vim-markdown-tool'
+Plug 'dpretet/vim-veritoolbox'
 " Misc.
+Plug 'Chiel92/vim-autoformat'
 Plug 'justinmk/vim-sneak'
 Plug 'dpretet/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
@@ -32,9 +32,7 @@ Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'
 
 call plug#end()
-
 filetype plugin indent on
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sub scripts handling the settings for plugins and core
@@ -43,4 +41,5 @@ filetype plugin indent on
 source $HOME/.config/nvim/plugin/settings.vim
 source $HOME/.config/nvim/plugin/plugins.vim
 source $HOME/.config/nvim/plugin/functions.vim
+source $HOME/.config/nvim/plugin/lsp.vim
 source $HOME/.config/nvim/ftplugin/files.vim

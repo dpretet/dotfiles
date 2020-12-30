@@ -22,6 +22,12 @@ set ruler
 set wildmenu
 set wildmode=longest:full,full
 
+" Enter key is equivalent to c-y thus doesn't add a new line when completing
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " Display line numbers
 set number
 set numberwidth=4
@@ -84,7 +90,7 @@ set cmdheight=2
 command! Bd bp | sp | bn | bd
 
 " Reduce delay when pressing ESC
-set timeoutlen=1 ttimeoutlen=0
+set timeoutlen=1 ttimeoutlen=1
 
 " Control-c remove hightlighted search and sneak match
 noremap <silent> <C-c> :noh \| call sneak#cancel()<cr>
@@ -101,19 +107,3 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
-" Enter key is equivalent to c-y thus doesn't add a new line when completing
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Easier Moving between splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Sizing window horizontally
-nnoremap <c-,> <C-W><
-nnoremap <c-.> <C-W>>
-nnoremap <A-,> <C-W>5<
-nnoremap <A-.> <C-W>5>
-

@@ -62,40 +62,6 @@ nnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
 vnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tree-Sitter setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-lua << END
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  highlight = {
-    enable = true,  -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
-  },
-}
-END
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" LSP setup
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-lua << END
-
--- C/Cpp/ObjC server
-require'lspconfig'.ccls.setup{}
-
--- SystemVerilog server
-require'lspconfig'.svls.setup{}
-
--- vimL server
-require'lspconfig'.vimls.setup{}
-
--- bash server
-require'lspconfig'.bashls.setup{}
-
-END
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -125,40 +91,31 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 
-" Using floating windows of Neovim to start fzf
-if has('nvim')
+let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
 
-  let $FZF_DEFAULT_OPTS .= ' --border --margin=0,2'
+function! FloatingFZF()
+let width = float2nr(&columns * 0.7)
+let height = float2nr(&lines * 0.5)
+let opts = { 'relative': 'editor',
+            \ 'row': (&lines - height) / 2,
+            \ 'col': (&columns - width) / 2,
+            \ 'width': width,
+            \ 'height': height }
 
-  function! FloatingFZF()
-    let width = float2nr(&columns * 0.7)
-    let height = float2nr(&lines * 0.5)
-    let opts = { 'relative': 'editor',
-               \ 'row': (&lines - height) / 2,
-               \ 'col': (&columns - width) / 2,
-               \ 'width': width,
-               \ 'height': height }
+let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+endfunction
 
-    let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
-  endfunction
-
-  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-
-else
-    " Open FZF in the middle of the screen.
-    " Can be down / up / left / right
-    let g:fzf_layout = { 'down': '~50%' }
-endif
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AutoFormat setup
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
+" let g:autoformat_autoindent = 0
+" let g:autoformat_retab = 0
+" let g:autoformat_remove_trailing_spaces = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -203,28 +160,19 @@ let g:sneak#s_next = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Deoplete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:deoplete#enable_at_startup = 1
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:ale_sign_error = '🔻'
-let g:ale_sign_warning = '🔸'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '✺'
 
 " Specify rustc and not cargo as default checker
 let g:ale_linters = {
-\   'verilog_systemverilog': [''],
+\   'verilog_systemverilog': ['verilator'],
 \   'rust': ['rustc'],
 \}
 
 " Specify rustc option for linting (avoid to use nightly build)
 let g:ale_rust_rustc_options=""
-let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -Isrc/ -I../src -f files.f"
-let g:ale_verilog_verilator_options = "+1800-2017ext+sv +1800-2005ext+v -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
+let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -Isrc/ -I../src -Isrc/include -Isrc/common -f files.f"
+let g:ale_verilog_verilator_options = "-y src -y include -y common -y ../src -y ../include -y ../common +1800-2017ext+sv +1800-2005ext+v -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
