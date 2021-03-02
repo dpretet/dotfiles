@@ -6,12 +6,9 @@
 set background=dark
 colorscheme atom-dark-256
 
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=UTF-8
-
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
+set encoding=utf-8
 " Always show the status line
 set laststatus=2
 
@@ -21,12 +18,6 @@ set ruler
 " Display wild menu
 set wildmenu
 set wildmode=longest:full,full
-
-" Enter key is equivalent to c-y thus doesn't add a new line when completing
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Display line numbers
 set number
@@ -107,3 +98,10 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+"
+" Enter key is equivalent to c-y thus doesn't add a new line when completing
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+

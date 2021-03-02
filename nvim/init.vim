@@ -9,15 +9,14 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Theme
 Plug 'gosukiwi/vim-atom-dark'
-Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'dpretet/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/completion-treesitter'
 Plug 'kristijanhusak/completion-tags'
-
 Plug 'dpretet/vim-markdown-tool'
 Plug 'dpretet/vim-veritoolbox'
 " Misc.
@@ -26,7 +25,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'dpretet/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'AndrewRadev/switch.vim'
 Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'
