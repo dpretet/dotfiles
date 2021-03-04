@@ -7,7 +7,7 @@ module ModuleName
     parameter NAME = 0
     )(
     input  wire aclk,
-    input  wire aresten,
+    input  wire aresetn,
     output wire out
     );
 

@@ -9,3 +9,4 @@ msg.txt
 tags
 .ccls-cahce
 nvim/plugged
+*.log

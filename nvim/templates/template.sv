@@ -7,7 +7,7 @@ module ModuleName
     parameter NAME = 0
     )(
     input         aclk,
-    input         aresten,
+    input         aresetn,
     input         wen,
     input  [15:0] wdata,
     output logic  wout
