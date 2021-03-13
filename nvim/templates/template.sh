@@ -4,4 +4,4 @@
 # -u: treat unset variable as an error
 # -f: disable filename expansion upon seeing *, ?, ...
 # -o pipefail: causes a pipeline to fail if any command fails
-set -euf -o pipefail
+set -e -o pipefail

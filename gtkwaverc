@@ -2,10 +2,6 @@
 # `man gtkwaverc` gives complete list of
 # possible configuration
 
-# Highlight waveform when signal is selected in signal list
-highlight_wavewindow 1
-show_grid yes
-
 accel "/File/Close" (null)
 accel "/File/Quit" (null)
 
@@ -13,8 +9,63 @@ accel "/Time/Zoom/Zoom In" c
 accel "/Time/Zoom/Zoom Out" o
 accel "/Time/Zoom/Zoom Full" f
 
-accel "/Edit/Create Group" g
+# accel "/Edit/Create Group" g
+accel "/Edit/Create Group" G
 accel "/Edit/Toggle Group Open|Close" t
 
 accel "/Markers/Find Previous Edge" p
 accel "/Markers/Find Next Edge" n
+
+# == Clean up some things that are very annoying ==
+splash_disable on
+
+# == Make the colors pretty ==
+# color_0 af92fb
+# color_1 af92fb
+# color_trans af92fb
+# color_vtrans af92fb
+# color_vbox af92fb
+# Background
+color_back 252525
+# Comments
+color_brkred ff6d7f
+# Misc black
+color_black fdfdfd
+# Don't-care signals
+color_dash f1994b
+# color_dashfill
+
+color_dkblue 26a3d9
+color_dkgray 494a50
+# color_gmstrd
+color_grid d4d4d4
+color_grid2 d4d4d4
+# color_high
+# color_low
+
+# Color for shadowed traces
+color_ltblue 53a9fd
+
+color_ltgray 252525
+color_mark f1994b
+color_mdgray d4d4d4
+color_normal af92fb
+color_time d4d4d4
+color_timeb 252525
+color_white fdfdfd
+
+# == Fix the janky AF fonts it uses by default ==
+use_nonprop_fonts 1
+use_big_fonts 1
+use_pango_fonts on
+fontname_signals Fira Code Retina 14
+fontname_waves Fira Code Retina 12
+fontname_logfile Fira Code Retina 14
+
+# == Some misc fixes ==
+editor "subl3 %s"
+enable_horiz_grid 1
+use_fat_lines 0
+highlight_wavewindow 0
+show_grid yes
+# vector_padding 16
