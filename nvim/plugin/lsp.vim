@@ -22,28 +22,46 @@ END
 
 " Load the language servers
 lua require'lspconfig'.ccls.setup{}
-lua require'lspconfig'.ccls.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.vimls.setup{}
-lua require'lspconfig'.vimls.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.svls.setup{}
-lua require'lspconfig'.svls.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.bashls.setup{}
-lua require'lspconfig'.bashls.setup{on_attach=require'completion'.on_attach}
 lua require'lspconfig'.pyls.setup{}
-lua require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
-
-" Use completion-nvim in every buffer
-autocmd BufEnter * lua require'completion'.on_attach()
-" LSP completion is by default used for omnifunc
-autocmd FileType * set omnifunc=v:lua.vim.lsp.omnifunc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" completion.nvim
+" comple plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-" Avoid showing message extra message when using completion
-" set shortmess+=c
-" Define completion strategy when popping up the menu
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+set completeopt=menuone,noselect
+
+let g:compe = {}
+let g:compe.enabled = v:true
+let g:compe.autocomplete = v:true
+let g:compe.debug = v:false
+let g:compe.min_length = 1
+let g:compe.preselect = 'enable'
+let g:compe.throttle_time = 80
+let g:compe.source_timeout = 200
+let g:compe.incomplete_delay = 400
+let g:compe.max_abbr_width = 100
+let g:compe.max_kind_width = 100
+let g:compe.max_menu_width = 100
+let g:compe.documentation = v:true
+
+let g:compe.source = {}
+let g:compe.source.path = v:true
+let g:compe.source.buffer = v:true
+let g:compe.source.calc = v:true
+let g:compe.source.vsnip = v:false
+let g:compe.source.nvim_lsp = v:true
+let g:compe.source.nvim_lua = v:true
+let g:compe.source.spell = v:true
+let g:compe.source.tags = v:true
+let g:compe.source.snippets_nvim = v:false
+let g:compe.source.treesitter = v:true
+let g:compe.source.omni = v:true
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-c>     compe#close('<C-c>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })

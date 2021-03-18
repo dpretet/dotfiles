@@ -11,12 +11,10 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'gosukiwi/vim-atom-dark'
 " Languages
 Plug 'dense-analysis/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'dpretet/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-treesitter/completion-treesitter'
-Plug 'kristijanhusak/completion-tags'
+Plug 'hrsh7th/nvim-compe'
 Plug 'dpretet/vim-markdown-tool'
 Plug 'dpretet/vim-veritoolbox'
 " Misc.
