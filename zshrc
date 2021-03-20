@@ -78,8 +78,6 @@ alias youtubeMp3="youtube-dl -f bestaudio $1 --extract-audio --audio-format mp3"
 alias ta='tmux attach -d -t'
 alias ts='tmux new-session -s'
 alias tl='tmux list-sessions'
-alias tksv='tmux kill-server'
-alias tkss='tmux kill-session -t'
 
 # Colorize output and some exclusions
 alias grep="grep --color=auto --exclude-dir={.git,.gitignore}"
