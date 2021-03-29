@@ -32,6 +32,9 @@ lua require'lspconfig'.pyls.setup{}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set completeopt=menuone,noselect
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 
 let g:compe = {}
 let g:compe.enabled = v:true
@@ -59,9 +62,3 @@ let g:compe.source.tags = v:true
 let g:compe.source.snippets_nvim = v:false
 let g:compe.source.treesitter = v:true
 let g:compe.source.omni = v:true
-
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-c>     compe#close('<C-c>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })

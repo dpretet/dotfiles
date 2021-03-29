@@ -100,7 +100,9 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 "
 " Enter key is equivalent to c-y thus doesn't add a new line when completing
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" deactivated because leading nvim-compe to exit menu if hitting return
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

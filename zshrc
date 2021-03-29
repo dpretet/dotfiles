@@ -54,6 +54,7 @@ export C_INCLUDE_PATH="/opt/riscv/include/:$C_INCLUDE_PATH"
 
 if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
+  alias vi='nvim'
 fi
 
 # ls aliases relying on k plugin
