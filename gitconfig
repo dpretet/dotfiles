@@ -1,11 +1,23 @@
 [core]
     editor = nvim
 
+[difftool]
+    prompt = false
+
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 
 [merge]
-    tool = vimdiff
+    tool = nvimdiff
+
+[mergetool]
+    prompt = false
+
+[mergetool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 
 [user]
     name = Damien Pretet
@@ -22,3 +34,5 @@
     cl = clean -fd
     st = status
     root = rev-parse --show-toplevel
+[mergetool]
+    path = nvim

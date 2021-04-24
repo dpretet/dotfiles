@@ -8,12 +8,12 @@ filetype off
 call plug#begin('~/.config/nvim/plugged')
 
 " Theme
-Plug 'gosukiwi/vim-atom-dark'
+Plug 'tomasiser/vim-code-dark'
 " Languages
 Plug 'dense-analysis/ale'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'dpretet/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'dpretet/vim-markdown-tool'
 Plug 'dpretet/vim-veritoolbox'

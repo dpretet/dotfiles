@@ -63,7 +63,7 @@ fontname_waves Fira Code Retina 12
 fontname_logfile Fira Code Retina 14
 
 # == Some misc fixes ==
-editor "subl3 %s"
+editor "vim %s"
 enable_horiz_grid 1
 use_fat_lines 0
 highlight_wavewindow 0

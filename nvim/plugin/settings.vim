@@ -4,7 +4,7 @@
 
 " Color scheme
 set background=dark
-colorscheme atom-dark-256
+colorscheme codedark
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -24,7 +24,7 @@ set number
 set numberwidth=4
 
 " Enable mouse in all modes
-set mouse=n
+set mouse=a
 
 " Use spaces instead of tabs
 set expandtab
@@ -109,3 +109,5 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Disable recording
 map q <Nop>
+
+set guicursor=a:blinkon100
