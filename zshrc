@@ -153,6 +153,7 @@ autoload colors; colors
 
 # Vim key binding
 bindkey -v
+bindkey '^[[Z' reverse-menu-complete
 
 # -----------------------------------
 # Setup zinit (Always source last)

@@ -20,11 +20,11 @@ accel "/Markers/Find Next Edge" n
 splash_disable on
 
 # == Make the colors pretty ==
-# color_0 af92fb
-# color_1 af92fb
-# color_trans af92fb
-# color_vtrans af92fb
-# color_vbox af92fb
+#color_0 af92fb
+#color_1 af92fb
+#color_trans af92fb
+#color_vtrans af92fb
+#color_vbox af92fb
 # Background
 color_back 252525
 # Comments
