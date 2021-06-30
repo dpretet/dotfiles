@@ -129,17 +129,20 @@ set tags=tags,./tags,./../tags,./*/tags
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Switch
+" CtrlXA
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:switch_custom_definitions =
-    \ [
+
+augroup VimAfter
+    autocmd!
+    autocmd VimEnter let g:CtrlXA_Toggles = [
     \   ['input', 'output'],
     \   ['reg', 'wire', 'logic'],
     \   ['===', '!=='],
     \   ['task', 'function'],
     \   ['posedge', 'negedge'],
     \   ['New', 'Change', 'Fix', 'Feature', 'Refactor', 'Chore', 'Doc'],
-    \ ]
+    \ ] + g:CtrlXA_Toggles
+augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -162,15 +165,6 @@ let g:sneak#s_next = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Deoplete
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" let g:deoplete#enable_at_startup = 1
-" inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -189,3 +183,12 @@ let g:ale_rust_rustc_options=""
 let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -Isrc/ -I../src -f files.f"
 let g:ale_verilog_verilator_options = "+1800-2017ext+sv +1800-2005ext+v -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
 let g:ale_c_clangtidy_options = "-I /opt/riscv/include"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autopair
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Remove backtick from autopairing
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '```':'```', '"""':'"""', "'''":"'''"}
+

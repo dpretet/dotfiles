@@ -11,24 +11,17 @@ if [ -d '/Applications/gtkwave.app' ]; then
     export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
 fi
 
-# Setup Java home and max memory during SBT compilation
-if [ -d "/usr/libexec/java_home" ]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
-fi
 
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="$HOME/.bin/nvim-osx64/bin:$PATH"
+# export PATH="$HOME/.bin/nvim-osx64/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
-export VIMRC="$HOME/.dotfiles/nvim"
-export NOTES="$HOME/.notes"
 
 # Setup C and C++ include path for macOs
 # MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
-#
+
 # if [[ -d $MACOS_C_INCLUDE_PATH ]]; then
     # export C_INCLUDE_PATH=$MACOS_C_INCLUDE_PATH:$C_INCLUDE_PATH
 # fi
@@ -40,11 +33,17 @@ export NOTES="$HOME/.notes"
 # fi
 
 # Setup Rust development environment
-export PATH="$HOME/.cargo/bin:$PATH"
+# export PATH="$HOME/.cargo/bin:$PATH"
 
 # RISCV GNU Toolchain built manually
-export PATH="/opt/riscv/bin:$PATH"
-export C_INCLUDE_PATH="/opt/riscv/include/:$C_INCLUDE_PATH"
+# export PATH="/opt/riscv/bin:$PATH"
+# export C_INCLUDE_PATH="/opt/riscv/include/:$C_INCLUDE_PATH"
+
+# export C_INCLUDE_PATH="/usr/local/Cellar/icarus-verilog/11.0/include":C_INCLUDE_PATH
+
+# https://github.com/YosysHQ/oss-cad-suite-build
+# export PATH="$HOME/.bin/oss-cad-suite/bin:$PATH"
+# source "$HOME/.bin/oss-cad-suite/environment"
 
 #-------------------------------------
 # Setup Zsh
@@ -205,6 +204,7 @@ extract ()
       *.tar)       tar xf $1    ;;
       *.tar.bz2)   tar xjf $1   ;;
       *.tar.gz)    tar xzf $1   ;;
+      *.tgz)       tar xzf $1   ;;
       *.bz2)       bunzip2 $1   ;;
       *.rar)       unrar x $1   ;;
       *.gz)        gunzip $1    ;;
@@ -221,3 +221,13 @@ extract ()
 function pretty_csv {
     column -t -s, "$@" | less -F -S -X -K
 }
+
+#-------------------------------------
+# Note taking functions
+#-------------------------------------
+
+n() { nvim ~/.notes/"$*" }
+
+nls() { command ls -a ~/.notes/ | grep "$*" }
+
+ng() { grep -nri -C 3 "$*" ~/.notes/* }

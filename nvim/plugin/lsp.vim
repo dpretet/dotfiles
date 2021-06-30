@@ -4,7 +4,7 @@
 
 lua << END
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = {"c", "bash", "verilog", "python"},
   highlight = {
     enable = true,  -- false will disable the whole extension
     disable = { },  -- list of language that will be disabled

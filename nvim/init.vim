@@ -11,12 +11,12 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tomasiser/vim-code-dark'
 " Languages
 Plug 'dense-analysis/ale'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'dpretet/vim-markdown-tool'
 Plug 'dpretet/vim-veritoolbox'
+Plug 'kylelaker/riscv.vim'
 " Misc.
 Plug 'Chiel92/vim-autoformat'
 Plug 'justinmk/vim-sneak'
@@ -24,9 +24,10 @@ Plug 'dpretet/vim-leader-mapper'
 Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'preservim/nerdtree'
-Plug 'AndrewRadev/switch.vim'
+Plug 'Konfekt/vim-CtrlXA'
 Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 filetype plugin indent on
