@@ -77,14 +77,11 @@ set hidden
 " Better display for messages
 set cmdheight=2
 
-" Close a buffer, but not the panel
-command! Bd bp | sp | bn | bd
-
 " Reduce delay when pressing ESC
 set timeoutlen=1 ttimeoutlen=1
 
 " Control-c remove hightlighted search and sneak match
-noremap <silent> <C-c> :noh \| call sneak#cancel()<cr>
+noremap <silent> <C-c> :noh<cr>
 
 " Search down into subfolders with find command
 " Provides tab completion for all file-related tasks
@@ -110,4 +107,4 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Disable recording
 map q <Nop>
 
-set guicursor=a:blinkon100
+set guicursor+=n-v-c:blinkon1

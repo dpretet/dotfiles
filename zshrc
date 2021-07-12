@@ -12,7 +12,7 @@ if [ -d '/Applications/gtkwave.app' ]; then
 fi
 
 
-# export PATH="$HOME/.bin/nvim-osx64/bin:$PATH"
+export PATH="$HOME/.bin/nvim-osx64/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
@@ -231,3 +231,9 @@ n() { nvim ~/.notes/"$*" }
 nls() { command ls -a ~/.notes/ | grep "$*" }
 
 ng() { grep -nri -C 3 "$*" ~/.notes/* }
+
+PATH="/Users/damien/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/damien/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/damien/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/damien/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/damien/perl5"; export PERL_MM_OPT;
