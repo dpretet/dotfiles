@@ -13,7 +13,7 @@ fi
 
 
 export PATH="$HOME/.bin/nvim-osx64/bin:$PATH"
-
+# export PATH="$HOME/.bin/oss-cad-suite/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
@@ -57,10 +57,10 @@ if type nvim > /dev/null 2>&1; then
 fi
 
 # ls aliases relying on k plugin
-alias ls="k --no-vcs -h"
+alias ls="ls -l"
 alias ll="ls"
 alias l="ls"
-alias la="ls -A"
+alias la="ls -a"
 alias compress="tar -cjf"
 alias uncompress="tar -xjf"
 alias j="jobs"
@@ -172,9 +172,6 @@ zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 zinit light denysdovhan/spaceship-prompt
 spaceship_vi_mode_enable
-
-# Enhanced ls utility
-zinit load "supercrabtree/k"
 
 # Personal quote printer plugin
 zinit load "damofthemoon/zsh-quotify"

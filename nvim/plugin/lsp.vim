@@ -25,7 +25,7 @@ lua require'lspconfig'.ccls.setup{}
 lua require'lspconfig'.vimls.setup{}
 lua require'lspconfig'.svls.setup{}
 lua require'lspconfig'.bashls.setup{}
-lua require'lspconfig'.pyls.setup{}
+" lua require'lspconfig'.pyls.setup{}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " comple plugin

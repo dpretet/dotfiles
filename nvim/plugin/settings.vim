@@ -25,6 +25,13 @@ set numberwidth=4
 
 " Enable mouse in all modes
 set mouse=a
+" Enable visual block selection with ctrl
+nnoremap <C-LeftMouse> <4-LeftMouse>
+inoremap <C-LeftMouse> <4-LeftMouse>
+onoremap <C-LeftMouse> <C-C><4-LeftMouse>
+" nnoremap <C-LeftDrag>  <LeftDrag>
+" inoremap <C-LeftDrag>  <LeftDrag>
+" onoremap <C-LeftDrag>  <C-C><LeftDrag>
 
 " Use spaces instead of tabs
 set expandtab
@@ -107,4 +114,12 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Disable recording
 map q <Nop>
 
+" Fix blinking cursor in Neovim
 set guicursor+=n-v-c:blinkon1
+
+" Navigate across braces with tab instead of %
+nnoremap <tab> %
+vnoremap <tab> %
+
+" shift-tab parses ()/[]/{} in insert mode
+inoremap <S-Tab> <esc>%a

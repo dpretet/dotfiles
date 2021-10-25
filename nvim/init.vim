@@ -26,7 +26,8 @@ Plug 'preservim/nerdtree'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'christoomey/vim-tmux-navigator'
+
 
 call plug#end()
 filetype plugin indent on
@@ -40,3 +41,9 @@ source $HOME/.config/nvim/plugin/plugins.vim
 source $HOME/.config/nvim/plugin/functions.vim
 source $HOME/.config/nvim/plugin/lsp.vim
 source $HOME/.config/nvim/ftplugin/files.vim
+
+autocmd BufWritePost settings.vim source %
+autocmd BufWritePost plugins.vim source %
+autocmd BufWritePost functions.vim source %
+autocmd BufWritePost lsp.vim source %
+autocmd BufWritePost files.vim source %

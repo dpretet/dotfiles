@@ -42,12 +42,11 @@ let g:leaderMenu = {'name':  "Main",
              \'h': [':split',                       'Split buffer horizontally'],
              \'H': [':hide',                        'Hide panel'],
              \'d': [':Bclose',                      'Close buffer'],
-             \'r': [':so $MYVIMRC',                 'Reload vimrc'],
              \'l': [':ls',                          'List opened buffers'],
              \'p': [':call Prettify()',             'Prettify the buffer'],
              \'t': [':call BuildCtags()',           'Create tags'],
-             \'o': [':normal gf',                   'Open file under cursor'],
-             \'n': [':NERDTreeToggle',              'Open/Close NerdTree'],
+             \'o': [':normal gF',                   'Open file under cursor'],
+             \'e': [':NERDTreeToggle',              'Open/Close NerdTree'],
              \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
              \':': [':call FloatTerm()',            'Open a floating terminal'],
              \'b': [':make',                        'Run make program (set makeprg="..." to setup)'],
@@ -152,15 +151,6 @@ augroup END
 let NERDTreeDirArrows = 1
 let NERDTreeQuitOnOpen = 1
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-sneaker
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Repeat last search with s
-let g:sneak#s_next = 1
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,12 +170,3 @@ let g:ale_rust_rustc_options=""
 let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -Isrc/ -I../src -f files.f"
 let g:ale_verilog_verilator_options = "+1800-2017ext+sv +1800-2005ext+v -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
 let g:ale_c_clangtidy_options = "-I /opt/riscv/include"
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Autopair
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Remove backtick from autopairing
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '```':'```', '"""':'"""', "'''":"'''"}
-
