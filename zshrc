@@ -167,15 +167,13 @@ fi
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Apply Pure theme
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
-zinit light denysdovhan/spaceship-prompt
-spaceship_vi_mode_enable
-
 # Personal quote printer plugin
 zinit load "damofthemoon/zsh-quotify"
 
+PROMPT='%(?.%F{green} √.%F{red} ✢ )%f %B%F{240}%1~%f%b 🌀 '
+
+# zinit light spaceship-prompt/spaceship-prompt
+# spaceship_vi_mode_enable
 
 #------------------------------------
 # Setup FZF

@@ -123,3 +123,7 @@ vnoremap <tab> %
 
 " shift-tab parses ()/[]/{} in insert mode
 inoremap <S-Tab> <esc>%a
+
+" change the direction of new splits
+set splitbelow
+set splitright
