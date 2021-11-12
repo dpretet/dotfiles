@@ -170,7 +170,7 @@ autoload -Uz _zinit
 # Personal quote printer plugin
 zinit load "damofthemoon/zsh-quotify"
 
-PROMPT='%(?.%F{green} √.%F{red} ✢ )%f %B%F{240}%1~%f%b 🌀 '
+PROMPT='%(?.%F{green} √.%F{red} ✢ )%f %B%F{240}%1~%f%b %(1j.%j.) 🌀 '
 
 # zinit light spaceship-prompt/spaceship-prompt
 # spaceship_vi_mode_enable
