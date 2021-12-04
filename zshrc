@@ -4,15 +4,6 @@
 # Dev environment setup
 #-------------------------------------
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# To launch GTKWave with command line on MacOs
-if [ -d '/Applications/gtkwave.app' ]; then
-    export PATH="/Applications/gtkwave.app/Contents/Resources/bin/:$PATH"
-fi
-
-
-export PATH="$HOME/.bin/nvim-osx64/bin:$PATH"
 # export PATH="$HOME/.bin/oss-cad-suite/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
@@ -153,6 +144,8 @@ autoload colors; colors
 # Vim key binding
 bindkey -v
 bindkey '^[[Z' reverse-menu-complete
+# Enable history search with ctrl-r
+bindkey '^R' history-incremental-search-backward
 
 # -----------------------------------
 # Setup zinit (Always source last)
@@ -171,22 +164,6 @@ autoload -Uz _zinit
 zinit load "damofthemoon/zsh-quotify"
 
 PROMPT='%(?.%F{green} √.%F{red} ✢ )%f %B%F{240}%1~%f%b %(1j.%j.) 🌀 '
-
-# zinit light spaceship-prompt/spaceship-prompt
-# spaceship_vi_mode_enable
-
-#------------------------------------
-# Setup FZF
-#-------------------------------------
-
-[ -f ~/.fzf.zsh ] && source "$HOME/.fzf.zsh"
-
-# Use ,, as the trigger sequence instead of the default **
-export FZF_COMPLETION_TRIGGER=',,'
-
-# Options to fzf command
-export FZF_COMPLETION_OPTS='+c -x'
-
 
 #-------------------------------------
 # Generic function to extract archive
@@ -225,10 +202,4 @@ n() { nvim ~/.notes/"$*" }
 
 nls() { command ls -a ~/.notes/ | grep "$*" }
 
-ng() { grep -nri -C 3 "$*" ~/.notes/* }
-
-PATH="/Users/damien/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/damien/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/damien/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/damien/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/damien/perl5"; export PERL_MM_OPT;
+ng() { grep -nri -C 5 "$*" ~/.notes/* }

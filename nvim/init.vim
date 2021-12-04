@@ -10,7 +10,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Theme
 Plug 'tomasiser/vim-code-dark'
 " Languages
-Plug 'dense-analysis/ale'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
@@ -18,15 +17,15 @@ Plug 'dpretet/vim-markdown-tool'
 Plug 'dpretet/vim-veritoolbox'
 Plug 'kylelaker/riscv.vim'
 " Misc.
-Plug 'Chiel92/vim-autoformat'
 Plug 'dpretet/vim-leader-mapper'
-Plug 'junegunn/fzf.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'preservim/nerdtree'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 
 call plug#end()

@@ -56,9 +56,6 @@ set showmatch
 " Don't wrap long lines
 set nowrap
 
-" Display absolute and relative line number
-set nu rnu
-
 " Display pattern found while typing
 set incsearch
 " Ignore case when searching
@@ -127,3 +124,7 @@ inoremap <S-Tab> <esc>%a
 " change the direction of new splits
 set splitbelow
 set splitright
+
+" center screen to the matched string
+nnoremap n nzz
+nnoremap N Nzz
