@@ -46,7 +46,7 @@ set smartindent
 set nocindent
 
 " Display max column width recommended
-set colorcolumn=80
+set colorcolumn=100
 " Display current line
 set cursorline
 

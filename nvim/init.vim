@@ -19,7 +19,6 @@ Plug 'kylelaker/riscv.vim'
 " Misc.
 Plug 'dpretet/vim-leader-mapper'
 Plug 'powerman/vim-plugin-AnsiEsc'
-Plug 'preservim/nerdtree'
 Plug 'Konfekt/vim-CtrlXA'
 Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'

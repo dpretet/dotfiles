@@ -81,14 +81,3 @@ augroup VimAfter
     \   ['New', 'Change', 'Fix', 'Feature', 'Refactor', 'Chore', 'Doc'],
     \ ] + g:CtrlXA_Toggles
 augroup END
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Use NERDTree because netrw suffers several problems:
-" - open empty buffer, and may prevent to close vim
-" - don't auto close explore once a file is selected
-let NERDTreeDirArrows = 1
-let NERDTreeQuitOnOpen = 1
