@@ -203,3 +203,7 @@ n() { nvim ~/.notes/"$*" }
 nls() { command ls -a ~/.notes/ | grep "$*" }
 
 ng() { grep -nri -C 5 "$*" ~/.notes/* }
+
+# Generated for envman. Do not edit.
+# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+

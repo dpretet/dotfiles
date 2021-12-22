@@ -29,6 +29,7 @@ let g:TelescopeMenu = {'name': "Telescope Menu",
              \'s': [":Telescope live_grep",         "Search for a string in your current directory"],
              \'S': [":Telescope search_history",    "Lists searches that were executed recently"],
              \'t': [':Telescope tags',              'Tag search'],
+             \'e': [':Telescope file_browser',      'Open a file browser'],
              \'h': [':Telescope command_history',   'Command history search'],
              \}
 

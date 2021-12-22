@@ -8,7 +8,7 @@ colorscheme codedark
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-set encoding=utf-8
+set encoding=UTF-8
 " Always show the status line
 set laststatus=2
 
@@ -128,3 +128,10 @@ set splitright
 " center screen to the matched string
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap * *N
+
+hi VertSplit ctermbg=0 ctermfg=0
+hi StatusLine ctermbg=0 ctermfg=15
+
+" Maximum textwidth for line folding and wrapping
+set textwidth=100

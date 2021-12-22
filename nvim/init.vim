@@ -9,6 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Theme
 Plug 'tomasiser/vim-code-dark'
+Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
