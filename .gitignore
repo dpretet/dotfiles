@@ -10,3 +10,4 @@ tags
 .ccls-cahce
 nvim/plugged
 *.log
+.ccls-cache
