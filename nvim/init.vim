@@ -13,7 +13,11 @@ Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'dpretet/vim-markdown-tool'
 Plug 'dpretet/vim-veritoolbox'
 Plug 'kylelaker/riscv.vim'

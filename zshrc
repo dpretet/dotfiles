@@ -9,6 +9,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
+export PATH=/opt/homebrew/Cellar/python@3.10/3.10.2/libexec/bin:$PATH
 
 # Setup C and C++ include path for macOs
 # MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
