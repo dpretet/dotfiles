@@ -22,34 +22,20 @@ let MdMenu = {'name': "Markdown Menu",
              \'sd':  [":MdStatusDone",       "Assign to task 'Done' status"],
              \}
 
-" Define FZF leader key menu
-let g:TelescopeMenu = {'name': "Telescope Menu",
-             \'f': [":Telescope find_files",        "File search"],
-             \'b': [":Telescope buffers",           "Lists open buffers in current neovim instance"],
-             \'s': [":Telescope live_grep",         "Search for a string in your current directory"],
-             \'S': [":Telescope search_history",    "Lists searches that were executed recently"],
-             \'t': [':Telescope tags',              'Tag search'],
-             \'e': [':Telescope file_browser',      'Open a file browser'],
-             \'h': [':Telescope command_history',   'Command history search'],
-             \}
-
 " Define Main leader key menu
 let g:leaderMenu = {'name': "Main",
-             \'F': [':Telescope',                   'Open Telescope'],
-             \'f': [TelescopeMenu,                  "Open Telescope menu"],
-             \'m': [MdMenu,                         'Open Markdown menu'],
+             \'f': [':CtrlPMixed',                  "Fuzzy find with CtrlP"],
+             \'l': [':ls',                          'List opened buffers'],
+             \'d': [':Bclose',                      'Close buffer (but keeps the panel)'],
+             \'o': [':normal gF',                   'Open file under cursor'],
              \'v': [':vsplit',                      'Split buffer vertically'],
              \'h': [':split',                       'Split buffer horizontally'],
              \'H': [':hide',                        'Hide panel'],
-             \'d': [':Bclose',                      'Close buffer'],
-             \'l': [':ls',                          'List opened buffers'],
-             \'t': [':call BuildCtags()',           'Create tags'],
-             \'o': [':normal gF',                   'Open file under cursor'],
-             \'e': [':NERDTreeToggle',              'Open/Close NerdTree'],
              \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
              \':': [':call FloatTerm()',            'Open a floating terminal'],
-             \'b': [':make',                        'Run make program (set makeprg="..." to setup)'],
              \'x': [':%!xxd',                       'Display a buffer in hexadecimal'],
+             \'t': [':call BuildCtags()',           'Create tags'],
+             \'m': [MdMenu,                         'Open Markdown menu'],
              \}
 
 " Define leader key to space and call vim-leader-mapper
@@ -68,17 +54,28 @@ set tags=tags,./tags,./../tags,./*/tags
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" CtrlXA
+" Deoplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-augroup VimAfter
-    autocmd!
-    autocmd VimEnter let g:CtrlXA_Toggles = [
-    \   ['input', 'output'],
-    \   ['reg', 'wire', 'logic'],
-    \   ['===', '!=='],
-    \   ['task', 'function'],
-    \   ['posedge', 'negedge'],
-    \   ['New', 'Change', 'Fix', 'Feature', 'Refactor', 'Chore', 'Doc'],
-    \ ] + g:CtrlXA_Toggles
-augroup END
+let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ALE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '✺'
+
+let g:ale_linters = {
+\   'systemverilog': ['verilator', 'iverilog'],
+\   'c': ['clang'],
+\   'python': ['pylint'],
+\}
+
+" Specify rustc option for linting (avoid to use nightly build)
+let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -I./rtl/ -I../rtl -Isrc/ -I../src -DXLEN=32"
+let g:ale_verilog_verilator_options = "+1800-2017ext+sv +1800-2005ext+v  -I./ -I../ -I./rtl/ -I../rtl -Isrc/ -I../src -DXLEN=32 -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
+let g:ale_c_clangtidy_options = "-I /opt/riscv/include"

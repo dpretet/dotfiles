@@ -16,10 +16,14 @@ au bufNewFile *.py 0r       ~/.config/nvim/templates/template.py
 au bufNewFile *.sh 0r       ~/.config/nvim/templates/template.sh
 
 " Colorize ANSI escape codes by default with AnsiEsc plugin for txt and log extension
-autocmd BufRead *.{log,txt} AnsiEsc
+autocmd BufRead,BufNewFile *.{log,txt} AnsiEsc
 
 " Specify JSON syntax checking for Javascript
 au BufRead,BufNewFile *.json set filetype=javascript
+
+" C linker
+au BufRead,BufNewFile *.ld set filetype=ld
+
 
 " Specify Markdown syntax checking for these extensions
 au BufRead,BufNewFile *.mkd, *.md, *.txt set filetype=markdown.pandoc

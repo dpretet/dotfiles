@@ -33,6 +33,7 @@
     pl = pull origin
     cl = clean -fd
     st = status
+    br = branch
     root = rev-parse --show-toplevel
 [mergetool]
     path = nvim

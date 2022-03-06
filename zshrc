@@ -83,7 +83,7 @@ export CLICOLOR=1
 export EDITOR=vim
 export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
-export TERM=xterm-256color
+# export TERM=xterm-256color
 export MANPAGER='nvim +Man!'
 
 autoload -Uz compinit && compinit -i

@@ -4,6 +4,7 @@
 
 " Color scheme
 set background=dark
+let g:codedark_conservative = 1
 colorscheme codedark
 
 " Use Unix as the standard file type
@@ -56,6 +57,13 @@ set showmatch
 " Don't wrap long lines
 set nowrap
 
+" Don't auto-wrap text using textwidth
+set formatoptions-=t
+" Auto-comment new line when was into a comment line
+set formatoptions+=r
+" Indent wrapped lines
+set breakindent
+
 " Display pattern found while typing
 set incsearch
 " Ignore case when searching
@@ -71,9 +79,6 @@ set noswapfile
 
 " Always display sign column
 set signcolumn=yes
-
-" Auto comment new line if previous one was a comment
-" set formatoptions+=r
 
 " A buffer becomes hidden when it is abandoned
 set hidden
@@ -99,14 +104,12 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-"
-" Enter key is equivalent to c-y thus doesn't add a new line when completing
-" deactivated because leading nvim-compe to exit menu if hitting return
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"
+
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" When into a pop menu, enter is equivalent to c-y and avoid to insert new line
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Disable recording
 map q <Nop>
@@ -135,3 +138,10 @@ hi StatusLine ctermbg=0 ctermfg=15
 
 " Maximum textwidth for line folding and wrapping
 set textwidth=100
+
+" Ignore whitespace on diff
+set diffopt+=iwhite
+set diffexpr=""
+
+" Include underscore as a keyword
+set iskeyword+=_
