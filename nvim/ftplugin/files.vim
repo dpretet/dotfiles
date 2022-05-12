@@ -14,6 +14,7 @@ au bufNewFile *.sv 0r       ~/.config/nvim/templates/template.sv
 au bufNewFile *.html 0r     ~/.config/nvim/templates/template.html
 au bufNewFile *.py 0r       ~/.config/nvim/templates/template.py
 au bufNewFile *.sh 0r       ~/.config/nvim/templates/template.sh
+au bufNewFile *.S 0r        ~/.config/nvim/templates/template.S
 
 " Colorize ANSI escape codes by default with AnsiEsc plugin for txt and log extension
 autocmd BufRead,BufNewFile *.{log,txt} AnsiEsc
