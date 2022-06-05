@@ -5,21 +5,42 @@
 "set nocompatible
 filetype off
 
-call plug#begin('~/.config/nvim/plugged')
+" Install vim-plug if not found
+if has("nvim")
+    if empty(glob('${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'))
+        silent !curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    endif
+else
+    if empty(glob('~/.vim/autoload/plug.vim'))
+        silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    endif
+endif
+
+if has("nvim")
+    call plug#begin('~/.config/nvim/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 " Theme
 Plug 'tomasiser/vim-code-dark'
 Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'dpretet/vim-markdown-tool'
-Plug 'dpretet/vim-veritoolbox'
+if has("nvim")
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'dpretet/vim-veritoolbox'
+    Plug 'dpretet/vim-markdown-tool'
+endif
 Plug 'kylelaker/riscv.vim'
 " Misc.
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dpretet/vim-leader-mapper'
+if has("nvim")
+    Plug 'dpretet/vim-leader-mapper'
+endif
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'

@@ -4,7 +4,6 @@
 # Dev environment setup
 #-------------------------------------
 
-# export PATH="$HOME/.bin/oss-cad-suite/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
@@ -148,22 +147,10 @@ bindkey '^[[Z' reverse-menu-complete
 # Enable history search with ctrl-r
 bindkey '^R' history-incremental-search-backward
 
-# -----------------------------------
-# Setup zinit (Always source last)
-# ----------------------------------
+# Source quotify
+source "$HOME/.dotfiles/zsh-quotify/quotify.plugin.zsh"
 
-if [ -d '/Users/damien' ]; then
-    source '/Users/damien/.zinit/bin/zinit.zsh'
-else
-    source "/home/$USER/.zinit/bin/zinit.zsh"
-fi
-
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Personal quote printer plugin
-zinit load "damofthemoon/zsh-quotify"
-
+# setup the prompt
 PROMPT='%(?.%F{green} √.%F{red} ✢ )%f %B%F{240}%1~%f%b %(1j.%j.) 🌀 '
 
 #-------------------------------------

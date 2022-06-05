@@ -2,6 +2,11 @@
 " Leader key setup, handled with vim-leader-mapper
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Define leader key to space and call vim-leader-mapper
+nnoremap <Space> <Nop>
+let mapleader = "\<Space>"
+
+if has("nvim")
 " Define the sub-menu dedicated to Markdown tool
 let MdMenu = {'name': "Markdown Menu",
              \'tk':  [":MdAddTask",          "Add a new task"],
@@ -38,12 +43,12 @@ let g:leaderMenu = {'name': "Main",
              \'m': [MdMenu,                         'Open Markdown menu'],
              \}
 
-" Define leader key to space and call vim-leader-mapper
-nnoremap <Space> <Nop>
-let mapleader = "\<Space>"
 nnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
 vnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
 
+else
+
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags

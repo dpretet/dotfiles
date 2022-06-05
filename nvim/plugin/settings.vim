@@ -107,7 +107,9 @@ noremap <silent> <C-c> :noh<cr>
 set path+=**
 
 " Live substitution with s command
+if has("nvim")
 set inccommand=split
+endif
 
 " Disable arrows in normal, take goods habits!
 noremap <Up> <NOP>
