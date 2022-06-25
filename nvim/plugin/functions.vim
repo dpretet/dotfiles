@@ -243,3 +243,35 @@ function! s:Bclose(bang, buffer)
 endfunction
 
 command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose(<q-bang>, <q-args>)
+
+
+" Enhanced version of f/F function to search for a 2 char pattern
+" If an argument is passed, search backward
+function! MoveToPattern(...)
+
+    let l:max_char = 2
+    let l:i = 0
+    let l:chars = ""
+
+    while (i<l:max_char)
+        let l:chars = l:chars . getcharstr()
+        let i += 1
+    endwhile
+
+    " 'b'   search backward instead of forward
+    " 'z'   start searching at the cursor column instead of Zero
+    if (a:0)
+        call search(l:chars, "bz")
+    else
+        call search(l:chars, "z")
+    endif
+
+endfunction
+
+" Remap this feature on s/S
+map s <Nop>
+map S <Nop>
+
+nnoremap <silent> s :call MoveToPattern() <CR>
+nnoremap <silent> S :call MoveToPattern("b") <CR>
+

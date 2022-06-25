@@ -29,11 +29,16 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 if has("nvim")
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'dpretet/vim-veritoolbox'
     Plug 'dpretet/vim-markdown-tool'
+endif
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'kylelaker/riscv.vim'
 " Misc.
@@ -54,12 +59,25 @@ filetype plugin indent on
 " Sub scripts handling the settings for plugins and core
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-source $HOME/.config/nvim/plugin/settings.vim
-source $HOME/.config/nvim/plugin/plugins.vim
-source $HOME/.config/nvim/plugin/functions.vim
-source $HOME/.config/nvim/ftplugin/files.vim
+if has('nvim')
+    source $HOME/.config/nvim/plugin/settings.vim
+    source $HOME/.config/nvim/plugin/plugins.vim
+    source $HOME/.config/nvim/plugin/functions.vim
+    source $HOME/.config/nvim/ftplugin/files.vim
+else
+    source $HOME/.vim/plugin/settings.vim
+    source $HOME/.vim/plugin/functions.vim
+    source $HOME/.vim/plugin/plugins.vim
+    source $HOME/.vim/ftplugin/files.vim
+endif
 
-autocmd BufWritePost settings.vim source %
-autocmd BufWritePost plugins.vim source %
-autocmd BufWritePost functions.vim source %
-autocmd BufWritePost files.vim source %
+" Auto-reload the settings if changed
+if has('nvim')
+    autocmd! bufwritepost init.vim source %
+else
+    autocmd! bufwritepost .vimrc source %
+endif
+autocmd! bufwritepost settings.vim source %
+autocmd! bufwritepost functions.vim source %
+autocmd! bufwritepost plugins.vim source %
+autocmd! bufwritepost files.vim source %

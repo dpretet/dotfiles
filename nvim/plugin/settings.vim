@@ -108,7 +108,7 @@ set path+=**
 
 " Live substitution with s command
 if has("nvim")
-set inccommand=split
+    set inccommand=split
 endif
 
 " Disable arrows in normal, take goods habits!
@@ -135,6 +135,7 @@ vnoremap <tab> %
 
 " shift-tab parses ()/[]/{} in insert mode
 inoremap <S-Tab> <esc>%a
+
 
 " change the direction of new splits
 set splitbelow
