@@ -32,9 +32,6 @@ function! Prettify()
     " Use python to prettify JSON
     if _ft ==? "json"
         silent %!python -m json.tool
-    " Use XMLLINT to prettify XML
-    elseif _ft ==? "xml"
-        call PrettyXML()
     " Else use Autoformat plugin
     else
         Autoformat
@@ -43,41 +40,6 @@ function! Prettify()
     " Clean up spaces/tabs and restore cursor
     call StripWsTabs()
     call cursor(l, c)
-
-endfunction
-
-
-" Pretiffy XML files with XMLLINT
-function! PrettyXML()
-
-    " Save the filetype so we can restore it later
-    let l:origft = &ft
-    set ft=
-
-    " Delete the xml header if it exists. This will
-    " permit us to surround the document with fake tags
-    " without creating invalid xml.
-    1s/<?xml .*?>//e
-
-    " Insert fake tags around the entire document.
-    " This will permit us to pretty-format excerpts of
-    " XML that may contain multiple top-level elements.
-    0put ='<PrettyXML>'
-    $put ='</PrettyXML>'
-    silent %!xmllint --format -
-
-    " xmllint will insert an <?xml?> header. it's easy enough to delete
-    " if you don't want it.
-    " delete the fake tags
-    2d
-    $d
-
-    " Restore the 'normal' indentation, which is one extra level
-    " too deep due to the extra tags we wrapped around the document.
-    silent %<
-
-    " restore the filetype
-    exe "set ft=" . l:origft
 
 endfunction
 
@@ -95,7 +57,7 @@ function! OnVimEnter() abort
         let l:this_week = strftime('%Y_%V')
         let l:contents = readfile(l:filename)
         if index(l:contents, l:this_week) < 0
-            call execute('PlugUpdate')
+            call execute('PackUpdate')
             call writefile([l:this_week], l:filename, 'a')
         endif
     endif

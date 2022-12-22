@@ -7,15 +7,12 @@
 module ModuleName
 
     #(
-        parameter NAME = 0
+    parameter NAME = 0
     )(
-        input  wire        aclk,
-        input  wire        aresetn,
-        input  wire        wen,
-        input  wire [15:0] wdata,
-        output logic       wout
+    input  wire aclk,
+    input  wire aresetn,
+    output wire out
     );
-
 
 endmodule
 

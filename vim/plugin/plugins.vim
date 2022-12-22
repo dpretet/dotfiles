@@ -30,17 +30,17 @@ if has("nvim")
 
     " Define Main leader key menu
     let g:leaderMenu = {'name': "Main",
-                \'f': [':CtrlPMixed',                  "Fuzzy find with CtrlP"],
-                \'l': [':ls',                          'List opened buffers'],
-                \'d': [':Bclose',                      'Close buffer (but keeps the panel)'],
-                \'o': [':normal gF',                   'Open file under cursor'],
-                \'v': [':vsplit',                      'Split buffer vertically'],
-                \'h': [':split',                       'Split buffer horizontally'],
-                \'H': [':hide',                        'Hide panel'],
-                \'c': [':Commenter',                   'Toggle comment of current line or visual selection'],
-                \':': [':call FloatTerm()',            'Open a floating terminal'],
-                \'x': [':%!xxd',                       'Display a buffer in hexadecimal'],
-                \'t': [':call BuildCtags()',           'Create tags'],
+                \'f': [":CtrlPMixed",                  "Fuzzy find with CtrlP"],
+                \'l': [":ls",                          'List opened buffers'],
+                \'d': [":Bclose",                      'Close buffer (but keeps the panel)'],
+                \'o': [":normal gF",                   'Open file under cursor'],
+                \'v': [":vsplit",                      'Split buffer vertically'],
+                \'h': [":split",                       'Split buffer horizontally'],
+                \'H': [":hide",                        'Hide panel'],
+                \'c': [":'<,'>Commenter",                   'Toggle comment of current line or visual selection'],
+                \':': [":call FloatTerm()",            'Open a floating terminal'],
+                \'x': [":%!xxd",                       'Display a buffer in hexadecimal'],
+                \'t': [":call BuildCtags()",           'Create tags'],
                 \'m': [MdMenu,                         'Open Markdown menu'],
                 \}
 
@@ -98,4 +98,4 @@ let g:ale_linters = {
 " Specify rustc option for linting (avoid to use nightly build)
 let g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -I./rtl/ -I../rtl -Isrc/ -I../src -DXLEN=32"
 let g:ale_verilog_verilator_options = "+1800-2017ext+sv +1800-2005ext+v  -I./ -I../ -I./rtl/ -I../rtl -Isrc/ -I../src -DXLEN=32 -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
-let g:ale_c_clangformat_options = "-std=c++11 -I /opt/riscv/include -I /opt/homebrew/Cellar/verilator/4.220/share/verilator/include"
+let g:ale_c_clangformat_options = "-I /opt/homebrew/Cellar/verilator/5.002/share/verilator/include"

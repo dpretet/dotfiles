@@ -1,7 +1,11 @@
 // distributed under the mit license
 // https://opensource.org/licenses/mit-license.php
 
-#ifndef ___INCLUDE
-#define ___INCLUDE
+#include <iostream>
 
-#endif // ___INCLUDE
+using namespace std;
+
+int main()
+{
+
+}

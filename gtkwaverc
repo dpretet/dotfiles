@@ -55,12 +55,12 @@ color_timeb 252525
 color_white fdfdfd
 
 # == Fix the janky AF fonts it uses by default ==
-use_nonprop_fonts 1
-use_big_fonts 1
-use_pango_fonts on
-fontname_signals Fira Code Retina 14
-fontname_waves Fira Code Retina 12
-fontname_logfile Fira Code Retina 14
+# use_nonprop_fonts 1
+# use_big_fonts 1
+# use_pango_fonts on
+# fontname_signals Fira Code Retina 14
+# fontname_waves Fira Code Retina 12
+# fontname_logfile Fira Code Retina 14
 
 # == Some misc fixes ==
 editor "vim %s"

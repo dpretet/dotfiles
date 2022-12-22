@@ -6,6 +6,7 @@
 set background=dark
 let g:codedark_conservative = 1
 colorscheme codedark
+" colorscheme gruvbox-baby
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -35,14 +36,14 @@ onoremap <C-LeftMouse> <C-C><4-LeftMouse>
 " onoremap <C-LeftDrag>  <C-C><LeftDrag>
 
 " Shift-wheel scrolls left/right
-nnoremap <S-ScrollWheelUp>   <ScrollWheelLeft>
-nnoremap <S-2-ScrollWheelUp> <2-ScrollWheelLeft>
-nnoremap <S-3-ScrollWheelUp> <3-ScrollWheelLeft>
-nnoremap <S-4-ScrollWheelUp> <4-ScrollWheelLeft>
-nnoremap <S-ScrollWheelDown>     <ScrollWheelRight>
-nnoremap <S-2-ScrollWheelDown>   <2-ScrollWheelRight>
-nnoremap <S-3-ScrollWheelDown>   <3-ScrollWheelRight>
-nnoremap <S-4-ScrollWheelDown>   <4-ScrollWheelRight>
+nnoremap <S-ScrollWheelUp>     <ScrollWheelLeft>
+nnoremap <S-2-ScrollWheelUp>   <2-ScrollWheelLeft>
+nnoremap <S-3-ScrollWheelUp>   <3-ScrollWheelLeft>
+nnoremap <S-4-ScrollWheelUp>   <4-ScrollWheelLeft>
+nnoremap <S-ScrollWheelDown>   <ScrollWheelRight>
+nnoremap <S-2-ScrollWheelDown> <2-ScrollWheelRight>
+nnoremap <S-3-ScrollWheelDown> <3-ScrollWheelRight>
+nnoremap <S-4-ScrollWheelDown> <4-ScrollWheelRight>
 
 " Use spaces instead of tabs
 set expandtab
@@ -58,8 +59,9 @@ set nocindent
 
 " Display max column width recommended
 set colorcolumn=100
-" Display current line
+" Display current line & column
 set cursorline
+set cursorcolumn
 
 " Display matched bracket or parenthesis
 set showmatch
@@ -136,6 +138,11 @@ vnoremap <tab> %
 " shift-tab parses ()/[]/{} in insert mode
 inoremap <S-Tab> <esc>%a
 
+" Remap to search for a pattern
+map s <Nop>
+map S <Nop>
+nnoremap s /
+nnoremap S ?
 
 " change the direction of new splits
 set splitbelow

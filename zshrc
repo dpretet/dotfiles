@@ -9,6 +9,7 @@ export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
 export PATH=/opt/homebrew/Cellar/python@3.10/3.10.2/libexec/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Setup C and C++ include path for macOs
 # MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
@@ -157,8 +158,8 @@ PROMPT='%(?.%F{green} √.%F{red} ✢ )%f %B%F{240}%1~%f%b %(1j.%j.) 🌀 '
 # Generic function to extract archive
 #-------------------------------------
 
-extract ()
-{
+extract () {
+
   if [ -f $1 ] ; then
     case $1 in
       *.tar)       tar xf $1    ;;
@@ -186,12 +187,10 @@ function pretty_csv {
 # Note taking functions
 #-------------------------------------
 
-n() { nvim ~/.notes/"$*" }
+n() { nvim ~/notebook/"$*" }
 
-nls() { command ls -a ~/.notes/ | grep "$*" }
+nls() { command ls -a ~/notebook/ | grep "$*" }
 
-ng() { grep -nri -C 5 "$*" ~/.notes/* }
+ng() { grep -nri -C 5 "$*" ~/notebook/* }
 
-# Generated for envman. Do not edit.
-# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
