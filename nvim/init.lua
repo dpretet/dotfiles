@@ -2,7 +2,6 @@
 -- Plugins Management
 ---------------------------------------------------------------------------------
 
-
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
@@ -45,8 +44,8 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'skywind3000/asyncrun.vim'
   use 'christoomey/vim-tmux-navigator'
-  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
-  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+  use 'folke/tokyonight.nvim'
+  use 'lukas-reineke/indent-blankline.nvim'
   use 'echasnovski/mini.nvim'
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -67,7 +66,6 @@ end)
 
 -- When we are bootstrapping a configuration, it doesn't
 -- make sense to execute the rest of the init.lua.
---
 -- You'll need to restart nvim, and then it will work.
 if is_bootstrap then
   print '=================================='
@@ -98,7 +96,10 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme tokyonight]]
+-- vim.cmd [[colorscheme tokyonight-night]]
+-- vim.cmd [[colorscheme tokyonight-storm]]
+-- vim.cmd [[colorscheme tokyonight-moon]]
 
 -- Make cursor blinking in all mode
 vim.o.guicursor = "n-v-c-i:blinkon1"
@@ -214,15 +215,49 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Plugins
 ---------------------------------------------------------------------------------
 
+-- [[ Configure TokyoNight Theme ]]
+require("tokyonight").setup({
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+  transparent = false, -- Enable this to disable setting the background color
+  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+  styles = {
+    -- Style to be applied to different syntax groups
+    -- Value is any valid attr-list value for `:help nvim_set_hl`
+    comments = { italic = true },
+    keywords = { italic = true },
+    functions = {},
+    variables = {},
+    -- Background styles. Can be "dark", "transparent" or "normal"
+    sidebars = "dark", -- style for sidebars, see below
+    floats = "dark", -- style for floating windows
+  },
+  sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+  day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+  dim_inactive = false, -- dims inactive windows
+  lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+})
+
+
 -- [[ Configure ALE ]]
 -- :help ALE
 vim.cmd('source ~/.config/nvim/ale.vim')
 
+
 -- [[ Configure mini.nvim library ]]
+-- Animate cursor movment and scrolling
 -- require('mini.animate').setup()
+-- Auto close parenthesis and brackets
 require('mini.pairs').setup()
+-- Starter menu-
 require('mini.starter').setup()
+-- Customized status line
 require('mini.statusline').setup()
+-- Highlight word under cursor
+require('mini.cursorword').setup()
+
 
 --  [[ LeaderMapper menu ]]
 vim.g["leaderMenu"] = {
