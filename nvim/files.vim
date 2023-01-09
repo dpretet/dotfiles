@@ -16,7 +16,7 @@ au bufNewFile *.sh 0r       ~/.config/nvim/templates/template.sh
 au bufNewFile *.S 0r        ~/.config/nvim/templates/template.S
 
 " Colorize ANSI escape codes by default with AnsiEsc plugin for txt and log extension
-autocmd BufRead,BufNewFile *.{log,txt} AnsiEsc
+au BufRead,BufNewFile *.{log,txt} AnsiEsc
 
 " Specify JSON syntax checking for Javascript
 au BufRead,BufNewFile *.json set filetype=javascript
@@ -24,9 +24,12 @@ au BufRead,BufNewFile *.json set filetype=javascript
 " C linker
 au BufRead,BufNewFile *.ld set filetype=ld
 
-
 " Specify Markdown syntax checking for these extensions
 au BufRead,BufNewFile *.mkd, *.md, *.txt set filetype=markdown.pandoc
+"
+" CMake
+au BufRead,BufNewFile CMakeLists.txt set filetype=cmake
 
 " Insert tabs, not spaces for Makefile
-autocmd FileType make setlocal noexpandtab
+au FileType make setlocal noexpandtab
+
