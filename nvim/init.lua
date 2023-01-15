@@ -47,6 +47,7 @@ require('packer').startup(function(use)
   use 'echasnovski/mini.nvim'
   use 'navarasu/onedark.nvim'
 
+
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
@@ -160,6 +161,7 @@ vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+vim.g.netrw_browse_split = 0
 
 ---------------------------------------------------------------------------------
 -- [[ Basic Keymaps ]]
@@ -210,15 +212,12 @@ require('onedark').setup {
 }
 require('onedark').load()
 
-
 -- [[ Configure ALE ]]
 -- :help ALE
 vim.cmd('source ~/.config/nvim/ale.vim')
 
 
 -- [[ Configure mini.nvim library ]]
--- Auto close parenthesis and brackets
-require('mini.pairs').setup()
 -- Starter menu
 require('mini.starter').setup()
 -- Customized status line
