@@ -46,7 +46,9 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'echasnovski/mini.nvim'
   use 'navarasu/onedark.nvim'
-
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use 'ellisonleao/gruvbox.nvim'
+  use 'dpretet/dark-tech'
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -155,13 +157,16 @@ vim.o.timeoutlen = 1
 vim.o.ttimeoutlen = 1
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menu,menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect,noinsert'
 
 -- change the direction of new splits
 vim.o.splitright = true
 vim.o.splitbelow = true
 
 vim.g.netrw_browse_split = 0
+vim.g.netrw_menu=0
+vim.g.netrw_banner=0
+vim.g.netrw_fastbrowse=0
 
 ---------------------------------------------------------------------------------
 -- [[ Basic Keymaps ]]
@@ -206,11 +211,28 @@ vim.cmd('source ~/.config/nvim/functions.vim')
 -- Plugins
 ---------------------------------------------------------------------------------
 
--- [[ Configure OneDark Theme ]]
-require('onedark').setup {
-    style = 'darker'
-}
-require('onedark').load()
+-- [[ Theme ]]
+-- require('onedark').setup {
+--     style = 'darker'
+-- }
+-- require('onedark').load()
+
+-- require("catppuccin").setup({
+    -- flavour = "mocha",
+-- })
+
+-- vim.cmd.colorscheme "catppuccin"
+
+-- require("gruvbox").setup({
+--     contrast = "hard",
+--     palette_overrides = {
+--         dark0_hard = "#0E1018", -- override black background
+--     }
+-- })
+
+vim.o.background = "dark"
+-- vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme darktech]])
 
 -- [[ Configure ALE ]]
 -- :help ALE
@@ -218,18 +240,20 @@ vim.cmd('source ~/.config/nvim/ale.vim')
 
 
 -- [[ Configure mini.nvim library ]]
+
 -- Starter menu
-require('mini.starter').setup()
+-- require('mini.starter').setup()
+
 -- Customized status line
 require('mini.statusline').setup()
+
 -- Highlight word under cursor
-require('mini.cursorword').setup()
+-- require('mini.cursorword').setup()
 
 
 --  [[ LeaderMapper menu ]]
 vim.g["leaderMenu"] = {
   f = {':Telescope find_files', 'Fuzzy find files'},
-  F = {':NvimTreeToggle',       'Open/Close file explorer'},
   l = {':ls',                   'List opened buffers'},
   d = {':Bclose',               'Close buffer but keeps the panel'},
   o = {':normal gF',            'Open file under cursor'},
@@ -240,6 +264,7 @@ vim.g["leaderMenu"] = {
   C = {":'<,'>Commentary",      'Toggle comment on selection'},
   s = {':call FloatTerm()',     'Open a floating terminal'},
   x = {':%!xxd',                'Display a buffer in hexadecimal'},
+  e = {':Lexplore',             'Open file explorer'},
   t = {':Telescope',            'Open Telescope'},
   T = {':call BuildCtags()',    'Create tags'}
 }
@@ -317,7 +342,6 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -5,8 +5,10 @@
 " Color scheme
 set background=dark
 let g:codedark_conservative = 1
-colorscheme codedark
-" colorscheme gruvbox-baby
+"colorscheme codedark
+colorscheme darktech
+
+set termguicolors
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac

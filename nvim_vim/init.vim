@@ -26,6 +26,7 @@ endif
 
 " Theme
 Plug 'tomasiser/vim-code-dark'
+Plug 'dpretet/dark-tech'
 Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
 Plug 'ryanoasis/vim-devicons'
 " Languages
