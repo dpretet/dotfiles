@@ -25,7 +25,6 @@ au BufRead,BufNewFile *.json set filetype=javascript
 " C linker
 au BufRead,BufNewFile *.ld set filetype=ld
 
-
 " Specify Markdown syntax checking for these extensions
 au BufRead,BufNewFile *.mkd, *.md, *.txt set filetype=markdown.pandoc
 

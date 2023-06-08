@@ -30,19 +30,22 @@ if has("nvim")
 
     " Define Main leader key menu
     let g:leaderMenu = {'name': "Main",
-                \'f': [":CtrlPMixed",                  "Fuzzy find with CtrlP"],
-                \'l': [":ls",                          'List opened buffers'],
-                \'d': [":Bclose",                      'Close buffer (but keeps the panel)'],
-                \'o': [":normal gF",                   'Open file under cursor'],
-                \'v': [":vsplit",                      'Split buffer vertically'],
-                \'h': [":split",                       'Split buffer horizontally'],
-                \'H': [":hide",                        'Hide panel'],
-                \'c': [":Commenter",                   'Toggle comment of current line'],
-                \'C': [":'<,'>Commenter",              'Toggle comment of visual selection'],
-                \':': [":call FloatTerm()",            'Open a floating terminal'],
-                \'x': [":%!xxd",                       'Display a buffer in hexadecimal'],
-                \'t': [":call BuildCtags()",           'Create tags'],
-                \'m': [MdMenu,                         'Open Markdown menu'],
+                \'f': [":CtrlPMixed",                                      "Fuzzy find with CtrlP"],
+                \'l': [":ls",                                              'List opened buffers'],
+                \'d': [":Bclose",                                          'Close buffer (but keeps the panel)'],
+                \'e': [":Lexplore",                                        'Close buffer (but keeps the panel)'],
+                \'o': [":normal gF",                                       'Open file under cursor'],
+                \'v': [":vsplit",                                          'Split buffer vertically'],
+                \'h': [":split",                                           'Split buffer horizontally'],
+                \'H': [":hide",                                            'Hide panel'],
+                \'c': [":Commenter",                                       'Toggle comment of current line'],
+                \'C': [":'<,'>Commenter",                                  'Toggle comment of visual selection'],
+                \':': [":call FloatTerm()",                                'Open a floating terminal'],
+                \'x': [":%!xxd",                                           'Display a buffer in hexadecimal'],
+                \'t': [":call BuildCtags()",                               'Create tags'],
+                \'j': [":exe \"vertical resize \" . (winwidth(0) * 2/3)",  'Downsize panel'],
+                \'k': [":exe \"vertical resize \" . (winwidth(0) * 3/2)",  'Upsize panel'],
+                \'m': [MdMenu,                                             'Open Markdown menu'],
                 \}
 
     nnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
@@ -68,24 +71,19 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CTags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 nmap <C-T> <C-]>
 set tags=tags,./tags,./../tags,./*/tags
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Deoplete
+" Mu-Complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:deoplete#enable_at_startup = 1
-inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+let g:mucomplete#enable_auto_at_startup = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '✺'
 

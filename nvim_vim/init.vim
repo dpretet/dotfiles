@@ -25,23 +25,14 @@ else
 endif
 
 " Theme
-Plug 'tomasiser/vim-code-dark'
 Plug 'dpretet/dark-tech'
-Plug 'luisiacc/gruvbox-baby', {'branch': 'main'}
-Plug 'ryanoasis/vim-devicons'
 " Languages
 Plug 'dense-analysis/ale'
 if has("nvim")
     Plug 'dpretet/vim-veritoolbox'
     Plug 'dpretet/vim-markdown-tool'
 endif
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'lifepillar/vim-mucomplete'
 Plug 'kylelaker/riscv.vim'
 " Misc.
 Plug 'ctrlpvim/ctrlp.vim'

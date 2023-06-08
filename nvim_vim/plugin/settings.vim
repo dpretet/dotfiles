@@ -4,8 +4,6 @@
 
 " Color scheme
 set background=dark
-let g:codedark_conservative = 1
-"colorscheme codedark
 colorscheme darktech
 
 set termguicolors
@@ -29,23 +27,6 @@ set numberwidth=4
 
 " Enable mouse in all modes
 set mouse=a
-" Enable visual block selection with ctrl
-nnoremap <C-LeftMouse> <4-LeftMouse>
-inoremap <C-LeftMouse> <4-LeftMouse>
-onoremap <C-LeftMouse> <C-C><4-LeftMouse>
-" nnoremap <C-LeftDrag>  <LeftDrag>
-" inoremap <C-LeftDrag>  <LeftDrag>
-" onoremap <C-LeftDrag>  <C-C><LeftDrag>
-
-" Shift-wheel scrolls left/right
-nnoremap <S-ScrollWheelUp>     <ScrollWheelLeft>
-nnoremap <S-2-ScrollWheelUp>   <2-ScrollWheelLeft>
-nnoremap <S-3-ScrollWheelUp>   <3-ScrollWheelLeft>
-nnoremap <S-4-ScrollWheelUp>   <4-ScrollWheelLeft>
-nnoremap <S-ScrollWheelDown>   <ScrollWheelRight>
-nnoremap <S-2-ScrollWheelDown> <2-ScrollWheelRight>
-nnoremap <S-3-ScrollWheelDown> <3-ScrollWheelRight>
-nnoremap <S-4-ScrollWheelDown> <4-ScrollWheelRight>
 
 " Use spaces instead of tabs
 set expandtab
@@ -115,15 +96,21 @@ if has("nvim")
     set inccommand=split
 endif
 
+" Completion setup for mu-complete
+set completeopt+=menuone
+set completeopt+=noinsert
+set shortmess+=c
+
+
 " Disable arrows in normal, take goods habits!
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <Tab> and <S-Tab> to navigate through popup menu (off because of mu-complete)
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " When into a pop menu, enter is equivalent to c-y and avoid to insert new line
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -137,8 +124,8 @@ set guicursor+=n-v-c:blinkon1
 nnoremap <tab> %
 vnoremap <tab> %
 
-" shift-tab parses ()/[]/{} in insert mode
-inoremap <S-Tab> <esc>%a
+" shift-tab parses ()/[]/{} in insert mode (off because of mu-complete)
+" inoremap <S-Tab> <esc>%a
 
 " Remap to search for a pattern
 map s <Nop>
