@@ -26,27 +26,33 @@ endif
 
 " Theme
 Plug 'dpretet/dark-tech'
+if has("nvim")
+    Plug 'kvrohit/rasmus.nvim'
+endif
+
 " Languages
 Plug 'dense-analysis/ale'
 if has("nvim")
     Plug 'dpretet/vim-veritoolbox'
     Plug 'dpretet/vim-markdown-tool'
 endif
-Plug 'lifepillar/vim-mucomplete'
+
 Plug 'kylelaker/riscv.vim'
+
 " Misc.
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'lifepillar/vim-mucomplete'
 if has("nvim")
     Plug 'dpretet/vim-leader-mapper'
 endif
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'dpretet/vim-commenter'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'christoomey/vim-tmux-navigator'
 
 
 call plug#end()
 filetype plugin indent on
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sub scripts handling the settings for plugins and core
@@ -58,9 +64,9 @@ if has('nvim')
     source $HOME/.config/nvim/plugin/functions.vim
     source $HOME/.config/nvim/ftplugin/files.vim
 else
+    source $HOME/.vim/plugin/plugins.vim
     source $HOME/.vim/plugin/settings.vim
     source $HOME/.vim/plugin/functions.vim
-    source $HOME/.vim/plugin/plugins.vim
     source $HOME/.vim/ftplugin/files.vim
 endif
 
@@ -68,7 +74,7 @@ endif
 if has('nvim')
     autocmd! bufwritepost init.vim source %
 else
-    autocmd! bufwritepost .vimrc source %
+    autocmd! bufwritepost vimrc source %
 endif
 autocmd! bufwritepost settings.vim source %
 autocmd! bufwritepost functions.vim source %

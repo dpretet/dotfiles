@@ -2,11 +2,10 @@
 " Leader key setup, handled with vim-leader-mapper
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Define leader key to space and call vim-leader-mapper
-nnoremap <Space> <Nop>
-let mapleader = "\<Space>"
-
 if has("nvim")
+
+    nnoremap <Space> <Nop>
+    let mapleader = "\<Space>"
 
     " Define the sub-menu dedicated to Markdown tool
     let MdMenu = {'name': "Markdown Menu",
@@ -53,6 +52,11 @@ if has("nvim")
 
 else 
 
+    set timeout timeoutlen=0 ttimeoutlen=0
+
+    nnoremap <Space> <Nop>
+    let g:mapleader = "\<Space>"
+
     nnoremap <Leader>f :CtrlPMixed <CR>
     nnoremap <Leader>l :ls <CR>
     nnoremap <Leader>d :Bclose <CR>
@@ -61,7 +65,7 @@ else
     nnoremap <Leader>h :split <CR>
     nnoremap <Leader>H :hide <CR>
     nnoremap <Leader>t :call BuildCtags() <CR>
-    nnoremap <leader>c :call ToggleComment() <CR>
+    nnoremap <Leader>c :call ToggleComment() <CR>
     nnoremap <Leader>: :terminal <CR>
     nnoremap <Leader>x :%!xxd <CR>
 
@@ -89,6 +93,7 @@ let g:ale_sign_warning = '✺'
 
 let g:ale_linters = {
 \   'systemverilog': ['verilator', 'iverilog'],
+\   'S': [''],
 \   'c': ['clang'],
 \   'c++': ['clang'],
 \   'python': ['pylint'],

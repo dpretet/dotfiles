@@ -4,7 +4,12 @@
 
 " Color scheme
 set background=dark
-colorscheme darktech
+
+if has("nvim")
+    colorscheme rasmus
+else
+    colorscheme darktech
+endif
 
 set termguicolors
 
@@ -103,10 +108,10 @@ set shortmess+=c
 
 
 " Disable arrows in normal, take goods habits!
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
 
 " Use <Tab> and <S-Tab> to navigate through popup menu (off because of mu-complete)
 " inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -130,8 +135,10 @@ vnoremap <tab> %
 " Remap to search for a pattern
 map s <Nop>
 map S <Nop>
-nnoremap s /
-nnoremap S ?
+" nnoremap s /
+" nnoremap S ?
+nnoremap <silent> s :call MoveToPattern() <CR>
+nnoremap <silent> S :call MoveToPattern("b") <CR>
 
 " change the direction of new splits
 set splitbelow
@@ -154,3 +161,19 @@ set diffexpr=""
 
 " Include underscore as a keyword
 set iskeyword+=_
+
+set completeopt-=preview
+
+" Avoid c-w to move around panes 
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Netrw
+let g:netrw_menu = 0
+let g:netrw_banner = 0
+let g:netrw_winsize = 30
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 0
+let g:netrw_fastbrowse = 0

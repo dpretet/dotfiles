@@ -5,9 +5,9 @@
 accel "/File/Close" (null)
 accel "/File/Quit" (null)
 
-accel "/Time/Zoom/Zoom In" c
+accel "/Time/Zoom/Zoom In" i
 accel "/Time/Zoom/Zoom Out" o
-accel "/Time/Zoom/Zoom Full" f
+accel "/Time/Zoom/Zoom Full" =
 
 # accel "/Edit/Create Group" g
 accel "/Edit/Create Group" G
@@ -55,12 +55,12 @@ color_timeb 252525
 color_white fdfdfd
 
 # == Fix the janky AF fonts it uses by default ==
-# use_nonprop_fonts 1
-# use_big_fonts 1
-# use_pango_fonts on
-# fontname_signals Fira Code Retina 14
-# fontname_waves Fira Code Retina 12
-# fontname_logfile Fira Code Retina 14
+use_nonprop_fonts 1
+use_big_fonts 1
+use_pango_fonts on
+fontname_signals Fira Code Retina 14
+fontname_waves Fira Code Retina 13
+fontname_logfile Fira Code Retina 14
 
 # == Some misc fixes ==
 editor "vim %s"

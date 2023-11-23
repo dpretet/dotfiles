@@ -9,33 +9,7 @@ export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
 export PATH=/opt/homebrew/Cellar/python@3.10/3.10.2/libexec/bin:$PATH
-export PATH="$HOME/.cargo/bin:$PATH"
 
-# Setup C and C++ include path for macOs
-# MACOS_C_INCLUDE_PATH="/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
-
-# if [[ -d $MACOS_C_INCLUDE_PATH ]]; then
-    # export C_INCLUDE_PATH=$MACOS_C_INCLUDE_PATH:$C_INCLUDE_PATH
-# fi
-#
-# MACOS_CPLUS_INCLUDE_PATH="/Library/Developer/CommandLineTools/usr/include/c++/v1/"
-#
-# if [[ -d $MACOS_CPLUS_INCLUDE_PATH ]]; then
-    # export CPLUS_INCLUDE_PATH=$MACOS_CPLUS_INCLUDE_PATH:$CPLUS_INCLUDE_PATH
-# fi
-
-# Setup Rust development environment
-# export PATH="$HOME/.cargo/bin:$PATH"
-
-# RISCV GNU Toolchain built manually
-# export PATH="/opt/riscv/bin:$PATH"
-# export C_INCLUDE_PATH="/opt/riscv/include/:$C_INCLUDE_PATH"
-
-# export C_INCLUDE_PATH="/usr/local/Cellar/icarus-verilog/11.0/include":C_INCLUDE_PATH
-
-# https://github.com/YosysHQ/oss-cad-suite-build
-# export PATH="$HOME/.bin/oss-cad-suite/bin:$PATH"
-# source "$HOME/.bin/oss-cad-suite/environment"
 
 #-------------------------------------
 # Setup Zsh

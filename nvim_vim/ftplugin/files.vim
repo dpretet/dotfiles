@@ -11,7 +11,6 @@ au bufNewFile *.cpp 0r      ~/.config/nvim/templates/template.cpp
 au bufNewFile *.h 0r        ~/.config/nvim/templates/template.h
 au bufNewFile *.v 0r        ~/.config/nvim/templates/template.v
 au bufNewFile *.sv 0r       ~/.config/nvim/templates/template.sv
-au bufNewFile *.html 0r     ~/.config/nvim/templates/template.html
 au bufNewFile *.py 0r       ~/.config/nvim/templates/template.py
 au bufNewFile *.sh 0r       ~/.config/nvim/templates/template.sh
 au bufNewFile *.S 0r        ~/.config/nvim/templates/template.S
@@ -20,13 +19,17 @@ au bufNewFile *.S 0r        ~/.config/nvim/templates/template.S
 autocmd BufRead,BufNewFile *.{log,txt} AnsiEsc
 
 " Specify JSON syntax checking for Javascript
-au BufRead,BufNewFile *.json set filetype=javascript
+autocmd BufRead,BufNewFile *.json set filetype=javascript
 
 " C linker
-au BufRead,BufNewFile *.ld set filetype=ld
+autocmd BufRead,BufNewFile *.ld set filetype=ld
+
+" RISCV ASM
+autocmd BufRead,BufNewFile *.S set filetype=riscv
+autocmd BufRead,BufNewFile *.s set filetype=riscv
 
 " Specify Markdown syntax checking for these extensions
-au BufRead,BufNewFile *.mkd, *.md, *.txt set filetype=markdown.pandoc
+autocmd BufRead,BufNewFile *.mkd, *.md, *.txt set filetype=markdown.pandoc
 
 " Insert tabs, not spaces for Makefile
 autocmd FileType make setlocal noexpandtab
