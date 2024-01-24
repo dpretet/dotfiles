@@ -17,10 +17,10 @@ export PATH=/opt/homebrew/Cellar/python@3.10/3.10.2/libexec/bin:$PATH
 
 # Misc. aliases
 
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-  alias vi='nvim'
-fi
+# if type nvim > /dev/null 2>&1; then
+#   alias vim='nvim'
+#   alias vi='nvim'
+# fi
 
 # ls aliases relying on k plugin
 alias ls="ls -l"
@@ -156,15 +156,3 @@ extract () {
 function pretty_csv {
     column -t -s, "$@" | less -F -S -X -K
 }
-
-#-------------------------------------
-# Note taking functions
-#-------------------------------------
-
-n() { nvim ~/notebook/"$*" }
-
-nls() { command ls -a ~/notebook/ | grep "$*" }
-
-ng() { grep -nri -C 5 "$*" ~/notebook/* }
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

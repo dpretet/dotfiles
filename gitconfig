@@ -1,23 +1,23 @@
 [core]
-    editor = nvim
+    editor = vim
 
 [difftool]
     prompt = false
 
 [diff]
-    tool = nvimdiff
+    tool = vimdiff
 
-[difftool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[difftool "vimdiff"]
+    cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
 
 [merge]
-    tool = nvimdiff
+    tool = vimdiff
 
 [mergetool]
     prompt = false
 
-[mergetool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[mergetool "vimdiff"]
+    cmd = "vim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 
 [user]
     name = Damien Pretet
@@ -38,4 +38,4 @@
 [mergetool]
     path = nvim
 [commit]
-	verbose = true
+    verbose = true
