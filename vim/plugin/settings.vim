@@ -5,11 +5,10 @@
 " Color scheme
 set background=dark
 
-if has("nvim")
-    colorscheme rasmus
-else
-    colorscheme darktech
-endif
+let g:gruvbox_material_better_performance = 1
+colorscheme gruvbox-material
+
+" colorscheme darktech
 
 set termguicolors
 
@@ -164,7 +163,7 @@ set iskeyword+=_
 
 set completeopt-=preview
 
-" Avoid c-w to move around panes 
+" Avoid c-w to move around panes
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
