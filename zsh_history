@@ -1541,7 +1541,6 @@ http-server test &
 : 1642533315:0;mv Jana\ Rush\ -\ Frenetic\ Snare Jana\ Rush\ -\ Frenetic\ Snare\ .mp3
 : 1642620487:1;./flow.sh LICENSE
 : 1642620491:0;./flow.sh Llint
-: 1642677429:0;cd .bin
 : 1642677433:0;wget https://github.com/dalance/svls/releases/download/v0.2.0/svls-v0.2.0-x86_64-mac.zip
 : 1642677447:0;extract svls-v0.2.0-x86_64-mac.zip
 : 1642796387:0;grep -rni "TODO" rtl
@@ -1989,7 +1988,6 @@ http-server test &
 : 1646596269:0;grep "*get_timeout*" build/*
 : 1646596286:0;grep -rni "*timeout*" build/*
 : 1646596334:0;vim build/*.h
-: 1646681329:0;vim init.vim
 : 1646744677:0;cd ../verilator/examples/make_tracing_c
 : 1646744685:0;vim sim_main.cpp top.v
 : 1646745747:0;find . -anme "*.vcd"
@@ -2756,7 +2754,6 @@ brew install vim --with-python3
 : 1656012908:0;./run.sh -t 10000000 -m 500000
 : 1656014006:0;rm -f *vcd
 : 1656014609:0;brew install ngspice
-: 1656014889:0;brew remove tree-sitter
 : 1656015012:0;brew doctor
 : 1656157367:0;cd .dotfiles/nvim/plugin
 : 1656157370:0;vim functions.vim
@@ -2817,7 +2814,6 @@ brew install vim --with-python3
 : 1656757408:0;git ps v1.7.0
 : 1656771590:0;./run.sh --simulator verilator --tc tests/rv32ui-p-test4.v
 : 1656771710:0;cd ../riscv-tests/
-: 1656774382:0;lls
 : 1656774391:0;./run.sh -tc 
 : 1656777019:0;vim tests/repl/*.{c,h}
 : 1656859207:0;rm -f tests/repl/coreutils.*
@@ -3867,7 +3863,6 @@ brew install vim --with-python3
 : 1671718728:0;mv main.c main.c.bk
 : 1671719506:0;./exe
 : 1671719612:0;rm -f $.o exe
-: 1671725147:0;cd .config
 : 1671725168:0;rm -fr Roland\ Cloud
 : 1671725171:0;ls envman
 : 1671725176:0;ls envman/load.sh
@@ -3909,7 +3904,6 @@ brew install vim --with-python3
 : 1671735980:0;ln -sf $HOME/.dotfiles/vim/init.vim $HOME/.vimrc 
 : 1671736012:0;ls .vim
 : 1671736021:0;ln -sf $HOME/.dotfiles/vim/ $HOME/.vim 
-: 1671736046:0;cd vim
 : 1671736056:0;echo "plugged" > .gitignore
 : 1671736060:0;ls autoload
 : 1671741603:0;mv ftplugin/files.vim .
@@ -3982,7 +3976,6 @@ brew install vim --with-python3
 : 1672762886:0;cd parser
 : 1672762918:0;cd bin
 : 1672763047:0;cd 
-: 1672763050:0;cd workspace/c
 : 1672763055:0;git clone https://github.com/AndroGR/nvdialog.git
 : 1672763063:0;cd examples
 : 1672763066:0;cd hello-world
@@ -4301,7 +4294,6 @@ $ cmake --build .
 : 1673469542:0;ls build
 : 1673470017:0;git ck CMakeLists.txt
 : 1673470019:0;cd sdr
-: 1673470020:0;cd src
 : 1673470026:0;git ck cargs/
 : 1673470032:0;git ck klib
 : 1673470038:0;git ck logc
@@ -4621,7 +4613,6 @@ git push -u origin main
 : 1678563123:0;./flow.sh build
 : 1678563126:0;./flow.sh test
 : 1678563167:0;git ps develop
-: 1678563180:0;cd hdl/friscv
 : 1678565550:0;cleqr
 : 1678614373:0;cd ../../swift
 : 1678614377:0;cd Advanced\ Segues
@@ -4634,7 +4625,6 @@ git push -u origin main
 git branch -M main\
 git remote add origin git@github.com:dpretet/swift_udemy_course.git\
 git push -u origin main
-: 1678614515:0;cd swift
 : 1678614520:0;rm -fr swift
 : 1678614525:0;cd python
 : 1678614562:0;rm -fr svut
@@ -4845,7 +4835,6 @@ git push -u origin main
 : 1681654675:0;gitst
 : 1681654891:0;ln -sd $HOME/.dotfiles/vim $HOME/.config/nvim
 : 1681654938:0;rm -f nvim
-: 1681654942:0;ln -sf $HOME/.dotfiles/vim $HOME/.config/nvim
 : 1681655255:0;git mv nvim/ nvim_lua
 : 1681655264:0;git mv vim nvim_vim
 : 1681655275:0;cd .config/
@@ -4863,7 +4852,6 @@ git push -u origin main
 : 1681655563:0;du -hs nvim*
 : 1681656236:0;brew install zsh-vi-mode
 : 1681656436:0;ear
-: 1681656485:0;source $HOME/.zshrc
 : 1681656496:0;brew remove zsh-vi-mode
 : 1681666738:0;ls nvim_lua
 : 1681666749:0;rm -f nvim_lua/vim
@@ -4920,315 +4908,57 @@ git push -u origin main
 : 1687030374:0;./calc.py
 : 1687114803:0;brew remove kdiff3
 : 1687115787:0;ta
-: 1687115798:0;vim
-: 1687115830:0;fg
-: 1687115833:0;ls
-: 1687116056:0;exit
-: 1687288677:0;cd workspace/hdl/friscv
-: 1687288677:0;l;s
-: 1687288678:0;ls
-: 1687288680:0;ts friscv
-: 1687288685:0;ta friscv
-: 1687288826:18;./run.sh -m 10000 --tb icache_testbench.sv --timeout 100000
-: 1687288860:0;cd ../wba_testsuite
-: 1687288861:0;ls
-: 1687288870:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1687288964:0;cd ..
-: 1687288967:0;cd c_testsuite
-: 1687288967:0;ls
-: 1687288971:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1687289045:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/heap.v
-: 1687289086:0;fg
-: 1687289089:0;vim
-: 1687289289:0;fg
-: 1687289368:0;ls
-: 1687289376:0;vim debug_platform_verilator.gtkw
-: 1687289456:0;fg
-: 1687289583:0;vim
 : 1687289743:0;vim $HOME/.tmux.conf
-: 1687289763:0;vim
-: 1687289790:0;ts friscv
-: 1687289797:0;cd test/c_testsuite
-: 1687289798:0;vim
-: 1687289973:0;fg
-: 1687375109:0;vim
 : 1687375149:0;ls $HOME/.config/nvim/plugged
-: 1687375153:0;fg
-: 1687437461:0;tl
-: 1687437463:0;clear
-: 1687437463:0;ls
-: 1687437464:0;cd
-: 1687437468:0;cd -
-: 1687437471:0;vim
 : 1687437527:0;which $(command vim)
-: 1687437538:0;which command vim
 : 1687437550:0;which \vim
-: 1687437556:0;fg
-: 1687438382:0;tl
-: 1687438384:0;ts friscv
-: 1687438389:0;vim
-: 1687438407:0;cd test/c_testsuite
-: 1687438412:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/heap.v
-: 1687438419:0;ls
-: 1687438430:0;vim debug_platform_verilator.gtkw
-: 1687720732:0;fg
-: 1687720741:0;vim
-: 1687720832:0;vim debug_platform_verilator.gtkw 
-: 1687720836:0;ls
-: 1687720856:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/heap.v
-: 1687720863:0;ls
-: 1687720875:0;fg
-: 1687720884:0;pwd
-: 1687720888:0;fg
 : 1687766867:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/heap.v
-: 1687766892:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1687766948:0;cd ..
-: 1687766950:0;cd wba_testsuite
-: 1687766955:0;./run.sh --tb platform --timeout 100000 --simulator verilator
 : 1687767036:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/test1.v
-: 1687767068:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test1.v
-: 1687767075:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test2.v
-: 1687767082:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test3.v
 : 1687767089:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test4.v
 : 1687767096:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test5.v
-: 1687767104:0;ls tests
 : 1687767108:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test6.v
 : 1687767114:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test7.v
 : 1687767121:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test8.v
 : 1687767130:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test9.v
-: 1687767145:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test3.v
-: 1687767156:0;vim debug_platform_verilator.gtkw
-: 1687767195:0;fg
-: 1687767202:0;vim
-: 1687767576:0;fg
-: 1687768266:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test3.v
-: 1687771018:0;fg
-: 1687771040:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test3.v
-: 1687771071:0;fg
-: 1687771136:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test3.v
-: 1687771176:0;fg
-: 1687771580:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test3.v
-: 1687771629:0;fg
 : 1687789827:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test3.v
-: 1687789850:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1687789894:0;cd -
-: 1687789897:0;cd c_testsuite
-: 1687789900:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1687789959:0;cd ../apps
-: 1687789960:0;ls
-: 1687789964:0;./run.sh --tc tests/repl.v
-: 1687790054:0;vim
-: 1687790367:0;git st
-: 1687790374:0;git commit .
 : 1687790394:0;git ps nxt
 : 1687790399:0;ex
-: 1687790409:0;fg
-: 1687790430:0;vim doc/project_mgt_hw.md
-: 1687790502:0;fg
-: 1687791083:0;./run.sh --tc tests/repl.v
-: 1687791126:0;vim ../../doc/perf_benchmark.md
-: 1687791132:0;fg
-: 1687791178:0;clear
-: 1687791256:0;git st
-: 1687791300:0;git commit -a --amend
 : 1687791306:0;git ps nxt -f
-: 1687791310:0;git ck master
 : 1687791321:0;git merge nxt --no-commit
-: 1687791339:0;git log
-: 1687791347:0;git ps master
 : 1687795240:0;vim doc/release_v1.4.0.md
-: 1687796601:0;git st
-: 1687796604:0;git add doc/
-: 1687796613:0;vim doc/project_mgt_hw.md
-: 1687796785:0;git st
-: 1687796791:0;git commit -a
-: 1687796805:0;git ps master
-: 1687796810:0;git tag v1.4.0
-: 1687796814:0;git ps v1.4.0
-: 1687805511:0;fg
-: 1687805518:0;vim
-: 1687805582:0;./run.sh --tc tests/repl.v
-: 1687805649:0;cd ../wba_testsuite
-: 1687805650:0;ls
-: 1687805654:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1687805715:0;cd ../c_testsuite
-: 1687805716:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1687805785:0;ls
-: 1687805788:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1687805811:0;ls tests
 : 1687805882:0;./run.sh --tb platform --timeout 100000 --simulator verilator --test tests/functions.v
-: 1687805889:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/functions.v
-: 1687805920:0;vim debug_platform_verilator.gtkw
-: 1687805984:0;vim simulation.log
-: 1687889125:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/functions.v
-: 1687889316:0;vim simulation.log
-: 1688048880:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/functions.v
-: 1688049380:0;cd ../apps
-: 1688049383:0;./run.sh --tc tests/repl.v
-: 1688049517:0;git st
-: 1688049524:0;git diff .
 : 1688049557:0;git commit -am "Change: Adjust oustanding request number for dCache"
-: 1688049560:0;git ps master
-: 1688049695:0;fg
-: 1688063715:0;ls
-: 1688063721:0;cd tests
-: 1688063722:0;ls
-: 1688063725:0;ls common
-: 1688063732:0;cd repl
 : 1688063732:0;;ls
-: 1688063749:0;fg
 : 1688063755:0;vim benchmark.
 : 1688063759:0;vim benchmark.c
-: 1688063819:0;ls
 : 1688063834:0;more tty.h
 : 1688063847:0;more printf.c
-: 1688063865:0;ld
-: 1688063866:0;ls
-: 1688063893:0;vim makefile
-: 1688063942:0;cd ..
-: 1688063942:0;l;s
-: 1688063944:0;ls
-: 1688063948:0;cd ..
-: 1688063951:0;vim run.sh
-: 1688063986:0;./run.sh -c
-: 1688063991:0;./run.sh --tc tests/repl.v
-: 1688064055:0;ls
-: 1688064071:0;du -hs friscv_testbench.vcd
-: 1688064096:0;fg
-: 1688064118:0;./run.sh -c
-: 1688064123:0;./run.sh --tc tests/repl.v
-: 1688064200:0;du -hs friscv_testbench.vcd
-: 1688064206:0;fg
-: 1688064212:0;vim debug_platform_verilator.gtkw 
-: 1688239810:0;cd ../wba_testsuite
-: 1688239818:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1688240626:0;cd ../apps
-: 1688240628:0;./run.sh --tc tests/repl.v
-: 1688280596:0;fg
 : 1688280604:0;vim ./run.sh
-: 1688280612:0;vim 
 : 1688280635:0;git st tests/repl/benchmark.c
 : 1688280640:0;git diff tests/repl/benchmark.c
 : 1688280645:0;git ck tests/repl/benchmark.c
-: 1688280648:0;ls
-: 1688280652:0;./run.sh -c
-: 1688280664:0;./run.sh --tc tests/repl.v
-: 1688283955:0;cd ../wba_testsuite
-: 1688283956:0;ls
-: 1688283972:0;vim debug_platform_verilator.gtkw
-: 1688283985:0;ls
 : 1688284178:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/functions.v
-: 1688284186:0;./run.sh -c
-: 1688284210:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test0.v
-: 1688284961:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1688291074:0;cd ../apps
-: 1688291074:0;ls
 : 1688291080:0;cd ../wba_testsuite/
-: 1688291764:0;cd ../c_testsuite
-: 1688291766:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1688299769:0;cd ../sv
 : 1688299769:0;ms
-: 1688299770:0;ls
 : 1688299781:0;./run.sh -m 10000 --tb icache_testbench.sv --timeout 100000
 : 1688299809:0;./run.sh -m 100000 --tb icache_testbench.sv --timeout 100000
-: 1688299875:0;ls
 : 1688299973:0;./run.sh -m 10000 --tb dcache_testbench.sv --timeout 100000
-: 1688299985:0;ls
-: 1688300382:0;./run.sh -m 100 --tb dcache_testbench.sv --timeout 100000
-: 1688300504:0;vim dcache_testbench.sv
-: 1688300554:0;./run.sh -m 100 --tb dcache_testbench.sv --timeout 100000
-: 1688300563:0;fg
-: 1688300569:0;./run.sh -m 100 --tb dcache_testbench.sv --timeout 100000
-: 1688300762:0;fg
-: 1688300796:0;./run.sh -m 100 --tb dcache_testbench.sv --timeout 100000
-: 1688300987:0;cd ../wba_testsuite
-: 1688300992:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1688301394:0;cd ../sv
-: 1688301395:0;ls
-: 1688301405:0;./run.sh -m 100 --tb dcache_testbench.sv --timeout 100000
-: 1688301420:0;ls
 : 1688301429:0;vim ram_32b.txt
 : 1688306848:0;./run.sh -m 100 --tb dcache_testbench.sv --timeout 100000
-: 1688306860:0;./run.sh -m 1000 --tb dcache_testbench.sv --timeout 100000
-: 1688306926:0;fg
-: 1688306990:0;./run.sh -m 1000 --tb dcache_testbench.sv --timeout 100000
-: 1688306996:0;fg
-: 1688307081:0;./run.sh -m 1000 --tb dcache_testbench.sv --timeout 100000
-: 1688307102:0;./run.sh -m 100000 --tb icache_testbench.sv --timeout 1000000
-: 1688291759:15481;fg
-: 1688307243:0;git st
-: 1688307252:0;cd ../wba_testsuite/tests
-: 1688307253:0;make
-: 1688307259:0;git st
-: 1688307280:0;git commit
-: 1688307284:0;git commit .
-: 1688307654:0;git ps master
-: 1688406765:0;fg
-: 1688498940:0;cd ..
-: 1688498940:0;ls
-: 1688498950:0;./run.sh -m 100000 --tb icache_testbench.sv --timeout 1000000
-: 1688498958:0;./run.sh --tb platform --timeout 100000 --simulator verilator
 : 1688499031:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test0.v
 : 1688499039:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test1.v
-: 1688499047:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test2.v
-: 1688499057:0;vim debug_platform_verilator.gtkw
 : 1688543542:0;./run.sh --tb platform --timeout 100000 --simulator verilator --tc tests/rv32ui-p-test2.v
-: 1688543567:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1688543614:0;cd ../c_testsuite
 : 1688543615:0;./run.sh --tb platform --timeout 100000 --simulator verilator
-: 1688543676:0;cd ../apps
-: 1688543678:0;./run.sh --tc tests/repl.v
-: 1688558946:0;fg
-: 1688558951:0;vim run.sh
-: 1688558974:0;./run.sh --tc tests/repl.v
-: 1688559006:0;ls
-: 1688572513:0;fg
 : 1688586310:0;vi;
 : 1688587241:0;grep "tracker" rtl/*
-: 1688587250:0;fg
-: 1689017804:0;./run.sh --tc tests/repl.v
-: 1689018638:0;fg
-: 1689018642:0;vim run.sh
-: 1689018651:0;./run.sh --tc tests/repl.v
 : 1689018771:0;cd ../common
-: 1689018778:0;vim debug_*
-: 1689018920:0;cd ../wba_testsuite
-: 1689018920:0;ls
-: 1689054819:0;vim debug_*
-: 1689187286:0;./run.sh --tb platform
-: 1689187489:0;ps
 : 1689187497:0;kill -9 25002
-: 1689187499:0;ps
-: 1689187505:0;fg
-: 1689238199:0;./run.sh --tb platform
-: 1689238205:0;ps
 : 1689238212:0;kill -9 32501
 : 1689238220:0;./run.sh --tb platform --sim verilator
-: 1689238224:0;./run.sh --tb platform --simulator verilator
-: 1689238242:0;./run.sh -c
-: 1689238251:0;cd tests
-: 1689238253:0;make
-: 1689238257:0;git st
-: 1689238260:0;cd ..
-: 1689238262:0;git st
-: 1689238267:0;./run.sh --tb platform --simulator verilator
 : 1689239518:0;vim debug_*
-: 1689239596:0;ls
-: 1689239613:0;./run.sh --tb platform --simulator verilator --tc tests/rv32ui-p-test2.v
 : 1689239638:0;./run.sh --tb platform --simulator verilator --tc tests/rv32ui-p-test3.v
-: 1689239651:0;./run.sh --tb platform --simulator verilator --tc tests/rv32ui-p-test2.v
-: 1689239674:0;vim debug_platform_verilator.gtkw
-: 1689322777:0;tl
-: 1689322780:0;clear
-: 1689322782:0;ts friscv
-: 1689322787:0;cd test/wba_testsuite
-: 1689322790:0;vim
-: 1689345856:0;clear
-: 1689345859:0;ta friscv
 : 1689350527:0;./run.sh --tb platform --simulator verilator --tc tests/rv32ui-p-test2.v
-: 1689351023:0;./run.sh --tb platform --simulator verilator
 : 1689351073:0;./run.sh --tb platform --simulator verilator --tc tests/rv32ui-p-test7.v
-: 1689351083:0;./run.sh --tb platform --simulator verilator --tc tests/rv32ui-p-test8.v
 : 1689351090:0;./run.sh --tb platform --simulator verilator --tc tests/rv32ui-p-test6.v
 : 1689351108:0;fg
 : 1689351131:0;./run.sh --tb platform --simulator verilator --tc tests/rv32ui-p-test6.v
@@ -10088,3 +9818,307 @@ make install
 : 1704119884:0;ls
 : 1704119886:0;la
 : 1704119915:0;cp .zsh_history .dotfiles
+: 1704119916:0;cd
+: 1704119918:0;cd .zsh_sessions
+: 1704119919:0;ls
+: 1704119920:0;cd
+: 1704119922:0;cd .dotfiles
+: 1704119922:0;ls
+: 1704119923:0;git st
+: 1704119927:0;git add .zsh_history
+: 1704119931:0;git commit
+: 1704119944:0;git ps master
+: 1704119947:0;cd
+: 1704119947:0;ls
+: 1704313513:0;cd workspace
+: 1704313514:0;ls
+: 1704313515:0;cd swift
+: 1704313516:0;ls
+: 1704313518:0;cd Hello
+: 1704313518:0;ls
+: 1704313521:0;cd ..
+: 1704313521:0;ls
+: 1704313525:0;rm -fr Hello
+: 1704313526:0;ls
+: 1704313567:0;mkdir MyCLI
+: 1704313568:0;cd MyCLI
+: 1704313568:0;ls
+: 1704313576:0;swift package init --name MyCLI --type executable
+: 1704313578:0;ls
+: 1704313591:0;vim Package.swift
+: 1704313646:0;ls
+: 1704313653:0;swift run MyCLI
+: 1704313741:0;vim Package.swift
+: 1704313761:0;swift run MyCLI
+: 1704313769:0;vim Package.swift
+: 1704313785:0;swift run MyCLI
+: 1704313809:0;ls
+: 1704313813:0;vim Package.resolved
+: 1704313854:0;vim Sources/main.swift
+: 1704313871:0;mv Sources/main.swift Sources/MyCLI.swift
+: 1704313875:0;swift run MyCLI
+: 1704313900:0;vim Package.swift
+: 1704313937:0;brew update vim
+: 1704313943:0;brew upgradee vim
+: 1704313946:0;brew upgrade vim
+: 1704313957:0;vim
+: 1704313986:0;vim Sources/MyCLI.swift
+: 1704313997:0;swift run MyCLI
+: 1704314014:0;vim Sources/MyCLI.swift
+: 1704314077:0;swift run MyCLI --input "Hello Swift"
+: 1704314081:0;swift run MyCLI --input "Hello Swiiiift"
+: 1704314334:0;cd ..
+: 1704314351:0;swift package init --name basics00 --type executable
+: 1704314352:0;l
+: 1704314359:0;ls
+: 1704314366:0;mkdir basics00
+: 1704314373:0;mv Package.swift Sources basics00
+: 1704314374:0;ls
+: 1704314376:0;cd basics00
+: 1704314377:0;ls
+: 1704314385:0;swift run basics00
+: 1704314402:0;la
+: 1704314407:0;cd .build
+: 1704314408:0;ls
+: 1704314413:0;du -hs .
+: 1704314416:0;cd ..
+: 1704314417:0;l
+: 1704314420:0;vim Sources
+: 1704314441:0;unalias vim
+: 1704314443:0;vim
+: 1704314465:0;ls
+: 1704314537:0;cd ..
+: 1704314538:0;l
+: 1704314539:0;cd ..
+: 1704314540:0;l
+: 1704314546:0;cd gtkwave
+: 1704314547:0;ls
+: 1704314550:0;git pull origin
+: 1704314554:0;ls
+: 1704314557:0;cd gtkwave3
+: 1704314558:0;ls
+: 1704314565:0;cd src
+: 1704314566:0;ls
+: 1704314692:0;vim wavealloca.h
+: 1704314701:0;lls
+: 1704314702:0;ls
+: 1706127509:0;cd
+: 1706127511:0;cd .dotfiles
+: 1706127511:0;l
+: 1706127517:0;cd nvim_vim
+: 1706127521:0;vim init.vim
+: 1706128324:0;cd
+: 1706128328:0;cd .dotfiles
+: 1706128328:0;ls
+: 1706128330:0;cd
+: 1706128331:0;ls
+: 1706128335:0;cd .config
+: 1706128335:0;ls
+: 1706128339:0;cd
+: 1706128340:0;cd .dotfiles
+: 1706128341:0;ls
+: 1706128350:0;git rm nvim_lua/
+: 1706128353:0;git rm nvim_lua/ -r
+: 1706128354:0;ls
+: 1706128360:0;rm -fr nvim_lua
+: 1706128361:0;ls
+: 1706128373:0;git mv nvim_vim/ vim
+: 1706128374:0;ls
+: 1706128377:0;git st
+: 1706128379:0;cd
+: 1706128379:0;ls
+: 1706128380:0;la
+: 1706128390:0;cd .dotfiles
+: 1706128390:0;ls
+: 1706128391:0;cd
+: 1706128392:0;cd .config
+: 1706128393:0;ls
+: 1706128415:0;ln -sf $HOME/.dotfiles/vim $HOME/.config/nvim
+: 1706128417:0;nvim
+: 1706128424:0;ls
+: 1706128425:0;cd
+: 1706128425:0;ls
+: 1706128428:0;la
+: 1706128430:0;cd .vim
+: 1706128431:0;ls
+: 1706128435:0;cd
+: 1706128435:0;ls
+: 1706128444:0;mv .vim .vim.bck
+: 1706128454:0;ln -sf $HOME/.dotfiles/vim $HOME/.vim
+: 1706128457:0;command vim
+: 1706128467:0;ls
+: 1706128468:0;la
+: 1706128478:0;vim
+: 1706128484:0;command vim
+: 1706128660:0;cd .dotfiles
+: 1706128661:0;git st
+: 1706128665:0;cd
+: 1706128669:0;rm -fr .vim.bck
+: 1706128678:0;cd -
+: 1706128683:0;more vim/.netrwhist
+: 1706128700:0;git add vim/.netrwhist
+: 1706128701:0;git st
+: 1706128744:0;git commit -am "Change: Remove nvim lua and update VIMRC to support for Vim9 & Neovim"
+: 1706128748:0;git ps master
+: 1706128750:0;cd
+: 1706128751:0;ls
+: 1706128753:0;la
+: 1706128791:0;cd .dotfiles
+: 1706128792:0;ls
+: 1706128793:0;la
+: 1706128798:0;cd
+: 1706128802:0;brew list 
+: 1706128810:0;brew help
+: 1706128821:0;brew config
+: 1706128893:0;cd .dotfiles
+: 1706128900:0;brew list > Brewfile
+: 1706128902:0;cd
+: 1706128905:0;brew list
+: 1706128916:0;vim .dotfiles/Brewfile
+: 1706128924:0;cd .dotfiles
+: 1706128925:0;git st
+: 1706128937:0;git commit -am "Update Brew package list"
+: 1706128939:0;git ps master
+: 1706128941:0;cd
+: 1706128945:0;brew upgrade
+: 1706129064:0;cd workspace/c
+: 1706129064:0;l
+: 1706129071:0;mkdir gdb_tutorial
+: 1706129072:0;cd gdb_tutorial
+: 1706129073:0;ls
+: 1706129078:0;vim crash.c
+: 1706129092:0;gcc -o crash crash.c
+: 1706129096:0;ls
+: 1706129098:0;./crash
+: 1706129113:0;gdb crash
+: 1706129138:0;lldb crash
+: 1706129198:0;ls
+: 1706129199:0;cd ..
+: 1706129202:0;rm -fr gdb_tutorial
+: 1706129202:0;ls
+: 1706129213:0;more makefile
+: 1706129217:0;ls
+: 1706129219:0;vim
+: 1706129224:0;command vim
+: 1706129231:0;cd
+: 1706129236:0;vim .zshrc
+: 1706129249:0;source $HOME/.zshrc
+: 1706129251:0;vim
+: 1706129308:0;brew update
+: 1706129317:0;vim
+: 1706129326:0;brew list
+: 1706129339:0;brew remove nvim emacs
+: 1706129347:0;brew list
+: 1706129363:0;brew remove gtk-mac-integration gtk+3
+: 1706129378:0;brew remove gtk-mac-integration
+: 1706129383:0;gtkwave
+: 1706129390:0;brew list
+: 1706129452:0;brew remove zeromq tree-stter
+: 1706129458:0;brew remove zeromq tree-sitter
+: 1706129468:0;brew remove tree-sitter
+: 1706129496:0;gtkwave&
+: 1706129535:0;brew remove luajit
+: 1706129544:0;brew remove lua
+: 1706129554:0;vim
+: 1706129574:0;brew remove tkdiff
+: 1706129587:0;brew remove youtube-dl
+: 1706129648:0;cd .dotfiles
+: 1706129653:0;brew list > Brewfile
+: 1706129656:0;git st
+: 1706129661:0;l
+: 1706129666:0;git st
+: 1706129671:0;git commit -a --amend
+: 1706129684:0;cd
+: 1706129688:0;vim .gitconfig
+: 1706129713:0;git commit -a --amend
+: 1706129717:0;cd .dotfiles
+: 1706129718:0;git commit -a --amend
+: 1706129723:0;git ps master -f
+: 1706129730:0;cd
+: 1706129730:0;ls
+: 1706129732:0;vim
+: 1706129835:0;cd .dotfiles/vim
+: 1706129835:0;ls
+: 1706129847:0;cd
+: 1706129848:0;ls
+: 1706210200:0;vim
+: 1706210519:0;cd workspace/hdl/friscv
+: 1706210525:0;vim doc/architecture.md 
+: 1706210531:0;vim doc/atomic_ops.md
+: 1706210761:0;cd .dotfiles
+: 1706210763:0;git st
+: 1706210768:0;cd .vim
+: 1706210769:0;ls
+: 1706210771:0;cd vim
+: 1706210771:0;ls
+: 1706210778:0;mv init.vim vimrc
+: 1706210779:0;ls
+: 1706210788:0;ln -sf vimrc init.nvim
+: 1706210790:0;git st
+: 1706210802:0;mv init.nvim init.vim
+: 1706210803:0;ls
+: 1706210804:0;git st
+: 1706210808:0;git diff
+: 1706210818:0;git st
+: 1706210838:0;git commit -am "Move Vim to Gruvbox" && git ps master
+: 1706210846:0;ls
+: 1706210851:0;cd ..
+: 1706210851:0;l
+: 1706210856:0;cd
+: 1706210857:0;la
+: 1706210871:0;rm -fr .emacs.d
+: 1706210871:0;ls
+: 1706210873:0;lq
+: 1706210875:0;la
+: 1706210929:0;cd .bin
+: 1706210930:0;ls
+: 1706210935:0;cd
+: 1706211010:0;rm -fr .bin .zcompdump* .zinit  .zprofile .zsh_sessions .zshenv .cargo
+: 1706211013:0;la
+: 1706211074:0;rm -fr .rustup
+: 1706211081:0;brew remove rust
+: 1706211091:0;ls
+: 1706211092:0;cd
+: 1706211093:0;ls
+: 1706211097:0;brew
+: 1706211124:0;/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+: 1706211162:0;brew
+: 1706211219:0;brew upgrade
+: 1706211230:0;brew update
+: 1706211241:0;more .zprofile
+: 1706211251:0;la
+: 1706211275:0;rm -fr .wine/
+: 1706211304:0;ls .local
+: 1706211311:0;ls .local/bin
+: 1706211342:0;cd .local/bin
+: 1706211343:0;ls
+: 1706211352:0;cd ../state
+: 1706211353:0;ls
+: 1706211356:0;cd ..
+: 1706211356:0;l
+: 1706211358:0;cd ..
+: 1706211363:0;rm -fr .local
+: 1706211364:0;la
+: 1706211387:0;cd .cache
+: 1706211388:0;ls
+: 1706211396:0;du -hs .
+: 1706211414:0;rm -fr lm-studio nvim youtube-dl zinit
+: 1706211415:0;ls
+: 1706211417:0;cd ..
+: 1706211417:0;l
+: 1706211419:0;la
+: 1706211436:0;fzf
+: 1706211444:0;rm -fr .fzf*
+: 1706211444:0;la
+: 1706211457:0;cd .installbuilder
+: 1706211457:0;ls
+: 1706211459:0;la
+: 1706211493:0;vim .zsh_history
+: 1706211506:0;mv .zsh_history .dotfiles
+: 1706211557:0;la
+: 1706211579:0;cd .dotfiles
+: 1706211581:0;git st
+: 1706211592:0;git add zsh_history
+: 1706211596:0;more zsh_history
+: 1706211603:0;git st
+: 1706211612:0;git commit -am "Add Zsh history"
