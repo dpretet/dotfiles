@@ -8,13 +8,11 @@ set t_Co=256
 set termguicolors
 
 " Gruvbox theme setup
-let g:gruvbox_material_better_performance = 1
 let g:gruvbox_italic=1
-let g:gruvbox_material_foreground = 'mix' " material, mix, original
-" Fix tialic comment background (https://github.com/sainnhe/gruvbox-material/issues/5)
+" Fix italic comment background (https://github.com/sainnhe/gruvbox-material/issues/5)
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
-colorscheme gruvbox-material
+colorscheme gruvbox
 
 " Display max column width recommended
 set colorcolumn=100

@@ -13,7 +13,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Theme
-Plug 'sainnhe/gruvbox-material'
+Plug 'morhetz/gruvbox'
 
 " Languages
 Plug 'dense-analysis/ale'

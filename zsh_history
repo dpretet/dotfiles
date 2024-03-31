@@ -10122,3 +10122,55 @@ make install
 : 1706211596:0;more zsh_history
 : 1706211603:0;git st
 : 1706211612:0;git commit -am "Add Zsh history"
+: 1706211617:0;git ps master
+: 1706211619:0;cd
+: 1706211620:0;la
+: 1706211643:0;ls .npm
+: 1706211654:0;rm -fr .npm
+: 1706211655:0;la
+: 1706211717:0;cd .cache
+: 1706211717:0;l
+: 1706211719:0;cd
+: 1706211719:0;la
+: 1706211726:0;rm -fr .cpan
+: 1706211737:0;ii
+: 1706211738:0;la
+: 1706211766:0;vim .profile
+: 1706211774:0;rm -fr .profile
+: 1706211775:0;la
+: 1706211791:0;more .bashrc
+: 1706211804:0;rm -fr .bashrc
+: 1706211805:0;la
+: 1706211811:0;rm -fr .python_history
+: 1706211811:0;la
+: 1706211852:0;cd .config
+: 1706211852:0;la
+: 1706211867:0;unlink nvim
+: 1706211868:0;la
+: 1706211887:0;rm -fr alacritty kitty
+: 1706211889:0;cd envman
+: 1706211889:0;ls
+: 1706211893:0;more PATH.env
+: 1706211900:0;more load.sh
+: 1706211905:0;cd ..
+: 1706211905:0;ls
+: 1706211911:0;cd ..
+: 1706211911:0;l
+: 1706211912:0;la
+: 1706211933:0;cd .dotfiles
+: 1706211934:0;la
+: 1706211940:0;git st
+: 1706211945:0;git diff
+: 1706211950:0;l
+: 1706211955:0;cd
+: 1706211955:0;l
+: 1706211957:0;la
+: 1706211966:0;vim .viminfo
+: 1706211982:0;la
+: 1706212021:0;rm -fr .gk6xplus .gtk-bookmarks
+: 1706212022:0;ls
+: 1706212305:0;brew install macvim
+: 1706212521:0;touch test.txt
+: 1706212524:0;vim test.txt
+: 1706552502:0;vim .vim/vimrc $HOME/Downloads/vimrc
+: 1706552727:0;exit

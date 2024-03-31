@@ -23,7 +23,7 @@ export PATH=/opt/homebrew/Cellar/python@3.10/3.10.2/libexec/bin:$PATH
 # fi
 
 # ls aliases relying on k plugin
-alias ls="ls -l"
+alias ls="ls -lh"
 alias ll="ls"
 alias l="ls"
 alias la="ls -a"
@@ -57,7 +57,7 @@ export CLICOLOR=1
 export EDITOR=vim
 export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
-# export TERM=xterm-256color
+export TERM=xterm-256color
 export MANPAGER='nvim +Man!'
 
 autoload -Uz compinit && compinit -i
