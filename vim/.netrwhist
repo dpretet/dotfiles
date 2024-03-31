@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
-let g:netrw_dirhist_1='/Users/damien'
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/damien/workspace/hdl/axi-crossbar/rtl'
+let g:netrw_dirhist_3='/Users/damien/workspace/hdl/friscv/test/common'
+let g:netrw_dirhist_2='/Users/damien/workspace/hdl/friscv/test'
+let g:netrw_dirhist_1='/Users/damien/workspace/hdl/friscv'
+let g:netrw_dirhist_0='/Users/damien/workspace/hdl/async_fifo/rtl'
+let g:netrw_dirhist_9='/Users/damien/workspace/hdl/async_fifo'
+let g:netrw_dirhist_8='/Users/damien/workspace/hdl/async_fifo/script'
+let g:netrw_dirhist_7='/Users/damien/.dotfiles/vim/plugin'
+let g:netrw_dirhist_6='/Users/damien/Downloads/vim'
+let g:netrw_dirhist_5='/Users/damien/workspace/hdl/async_fifo/sim'
