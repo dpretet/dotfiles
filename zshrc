@@ -10,17 +10,9 @@ export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
 export PATH=/opt/homebrew/Cellar/python@3.10/3.10.2/libexec/bin:$PATH
 
-
 #-------------------------------------
 # Setup Zsh
 #-------------------------------------
-
-# Misc. aliases
-
-# if type nvim > /dev/null 2>&1; then
-#   alias vim='nvim'
-#   alias vi='nvim'
-# fi
 
 # ls aliases relying on k plugin
 alias ls="ls -lh"
@@ -58,7 +50,6 @@ export EDITOR=vim
 export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
 export TERM=xterm-256color
-export MANPAGER='nvim +Man!'
 
 autoload -Uz compinit && compinit -i
 
@@ -120,7 +111,7 @@ autoload colors; colors
 bindkey -v
 bindkey '^[[Z' reverse-menu-complete
 # Enable history search with ctrl-r
-bindkey '^R' history-incremental-search-backward
+bindkey '^ ' history-incremental-search-backward
 
 # Source quotify
 source "$HOME/.dotfiles/zsh-quotify/quotify.plugin.zsh"

@@ -41,5 +41,5 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-" Use ^t for tag parsing
+" Use ctrl-t for tag parsing
 nmap <C-T> <C-]>
