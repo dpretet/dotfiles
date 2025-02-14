@@ -25,8 +25,10 @@ autocmd BufRead,BufNewFile *.json set filetype=javascript
 autocmd BufRead,BufNewFile *.ld set filetype=ld
 
 " RISCV ASM
-autocmd BufRead,BufNewFile *.S set filetype=riscv
-autocmd BufRead,BufNewFile *.s set filetype=riscv
+autocmd BufRead,BufNewFile *.{S,s} set filetype=riscv
+
+" Cmake
+autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.ctest set filetype=cmake
 
 " Specify Markdown syntax checking for these extensions
 autocmd BufRead,BufNewFile *.mkd, *.md, *.txt set filetype=markdown.pandoc

@@ -30,7 +30,7 @@ alias du="du -hs"
 alias pretty_json="python3 -m json.tool "
 
 # Youtube MP3 Download (brew install youtube-dl
-alias youtubeMp3="youtube-dl -f bestaudio $1 --extract-audio --audio-format mp3"
+alias youtubeMp3="youtube-dl --audio-quality 0 --extract-audio --audio-format mp3"
 
 # Tmux aliases
 alias ta='tmux attach -d -t'

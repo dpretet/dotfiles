@@ -40,14 +40,22 @@ vnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>
 #############################################################
 # ALE
 #############################################################
+
+g:ale_c_parse_makefile = 1
+g:ale_c_parse_compile_commands = 1
+g:ale_linters_explicit = 1
 g:ale_sign_error = '✘'
-g:ale_sign_warning = '✺'
+g:ale_sign_warning = '⚠'
+g:ale_sign_column_always = 1
+g:ale_echo_msg_error_str = 'E'
+g:ale_echo_msg_warning_str = 'W'
+g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 g:ale_linters = {
    'systemverilog': ['verilator', 'iverilog'],
    'S': [''],
    'asm': [''],
-   'c': ['clang'],
+   'c': ['gcc'],
    'c++': ['clang'],
    'python': ['pylint'],
 }
@@ -55,7 +63,26 @@ g:ale_linters = {
 # Specify rustc option for linting (avoid to use nightly build)
 g:ale_verilog_iverilog_options = "-g2012 -I./ -I../ -I./rtl/ -I../rtl -Isrc/ -I../src -DXLEN=32"
 g:ale_verilog_verilator_options = "+1800-2017ext+sv +1800-2005ext+v  -I./ -I../ -I./rtl/ -I../rtl -Isrc/ -I../src -DXLEN=32 -Wno-STMTDLY -Wno-UNUSED -Wno-UNDRIVEN"
-g:ale_c_clangformat_options = "-I /opt/homebrew/Cellar/verilator/5.002/share/verilator/include"
+
+# Compile options
+g:ale_c_cc_options = '-Wall -std=c11 -Wpedantic'
+
+g:ale_c_cc_options = g:ale_c_cc_options .. ' -I./include'
+g:ale_c_cc_options = g:ale_c_cc_options .. ' -I./lib'
+
+# Add include path for system headers
+g:ale_c_cc_options = g:ale_c_cc_options .. ' -I/usr/include'
+g:ale_c_cc_options = g:ale_c_cc_options .. ' -I/usr/local/include'
+g:ale_c_cc_options = g:ale_c_cc_options .. ' -I/Library/Developer/CommandLineTools/SDKs/MacOS.sdk/usr/include'
+g:ale_c_cc_options = g:ale_c_cc_options .. ' -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include'
+g:ale_c_cc_options = g:ale_c_cc_options .. " -I/opt/homebrew/Cellar/verilator/5.002/share/verilator/include"
+
+# Set clang and gcc with the same options
+g:ale_c_clang_options = g:ale_c_cc_options
+
+# Avoid system header analysis
+g:ale_c_clang_options = g:ale_c_clang_options .. ' -Wno-everything -Wno-error'
+g:ale_c_cc_options = g:ale_c_cc_options .. ' -w'
 
 #############################################################
 # Auto-popmenu plugin

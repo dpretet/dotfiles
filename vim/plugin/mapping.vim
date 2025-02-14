@@ -11,9 +11,6 @@ noremap <silent> <C-c> :noh<cr>
 " noremap <Left> <NOP>
 " noremap <Right> <NOP>
 
-" When into a pop menu, enter is equivalent to c-y and avoid to insert new line
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " Disable macros
 map q <Nop>
 
