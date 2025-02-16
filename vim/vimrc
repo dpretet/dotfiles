@@ -58,6 +58,7 @@ source $HOME/.vim/plugin/plugins.vim
 source $HOME/.vim/plugin/functions.vim
 source $HOME/.vim/plugin/mapping.vim
 source $HOME/.vim/plugin/files.vim
+source $HOME/.vim/ftplugin/files.vim
 
 " Auto-reload the settings if changed
 autocmd! bufwritepost vimrc source %
@@ -68,8 +69,3 @@ autocmd! bufwritepost ui.vim source %
 autocmd! bufwritepost functions.vim source %
 autocmd! bufwritepost plugins.vim source %
 autocmd! bufwritepost files.vim source %
-
-autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in runtime! indent/cmake.vim
-autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in setf cmake
-autocmd BufRead,BufNewFile *.ctest,*.ctest.in setf cmake
-
