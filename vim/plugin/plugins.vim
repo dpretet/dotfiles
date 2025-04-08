@@ -9,7 +9,6 @@ g:mapleader = "\<Space>"
 
 # Define Main leader key menu
 g:leaderMenu =  {
-    f: [":CtrlPMixed",                                      "Fuzzy find with CtrlP"],
     l: [":ls",                                              'List opened buffers'],
     d: [":Bclose",                                          'Close buffer (but keeps the panel)'],
     e: [":Lexplore",                                        'Open explorer'],
@@ -22,9 +21,8 @@ g:leaderMenu =  {
     C: [":'<,'>Commenter",                                  'Toggle comment of visual selection'],
     t: [":call FloatTerm()",                                'Open a floating terminal'],
     x: [":%!xxd",                                           'Display a buffer in hexadecimal'],
-    j: [":exe \"vertical resize \" . (winwidth(0) * 2/3)",  'Downsize panel'],
-    k: [":exe \"vertical resize \" . (winwidth(0) * 3/2)",  'Upsize panel'],
-    w: [":VenterToggle",                                    'Center buffer'],
+    Z: [":exe \"vertical resize \" . (winwidth(0) * 2/3)",  'Downsize panel'],
+    z: [":exe \"vertical resize \" . (winwidth(0) * 3/2)",  'Upsize panel'],
 }
 
 nnoremap <silent> <leader> :LeaderMapper "<Space>"<CR>

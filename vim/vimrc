@@ -21,10 +21,6 @@ Plug 'dense-analysis/ale'
 " RISCV assembler syntax
 Plug 'kylelaker/riscv.vim'
 
-" Full path fuzzy file, buffer, mru, tag, ...
-Plug 'ctrlpvim/ctrlp.vim'
-
-" Plug 'lifepillar/vim-mucomplete'
 " Completion popup menu
 Plug 'skywind3000/vim-auto-popmenu'
 
@@ -36,9 +32,6 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 
 " Basic commenter plugin
 Plug 'dpretet/vim-commenter'
-
-" Center file
-Plug 'JMcKiern/vim-venter'
 
 " Verilog toolbox
 Plug 'dpretet/vim-svtb'

@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/damien/workspace/c/hiitr/build/src/cargs'
+let g:netrw_dirhist_0='/Users/damien/workspace/c/hiitr/build/src/logc'
 let g:netrw_dirhist_9='/Users/damien/workspace/c/hiitr/.github/workflows'
 let g:netrw_dirhist_8='/Users/damien/workspace/c/hiitr/.github'
 let g:netrw_dirhist_7='/Users/damien/workspace/c/hiitr/build/src/cargs'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_5='/Users/damien/workspace/c/hiitr/build/src'
 let g:netrw_dirhist_4='/Users/damien/workspace/c/hiitr/build/src/cargs'
 let g:netrw_dirhist_3='/Users/damien/workspace/hdl/axi-crossbar/rtl'
 let g:netrw_dirhist_2='/Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include'
-let g:netrw_dirhist_1='/Users/damien/workspace/hdl/axi-crossbar/test/svut/src'
-let g:netrw_dirhist_0='/Users/damien/workspace/hdl/axi-crossbar/test/svut'
