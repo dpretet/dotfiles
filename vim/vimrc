@@ -36,6 +36,11 @@ Plug 'dpretet/vim-commenter'
 " Verilog toolbox
 Plug 'dpretet/vim-svtb'
 
+" Vim games
+Plug 'vuciv/golf'
+
+Plug 'dpretet/vim9-ChitChat'
+
 
 call plug#end()
 

@@ -2,22 +2,23 @@
     editor = vim
 
 [difftool]
-    prompt = false
+	prompt = false
 
 [diff]
-    tool = vimdiff
+	tool = vimdiff
 
 [difftool "vimdiff"]
     cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
 
 [merge]
-    tool = vimdiff
+	tool = vimdiff
 
 [mergetool]
-    prompt = false
+	prompt = false
 
 [mergetool "vimdiff"]
     cmd = "vim -d \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+	layout = LOCAL,MERGED,REMOTE
 
 [user]
     name = Damien Pretet

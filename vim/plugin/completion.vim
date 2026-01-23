@@ -27,3 +27,22 @@ set path=**;,.,./rtl,./include,../stimuli/include,./sw/include,*,**
 
 " Tag file defaut paths
 set tags=tags,./tags,./../tags,./*/tags
+
+" Path completion once '.' or './' is typed
+function! s:CompletePath() abort
+  " Check if the current character is '.' or './'
+  let l:line = getline('.')
+  let l:col = col('.')
+  let l:char = l:line[l:col - 2]
+
+  if l:char == '.' || l:char == '/'
+    " Trigger path completion
+    call feedkeys("\<C-x>\<C-f>", 'n')
+  endif
+endfunction
+
+augroup PathCompletion
+  autocmd!
+  " Trigger the completion function when typing '.' or './'
+  autocmd TextChangedI * call s:CompletePath()
+augroup END

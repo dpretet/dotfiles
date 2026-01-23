@@ -88,3 +88,5 @@ g:ale_c_cc_options = g:ale_c_cc_options .. ' -w'
 
 # Enable this plugin for certain filetypes
 g:apc_enable_ft = {'text': 1, 'vim': 1, 'markdown': 1, 'verilog': 1, 'c': 1, 'systemverilog': 1}
+# CR confirms but not informs new line
+g:apc_cr_confirm = 1

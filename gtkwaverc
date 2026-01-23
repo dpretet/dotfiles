@@ -5,9 +5,9 @@
 accel "/File/Close" (null)
 accel "/File/Quit" (null)
 
-accel "/Time/Zoom/Zoom In" i
-accel "/Time/Zoom/Zoom Out" o
-accel "/Time/Zoom/Zoom Full" =
+accel "/Time/Zoom/Zoom In" z
+accel "/Time/Zoom/Zoom Out" Z
+accel "/Time/Zoom/Zoom Full" f
 
 # accel "/Edit/Create Group" g
 accel "/Edit/Create Group" G
@@ -58,9 +58,9 @@ color_white fdfdfd
 use_nonprop_fonts 1
 use_big_fonts 1
 use_pango_fonts on
-fontname_signals Fira Code Retina 14
-fontname_waves Fira Code Retina 13
-fontname_logfile Fira Code Retina 14
+fontname_signals Fira Code Retina 16
+fontname_waves Fira Code Retina 16
+fontname_logfile Fira Code Retina 15
 
 # == Some misc fixes ==
 editor "vim %s"
