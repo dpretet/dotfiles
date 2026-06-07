@@ -1,0 +1,10 @@
+theme = "ibm"
+
+[shortcuts]
+zoom_in = ["i"]
+zoom_out = ["o"]
+zoom_to_fit = ["f"]
+divider_add = ["d"]
+group_new = ["g"]
+ui_zoom_in = ["Command+Plus"]
+ui_zoom_out = ["Command+Minus"]

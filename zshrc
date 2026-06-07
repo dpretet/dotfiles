@@ -147,3 +147,8 @@ extract () {
 function pretty_csv {
     column -t -s, "$@" | less -F -S -X -K
 }
+
+. "$HOME/.local/bin/env"
+
+# Mammouth Code
+export PATH="$HOME/.mammouth/bin:$PATH"

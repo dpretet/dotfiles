@@ -11,10 +11,6 @@
 " see ':help cpt'
 set cpt=.,t,k,w,b
 
-" set completeopt+=menuone
-" set completeopt+=noinsert
-" set shortmess+=c
-
 " Don't select the first item.
 set completeopt=menu,menuone,noselect
 

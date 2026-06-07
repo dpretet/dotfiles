@@ -67,3 +67,9 @@ autocmd! bufwritepost ui.vim source %
 autocmd! bufwritepost functions.vim source %
 autocmd! bufwritepost plugins.vim source %
 autocmd! bufwritepost files.vim source %
+
+
+"""""""""""""""""""""""""""""""
+" lseek / fseek issue in macos
+"""""""""""""""""""""""""""""""
+set notagbsearch

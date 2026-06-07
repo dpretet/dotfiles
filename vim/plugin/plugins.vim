@@ -7,8 +7,20 @@ vim9script
 nnoremap <Space> <Nop>
 g:mapleader = "\<Space>"
 
+var ChitChatMenu = {'name':  "ChitChat Menu",
+                    o: [":ChitChatOpen",   "Open Chat Panel"],
+                    c: [":ChitChatClose",  "Close Chat Panel"],
+                    t: [":ChitChatToggle", "Toggle Chat Panel"],
+                    a: [":ChitChatAsk",    "Ask something"],
+                    b: [":ChitChatAddBuffer",    "Add a buffer in context"],
+                    f: [":ChitChatAddFile",    "Add a file in context"],
+                    y: [":ChitChatYank",    "Copy (yank) a line or selection"],
+                    p: [":ChitChatPaste",    "Paste previous copy"],
+                    }
+
 # Define Main leader key menu
 g:leaderMenu =  {
+    a: [ChitChatMenu,                                       "ChitChat Menu"],
     l: [":ls",                                              'List opened buffers'],
     d: [":Bclose",                                          'Close buffer (but keeps the panel)'],
     e: [":Lexplore",                                        'Open explorer'],
@@ -90,3 +102,29 @@ g:ale_c_cc_options = g:ale_c_cc_options .. ' -w'
 g:apc_enable_ft = {'text': 1, 'vim': 1, 'markdown': 1, 'verilog': 1, 'c': 1, 'systemverilog': 1}
 # CR confirms but not informs new line
 g:apc_cr_confirm = 1
+
+#############################################################
+# ChitChat plugin
+#############################################################
+
+# ---------------------------------------------------------------
+# Ollama Setup
+# ---------------------------------------------------------------
+
+g:chit_chat_api_url = 'http://localhost:11434/v1/chat/completions'
+g:chit_chat_model = 'qwen2.5-coder:3b'
+g:chit_chat_model = 'ministral-3:3b'
+g:chit_chat_model = 'granite3.3:2b'
+
+g:chit_chat_temperature = 0.2 # deterministic
+g:chit_chat_temperature = 0.7 # standard / chat
+g:chit_chat_temperature = 1.0 # brainstorming
+
+g:chit_chat_agent = {
+    Isaac: {
+        description: " You are Isaac, a RTL designer",
+        temperature: 0.2,
+        model: 'qwen2.5-coder:3b'
+    }
+}
+# ---------------------------------------------------------------
