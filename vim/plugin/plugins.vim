@@ -26,6 +26,7 @@ g:leaderMenu =  {
     e: [":Lexplore",                                        'Open explorer'],
     E: [":Lexplore %:p:h",                                  "Open explorer current file\'s folder"],
     o: [":normal gF",                                       'Open file under cursor'],
+    r: [":RenderToggle",                                    'Render a log using ANSI color codes'],
     v: [":vsplit",                                          'Split buffer vertically'],
     h: [":split",                                           'Split buffer horizontally'],
     H: [":hide",                                            'Hide panel'],

@@ -5,9 +5,6 @@
 " Strip whitespaces and tabs on buffer write
 autocmd BufWritePre <buffer> :call StripWsTabs()
 
-" Colorize ANSI escape codes by default with AnsiEsc plugin for txt and log extension
-autocmd BufRead,BufNewFile *.{log,txt} AnsiEsc
-
 " Specify JSON syntax checking for Javascript
 autocmd BufRead,BufNewFile *.json set filetype=javascript
 

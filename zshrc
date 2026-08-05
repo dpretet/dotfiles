@@ -152,3 +152,8 @@ function pretty_csv {
 
 # Mammouth Code
 export PATH="$HOME/.mammouth/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/damien/.lmstudio/bin"
+# End of LM Studio CLI section
+

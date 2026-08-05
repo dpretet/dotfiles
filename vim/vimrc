@@ -27,9 +27,6 @@ Plug 'skywind3000/vim-auto-popmenu'
 " To create easily a visual leader-key menu
 Plug 'dpretet/vim-leader-mapper'
 
-" Display colors encoded with ANSI
-Plug 'powerman/vim-plugin-AnsiEsc'
-
 " Basic commenter plugin
 Plug 'dpretet/vim-commenter'
 
@@ -39,7 +36,11 @@ Plug 'dpretet/vim-svtb'
 " Vim games
 Plug 'vuciv/golf'
 
+" An AI plugin to connect to a web service like OpenAI or Mistral
 Plug 'dpretet/vim9-ChitChat'
+
+" A plugin to render a log file using ANSI color escape sequences
+Plug 'dpretet/ansi_render'
 
 
 call plug#end()
