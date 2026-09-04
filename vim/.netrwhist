@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/damien/Workspace/hdl/friscv/test/common'
 let g:netrw_dirhist_1='/Users/damien/.dotfiles/vim/plugged/vim-log-render/autoload'
 let g:netrw_dirhist_0='/Users/damien/Workspace/hdl/friscv/test/riscv-tests/tests/env'
 let g:netrw_dirhist_9='/Users/damien/Workspace/hdl/axi-crossbar/doc'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_6='/Users/damien/Workspace/hdl/axi-crossbar'
 let g:netrw_dirhist_5='/Users/damien/Workspace/hdl/axi-crossbar/rtl'
 let g:netrw_dirhist_4='/Users/damien/Workspace/hdl'
 let g:netrw_dirhist_3='/'
-let g:netrw_dirhist_2='/Users'
