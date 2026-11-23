@@ -22,3 +22,13 @@ autocmd BufRead,BufNewFile *.mkd, *.md, *.txt set filetype=markdown.pandoc
 
 " Insert tabs, not spaces for Makefile
 autocmd FileType make setlocal noexpandtab
+
+packadd matchit
+
+augroup verilog_matchit
+  autocmd!
+  autocmd FileType verilog,systemverilog let b:match_words =
+        \ '\<begin\>:\<end\>,\<case\>:\<endcase\>,\<module\>:\<endmodule\>,'
+        \ . '\<function\>:\<endfunction\>,\<task\>:\<endtask\>,'
+        \ . '\<generate\>:\<endgenerate\>'
+augroup END

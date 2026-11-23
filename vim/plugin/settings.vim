@@ -15,6 +15,8 @@ set ruler
 
 " Enable mouse in all modes
 set mouse=a
+" sgr mode for Tmux to follow the Vim recommendation
+set ttymouse=sgr
 
 " Use spaces instead of tabs
 set expandtab

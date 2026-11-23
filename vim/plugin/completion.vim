@@ -42,3 +42,7 @@ augroup PathCompletion
   " Trigger the completion function when typing '.' or './'
   autocmd TextChangedI * call s:CompletePath()
 augroup END
+
+set wildmenu
+set wildoptions+=fuzzy,pum
+set wildmode=noselect:lastused,full

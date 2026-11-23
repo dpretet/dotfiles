@@ -17,6 +17,8 @@ map q <Nop>
 " Navigate across braces with tab instead of %
 nnoremap <tab> %
 vnoremap <tab> %
+nmap <Tab> <Plug>(MatchitNormalForward)
+xmap <Tab> <Plug>(MatchitVisualForward)
 
 " shift-tab parses ()/[]/{} in insert mode
 inoremap <S-Tab> <esc>%a

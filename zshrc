@@ -8,13 +8,13 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin/:$PATH"
 export PATH="$HOME/.svut/:$PATH"
 export PATH="$HOME/.dotfiles/:$PATH"
-export PATH=/opt/homebrew/Cellar/python@3.10/3.10.2/libexec/bin:$PATH
+# export PATH=/opt/homebrew/Cellar/python@3.10/3.10.2/libexec/bin:$PATH
 
 #-------------------------------------
 # Setup Zsh
 #-------------------------------------
 
-# ls aliases relying on k plugin
+# ls aliases
 alias ls="ls -lh"
 alias ll="ls"
 alias l="ls"
@@ -49,12 +49,14 @@ export CLICOLOR=1
 export EDITOR=vim
 export KEYTIMEOUT=1
 export QUOTING_STYLE=literal
-export TERM=xterm-256color
+# export TERM=xterm-256color
 
 autoload -Uz compinit && compinit -i
 
 # History setup:
 
+setopt EXTENDED_GLOB
+HISTORY_IGNORE='(cd|l|ls|ll|la|ts|tl|pwd|clear|fg|bg|history|exit|logout|j|jobs)(| *)'
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=50000
 SAVEHIST=10000
@@ -110,15 +112,25 @@ autoload colors; colors
 # Vim key binding
 bindkey -v
 bindkey '^[[Z' reverse-menu-complete
-# Enable history search with ctrl-r
-bindkey '^ ' history-incremental-search-backward
+# Enable history search with ctrl-space
+# bindkey '^ ' history-incremental-search-backward
 
 # Source quotify
 source "$HOME/.dotfiles/zsh-quotify/quotify.plugin.zsh"
+source "$HOME/.dotfiles/zsh-fuzzy-history/fuzzy-history.zsh"
 
 # setup the prompt
 PROMPT='%(?.%F{green} √.%F{red} ✢ )%f %B%F{240}%1~%f%b %(1j.%j.) 🌀 '
 
+# Function to draw a full-width horizontal line
+draw_divider() {
+  # Print a line of '─' characters matching the current terminal width ($COLUMNS)
+  print -P "%F{239}${(l:$COLUMNS::─:)}%f"
+}
+
+# Register the function to run before every prompt
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd draw_divider
 #-------------------------------------
 # Generic function to extract archive
 #-------------------------------------
@@ -149,11 +161,3 @@ function pretty_csv {
 }
 
 . "$HOME/.local/bin/env"
-
-# Mammouth Code
-export PATH="$HOME/.mammouth/bin:$PATH"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/damien/.lmstudio/bin"
-# End of LM Studio CLI section
-
